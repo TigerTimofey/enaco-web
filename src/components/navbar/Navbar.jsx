@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { getNavbarMenu, navbarLanguages } from '../utils/languages/navbar-languages.js';
+import { getNavbarMenu, navbarLanguages } from '../translations/navbar-languages.js';
 import { businessName } from '../utils/bussines-data/bussines-data.js';
 import {
   navStyle,

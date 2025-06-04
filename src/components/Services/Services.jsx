@@ -1,5 +1,5 @@
 import React from 'react';
-import { navbarLabels } from '../utils/languages/navbar-languages.js';
+import { navbarLabels } from '../translations/navbar-languages.js';
 
 function Services({ lang }) {
   return (
