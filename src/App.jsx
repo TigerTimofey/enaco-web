@@ -11,7 +11,6 @@ import Footer from './components/Footer/Footer.jsx'
 
 function App() {
   const [lang, setLang] = useState(() => {
-    // Try to get language from localStorage, fallback to 'ee'
     return localStorage.getItem('enaco_lang') || 'ee';
   });
 

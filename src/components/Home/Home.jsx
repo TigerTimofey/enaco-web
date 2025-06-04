@@ -1,6 +1,37 @@
 import React from 'react';
 import { homeLabels, section3Labels } from '../translations/navbar-languages.js';
 import { useNavigate } from 'react-router-dom';
+import {
+  heroSectionStyle,
+  heroContainerStyle,
+  heroTitleStyle,
+  heroSubtitleStyle,
+  heroBtnGroupStyle,
+  heroBtnStyle,
+  productSectionStyle,
+  productSectionInnerStyle,
+  productCardsContainerStyle,
+  productCardStyle,
+  productImgStyle,
+  productTitleStyle,
+  productDescStyle,
+  productBtnGroupStyle,
+  productBtnStyle,
+  stepsSectionStyle,
+  stepsContainerStyle,
+  stepsHeaderOuterStyle,
+  stepsHeaderInnerStyle,
+  stepsHeaderTextContainerStyle,
+  stepsTitleStyle,
+  stepsSpacerStyle,
+  stepsItemsOuterStyle,
+  stepsItemsContainerStyle,
+  stepItemStyle,
+  stepIconStyle,
+  stepTitleStyle,
+  stepTextGroupStyle,
+  stepTextStyle
+} from './Home-styles';
 
 function Home({ lang }) {
   const labels = homeLabels[lang] || {};
@@ -31,59 +62,31 @@ function Home({ lang }) {
       desc: labels.productCardDesc3,
       btn: labels.productCardBtn3,
     },
-    // {
-    //   img: './4.png',
-    //   name: labels.PROD_FOUR_BTN || labels.PROD_FOUR || '',
-    //   id: labels.PROD_FOUR_ID || '104',
-    //   title: labels.productCardTitle4,
-    //   desc: labels.productCardDesc4,
-    //   btn: labels.productCardBtn4,
-    // },
+    {
+      img: './4.png',
+      name: labels.PROD_FOUR_BTN || labels.PROD_FOUR || '',
+      id: labels.PROD_FOUR_ID || '104',
+      title: labels.productCardTitle4,
+      desc: labels.productCardDesc4,
+      btn: labels.productCardBtn4,
+    },
   ];
 
   const s3 = section3Labels[lang] || section3Labels.en;
 
   return (
     <div>
-      <section
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: 360,
-          background: '#f8f6f1',
-          padding: '3rem 0 2rem 0',
-          marginTop: 80
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 700,
-            margin: '0 auto',
-            textAlign: 'center',
-            padding: '2.2rem',
-            borderRadius: 18,
-          }}
-        >
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: 16, color: '#555' }}>
+      <section style={heroSectionStyle}>
+        <div style={heroContainerStyle}>
+          <h1 style={heroTitleStyle}>
             {labels.heroTitle}
           </h1>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 500, color: '#555', marginBottom: 32 }}>
+          <h2 style={heroSubtitleStyle}>
             {labels.heroSubtitle}
           </h2>
-          <div style={{ display: 'flex', gap: 16, justifyContent: 'center' }}>
+          <div style={heroBtnGroupStyle}>
             <button
-              style={{
-                padding: '0.7em 2em',
-                borderRadius: 8,
-                background: '#e11d48',
-                color: '#fff',
-                fontWeight: 600,
-                fontSize: '1.1em',
-                border: 'none',
-                cursor: 'pointer',
-                boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
-              }}
+              style={heroBtnStyle}
               onClick={() => navigate('/kontakt')}
             >
               {labels.contactBtn}
@@ -92,187 +95,57 @@ function Home({ lang }) {
         </div>
       </section>
       {/* Product Info Section */}
-      <section
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          marginBottom: 64,
-
-        }}
-      >
-        <div style={{ maxWidth: 1200, width: '100%', textAlign: 'center' }}>
-          <div style={{
-            display: 'flex',
-            gap: 32,
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            width: '100%',
-            maxWidth: 1200,
-          }}>
+      <section style={productSectionStyle}>
+        <div style={productSectionInnerStyle}>
+          <div style={productCardsContainerStyle}>
             {products.map((prod) => (
-         <div key={prod.id} style={{
-  background: '#fff',
-  borderRadius: 16,
-  boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
-  padding: '2rem 1.5rem',
-  minWidth: 260,
-  maxWidth: 340,
-  flex: '1 1 260px',
-  textAlign: 'center',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  height: 'auto', 
-  position: 'relative', 
-}}>
-  <img
-    src={prod.img}
-    alt={prod.name}
-    style={{
-      maxWidth: '100%',
-      margin: '0 auto 18px auto',
-      display: 'block'
-    }}
-  />
-  <p style={{ fontWeight: 700, fontSize: '1.15em', marginBottom: 6, color: 'black' }}>
-    {prod.title}
-  </p>
-  <p style={{ color: '#555', fontSize: '1em', marginBottom: 18 }}>
-    {prod.desc}
-  </p>
-
-  <div style={{ marginTop: 'auto', display: 'flex', gap: 16, justifyContent: 'center' }}>
-    <button
-      style={{
-        padding: '0.4em 1.2em',
-        borderRadius: 8,
-        color: '#fff',
-        fontWeight: 600,
-        fontSize: '1.1em',
-        border: 'none',
-        cursor: 'pointer',
-        boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
-        // background: '#e11d48',  
-      }}
-      onClick={() => {
-        console.log('Product name:', prod.name, 'Product id:', prod.id);
-        navigate('/teenused');
-      }}
-    >
-      {(prod.btn || '').replace('{PRODUCT_NAME}', prod.name)}
-    </button>
-  </div>
-</div>
-
+              <div key={prod.id} style={productCardStyle}>
+                <img
+                  src={prod.img}
+                  alt={prod.name}
+                  style={productImgStyle}
+                />
+                <p style={productTitleStyle}>
+                  {prod.title}
+                </p>
+                <p style={productDescStyle}>
+                  {prod.desc}
+                </p>
+                <div style={productBtnGroupStyle}>
+                  <button
+                    style={productBtnStyle}
+                    onClick={() => {
+                      console.log('Product name:', prod.name, 'Product id:', prod.id);
+                      navigate('/teenused');
+                    }}
+                  >
+                    {(prod.btn || '').replace('{PRODUCT_NAME}', prod.name)}
+                  </button>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Steps Section */}
-      <section
-        style={{
-          width: '100vw',
-          position: 'relative',
-          left: '50%',
-          right: '50%',
-          marginLeft: '-50vw',
-          marginRight: '-50vw',
-          maxWidth: '100vw',
-          paddingLeft: 0,
-          paddingRight: 0,
-          marginBottom: 64,
-          background: '#fff',
-          boxSizing: 'border-box',
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1200,
-            margin: '0 auto',
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 0,
-            padding: '2rem 0.5rem',
-            boxSizing: 'border-box',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              maxWidth: 852,
-              margin: '0 auto',
-              alignItems: 'center',
-              textAlign: 'center',
-              flexWrap: 'wrap',
-              wordBreak: 'break-word',
-              overflowWrap: 'break-word'
-            }}
-          >
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: '100%',
-              flexWrap: 'wrap',
-              wordBreak: 'break-word',
-              overflowWrap: 'break-word'
-            }}>
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                width: '100%',
-                gap: 24,
-                flexWrap: 'wrap',
-                wordBreak: 'break-word',
-                overflowWrap: 'break-word'
-              }} id="lead-item-container-text">
-                <h3 style={{
-                  fontWeight: 600,
-                  fontSize: '2rem',
-                  marginBottom: 0,
-                  lineHeight: 1.1,
-                  letterSpacing: 0,
-                  marginBlockEnd: 8,
-                  color: '#111827',
-                  textAlign: 'center',
-                  wordBreak: 'break-word',
-                  overflowWrap: 'break-word'
-                }}>
+      <section style={stepsSectionStyle}>
+        <div style={stepsContainerStyle}>
+          <div style={stepsHeaderOuterStyle}>
+            <div style={stepsHeaderInnerStyle}>
+              <div style={stepsHeaderTextContainerStyle} id="lead-item-container-text">
+                <h3 style={stepsTitleStyle}>
                   {s3.title}
                 </h3>
               </div>
             </div>
           </div>
-          <div style={{ marginBottom: 64 }}></div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: 48,
-                width: '100%',
-                justifyContent: 'center'
-              }}
-            >
+          <div style={stepsSpacerStyle}></div>
+          <div style={stepsItemsOuterStyle}>
+            <div style={stepsItemsContainerStyle}>
               {s3.items.map((item, idx) => (
-                <div key={idx} style={{
-                  width: '100%',
-                  maxWidth: 340,
-                  minWidth: 260,
-                  flex: '1 1 260px',
-                  marginBottom: 32,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  wordBreak: 'break-word',
-                  overflowWrap: 'break-word'
-                }}>
-                  <div style={{ color: '#6b7280' }}>
-                    {/* SVGs as before */}
+                <div key={idx} style={stepItemStyle}>
+                  <div style={stepIconStyle}>
                     {item.icon === 1 && (
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style={{ color: '#e11d48' }} xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd" clipRule="evenodd" d="M2 4C2 2.89543 2.89543 2 4 2H20C21.1046 2 22 2.89543 22 4V20C22 21.1046 21.1046 22 20 22H4C2.89543 22 2 21.1046 2 20V4ZM11.9949 6C11.4841 6 11.0699 6.41414 11.0699 6.925V17.075C11.0699 17.5859 11.4841 18 11.9949 18C12.5058 18 12.9199 17.5859 12.9199 17.075V6.925C12.9199 6.41414 12.5058 6 11.9949 6ZM7.99495 13C7.48408 13 7.06995 13.4141 7.06995 13.925V17.075C7.06995 17.5859 7.48408 18 7.99495 18C8.50581 18 8.91995 17.5859 8.91995 17.075V13.925C8.91995 13.4141 8.50581 13 7.99495 13ZM15.0699 10.925C15.0699 10.4141 15.4841 10 15.9949 10C16.5058 10 16.9199 10.4141 16.9199 10.925V17.075C16.9199 17.5859 16.5058 18 15.9949 18C15.4841 18 15.0699 17.5859 15.0699 17.075V10.925Z" fill="currentColor"></path>
@@ -289,35 +162,17 @@ function Home({ lang }) {
                       </svg>
                     )}
                     {item.icon === 4 && (
-                      // Heart icon for "We care about our customers"
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style={{ color: '#e11d48' }} xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 21s-6.5-4.35-9-7.5C-1.5 8.5 3.5 3 8 7c2-2 6-2 8 0 4.5-4 9.5 1.5 5 6.5-2.5 3.15-9 7.5-9 7.5z" fill="currentColor"/>
                       </svg>
                     )}
                   </div>
                   <div>
-                    <h6 style={{
-                      fontWeight: 600,
-                      marginTop: 0,
-                      fontSize: 18,
-                      marginBottom: 8,
-                      color: '#111827',
-                      wordBreak: 'break-word',
-                      overflowWrap: 'break-word'
-                    }}>
+                    <h6 style={stepTitleStyle}>
                       {item.title}
                     </h6>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                      <p style={{
-                        marginTop: 0,
-                        fontSize: 16,
-                        lineHeight: '1.5rem',
-                        fontWeight: 400,
-                        marginBottom: 0,
-                        color: '#6b7280',
-                        wordBreak: 'break-word',
-                        overflowWrap: 'break-word'
-                      }}>
+                    <div style={stepTextGroupStyle}>
+                      <p style={stepTextStyle}>
                         {item.icon === 3
                           ? item.text.split(/(garantii|guarantee|гарантии|warranty)/i).map((part, i) =>
                               /garantii|guarantee|гарантии|warranty/i.test(part) ? (
@@ -339,7 +194,6 @@ function Home({ lang }) {
                                   }}
                                   onClick={e => {
                                     e.preventDefault();
-                                    // Use localStorage to persist language
                                     localStorage.setItem('enaco_lang', lang);
                                     window.location.href = `/garantiid?lang=${lang}`;
                                   }}
