@@ -35,7 +35,6 @@ function Navbar({ lang, setLang }) {
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
 
-  // Set activeIdx based on current path
   useEffect(() => {
     const idx = menu.findIndex(item => item.href === location.pathname);
     setActiveIdx(idx === -1 ? 0 : idx);
@@ -44,8 +43,8 @@ function Navbar({ lang, setLang }) {
   useEffect(() => {
     const check = () => {
       setIsMobile(window.innerWidth <= 780);
-      setShowFlagOnly(window.innerWidth <= 1010);
-      setSmallMenuLabel(window.innerWidth <= 1010);
+      setShowFlagOnly(window.innerWidth <= 1040);
+      setSmallMenuLabel(window.innerWidth <= 1040);
     };
     check();
     window.addEventListener('resize', check);

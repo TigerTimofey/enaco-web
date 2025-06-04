@@ -25,32 +25,19 @@ function Footer() {
         gap: 24,
         position: 'relative'
       }}>
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 24,
-          flex: 1,
-          minWidth: 0
-        }}>
-          <span style={{ fontWeight: 600 }}>{businessData.contactCompany}</span>
-          <span>
-            <a href={`tel:${businessData.phone}`} style={{ color: '#e11d48', textDecoration: 'none' }}>
-              {businessData.phone}
-            </a>
-          </span>
-          <span>{businessData.address}</span>
-        </div>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 16,
-          position: 'absolute',
-          right: 0,
-          top: '50%',
-          transform: 'translateY(-50%)',
-        }}>
+        {/* Social icons: move to top on mobile */}
+        <div
+          className="footer-social-icons"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 16,
+            position: 'absolute',
+            right: 0,
+            top: '50%',
+            // transform: 'translateY(-50%)',
+          }}
+        >
           <a
             href="https://www.instagram.com/enaco_group/"
             target="_blank"
@@ -77,6 +64,36 @@ function Footer() {
             </svg>
           </a>
         </div>
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 14,
+          flex: 1,
+          minWidth: 0
+        }}>
+          <span style={{ fontWeight: 600 }}>{businessData.contactCompany}</span>
+          <span>
+            <a href={`tel:${businessData.phone}`} style={{ color: '#e11d48', textDecoration: 'none' }}>
+              {businessData.phone}
+            </a>
+          </span>
+          <span>{businessData.address}</span>
+        </div>
+        <style>
+          {`
+            @media (max-width: 700px) {
+              .footer-social-icons {
+                position: static !important;
+                width: 100%;
+                justify-content: center !important;
+                margin-top: -10px;
+                order: -1;
+              }
+            }
+          `}
+        </style>
       </div>
       <div style={{ marginTop: 12, color: '#888', fontSize: 14 }}>
         {businessData.contactRegCode} &nbsp;|&nbsp; {businessData.contactVat} &nbsp;|&nbsp;

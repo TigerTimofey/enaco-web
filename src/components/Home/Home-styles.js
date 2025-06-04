@@ -255,4 +255,105 @@ export const stepTextStyle = {
   overflowWrap: 'break-word'
 };
 
+// Add class names for buttons
+export const contactBtnClass = "contact-btn";
+export const animatedBtnClass = "animated-btn";
+export const productBtnAnimatedClass = "product-btn-animated";
+
+// Add hover styles as string for <style> tag in Home.jsx
+export const contactBtnHoverStyle = `
+.contact-btn:hover {
+  background: #f25577 !important;
+  box-shadow: 0 1px 4px 0 rgba(60,60,60,0.09);
+  transform: none;
+  transition: background 0.18s;
+}
+.contact-btn:active {
+  background: #e11d48 !important;
+  transform: none;
+}
+`;
+
+export const animatedBtnHoverStyle = `
+.animated-btn:hover {
+  background: #a1a1a1 !important;
+  box-shadow: 0 1px 4px 0 rgba(60,60,60,0.09);
+  transform: none;
+  transition: background 0.18s;
+}
+.animated-btn:active {
+  background: #666 !important;
+  transform: none;
+}
+`;
+
+export const productBtnAnimatedHoverStyle = `
+.product-btn-animated:hover {
+  background: #a1a1a1 !important;
+  box-shadow: 0 1px 4px 0 rgba(60,60,60,0.09);
+  transform: none;
+  transition: background 0.18s;
+}
+.product-btn-animated:active {
+  background: #666 !important;
+  transform: none;
+}
+`;
+
+// Carousel section styles
+export const carouselSectionStyle = {
+  padding: '5rem 0',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  minHeight: 180,
+  marginBottom: 90,
+};
+
+export const carouselWordsContainerStyle = {
+  width: '100%',
+  maxWidth: 1200,
+  margin: '0 auto',
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  gap: '2.5rem'
+};
+
+export const carouselButtonStyle = (showWords, visibleCount, wordsLength) => ({
+  marginTop: 80,
+  padding: '0.8em 2.2em',
+  borderRadius: 8,
+  background: '#888',
+  color: '#fff',
+  fontWeight: 600,
+  fontSize: '1.15em',
+  border: 'none',
+  cursor: 'pointer',
+  boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
+  opacity: showWords && visibleCount === wordsLength ? 1 : 0,
+  transform: showWords && visibleCount === wordsLength
+    ? 'translateY(0)'
+    : 'translateY(60px)',
+  transition: showWords && visibleCount === wordsLength
+    ? 'opacity 0.5s 0.6s, transform 0.5s 0.6s, background 0.18s'
+    : 'opacity 0.4s, transform 0.4s, background 0.18s',
+  pointerEvents: showWords && visibleCount === wordsLength ? 'auto' : 'none',
+});
+
+// Responsive styles for carousel section
+export const carouselSectionResponsiveStyle = `
+@media (max-width: 600px) {
+  .carousel-static-section {
+    flex-direction: column !important;
+    gap: 0.7rem !important;
+    align-items: center !important;
+  }
+  .carousel-static-section span {
+    font-size: 1.1rem !important;
+  }
+}
+`;
+
 

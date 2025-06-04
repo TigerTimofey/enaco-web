@@ -61,30 +61,29 @@ export const homeLabels = {
     productCardBtn: "Get price for {PRODUCT_NAME}",
 
     PROD_TWO: "Steering rack",
-    PROD_TWO_BTN: "Steering rack",
+    PROD_TWO_BTN: "Steering racks",
     PROD_TWO_ID: "102",
     productCardTitle2: "Sale of renovated, i.e. factory-reconditioned steering racks",
     productCardDesc2: "Sale of factory-reconditioned steering racks and sale of renovated steering racks. 1-year warranty to steering racks (without mileage limit). We repair and recondition steering transmissions of passenger cars and vans. Feel free to ask for an offer!",
     productCardBtn2: "Get price for {PRODUCT_NAME}",
 
-    PROD_THREE: "Manual gearbox",
-    PROD_THREE_BTN: "Manual gearbox",
+    PROD_THREE: "Gearbox",
+    PROD_THREE_BTN: "Gearboxes",
     PROD_THREE_ID: "103",
     productCardTitle3: "Sale and repair of manual gearboxes",
     productCardDesc3: "Sale of factory-reconditioned manual gearboxes for Renault, Citroën, Opel, Mercedes-Benz, Nissan, Peugeot, Ford, Fiat and Volkswagen vans. 1-year warranty to manual gearboxes (without mileage limit).",
     productCardBtn3: "Get price for {PRODUCT_NAME}",
 
     PROD_FOUR: "Engine",
-    PROD_FOUR_BTN: "Engine",
+    PROD_FOUR_BTN: "Engines",
     PROD_FOUR_ID: "104",
     productCardTitle4: "Sale of car engines",
     productCardDesc4: "Engines – used engines with checked history from Europe. Warranty to all products guaranteed!",
     productCardBtn4: "Get price for {PRODUCT_NAME}",
 
-    // Add carousel words and button
     carouselWords: [
       "ENGINES",
-      "GEARBOXES",
+      "manual gearboxes",
       "TURBOS",
       "DIFFERENTIALS",
       "REDUCTORS",

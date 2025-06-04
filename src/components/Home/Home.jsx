@@ -30,7 +30,17 @@ import {
   stepIconStyle,
   stepTitleStyle,
   stepTextGroupStyle,
-  stepTextStyle
+  stepTextStyle,
+  contactBtnClass,         // <-- add this
+  animatedBtnClass,        // <-- add this
+  productBtnAnimatedClass, // <-- add this
+  contactBtnHoverStyle,    // <-- add this
+  animatedBtnHoverStyle,   // <-- add this
+  productBtnAnimatedHoverStyle, // <-- add this
+  carouselSectionStyle,
+  carouselWordsContainerStyle,
+  carouselButtonStyle,
+  carouselSectionResponsiveStyle,
 } from './Home-styles';
 
 function Home({ lang }) {
@@ -129,7 +139,7 @@ function Home({ lang }) {
           <div style={heroBtnGroupStyle}>
             <button
               style={heroBtnStyle}
-              className="contact-btn"
+              className={contactBtnClass}
               onClick={() => navigate('/kontakt')}
             >
               {labels.contactBtn}
@@ -156,7 +166,7 @@ function Home({ lang }) {
                 </p>
                 <div style={productBtnGroupStyle}>
                   <button
-                    className="product-btn-animated"
+                    className={productBtnAnimatedClass}
                     style={productBtnStyle}
                     onClick={() => {
                       console.log('Product name:', prod.name, 'Product id:', prod.id);
@@ -174,26 +184,10 @@ function Home({ lang }) {
 
      
       {/* Carousel Section: Static words, different font sizes, animated on scroll */}
-      <section style={{
-        padding: '5rem 0',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: 180,
-        marginBottom: 90,
-      }}>
+      <section style={carouselSectionStyle} className="carousel-static-section">
         <div
           ref={wordsRef}
-          style={{
-            width: '100%',
-            maxWidth: 1200,
-            margin: '0 auto',
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '2.5rem'
-          }}
+          style={carouselWordsContainerStyle}
         >
           {(labels.carouselWords || []).map((word, idx) => (
             <span
@@ -219,27 +213,12 @@ function Home({ lang }) {
           ))}
         </div>
         <button
-          style={{
-            marginTop: 80,
-            padding: '0.8em 2.2em',
-            borderRadius: 8,
-            background: '#888',
-            color: '#fff',
-            fontWeight: 600,
-            fontSize: '1.15em',
-            border: 'none',
-            cursor: 'pointer',
-            boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
-            opacity: showWords && visibleCount === (labels.carouselWords?.length || 0) ? 1 : 0,
-            transform: showWords && visibleCount === (labels.carouselWords?.length || 0)
-              ? 'translateY(0)'
-              : 'translateY(60px)',
-            transition: (showWords && visibleCount === (labels.carouselWords?.length || 0))
-              ? 'opacity 0.5s 0.6s, transform 0.5s 0.6s, background 0.18s'
-              : 'opacity 0.4s, transform 0.4s, background 0.18s',
-            pointerEvents: showWords && visibleCount === (labels.carouselWords?.length || 0) ? 'auto' : 'none',
-          }}
-          className="carousel-contact-btn animated-btn"
+          style={carouselButtonStyle(
+            showWords,
+            visibleCount,
+            labels.carouselWords?.length || 0
+          )}
+          className={animatedBtnClass + " carousel-contact-btn"}
           onClick={() => navigate('/kontakt')}
         >
           {labels.carouselButton}
@@ -334,32 +313,10 @@ function Home({ lang }) {
       {/* Product Info Section button animation */}
       <style>
         {`
-        .contact-btn:hover {
-            background: #f25577 !important;
-            box-shadow: 0 1px 4px 0 rgba(60,60,60,0.09);
-            transform: none;
-            transition: background 0.18s;
-          }
-          .animated-btn:hover {
-            background: #a1a1a1 !important;
-            box-shadow: 0 1px 4px 0 rgba(60,60,60,0.09);
-            transform: none;
-            transition: background 0.18s;
-          }
-          .animated-btn:active {
-            background: #666 !important;
-            transform: none;
-          }
-          .product-btn-animated:hover {
-            background: #a1a1a1 !important;
-            box-shadow: 0 1px 4px 0 rgba(60,60,60,0.09);
-            transform: none;
-            transition: background 0.18s;
-          }
-          .product-btn-animated:active {
-            background: #666 !important;
-            transform: none;
-          }
+          ${contactBtnHoverStyle}
+          ${animatedBtnHoverStyle}
+          ${productBtnAnimatedHoverStyle}
+          ${carouselSectionResponsiveStyle}
           @media (max-width: 600px) {
             .carousel-static-section {
               flex-direction: column !important;
