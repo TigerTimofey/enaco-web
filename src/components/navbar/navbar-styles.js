@@ -7,12 +7,11 @@ export const navStyle = {
   background: 'rgba(255,255,255,0.92)',
   borderBottom: '1px solid #e5e7eb',
   position: 'fixed',
-  top: 0,
+  top: -30,
   zIndex: 100,
   boxShadow: '0 2px 8px 0 rgba(60,60,60,0.07)',
   backdropFilter: 'blur(8px)',
   borderRadius: '18px',
-  maxWidth: '1200px',
 };
 
 export const navInnerStyle = {

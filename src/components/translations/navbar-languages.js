@@ -160,3 +160,81 @@ export const navbarLanguages = [
 export function getNavbarMenu(lang = 'ee') {
   return navbarMenus[lang] || navbarMenus['ee'];
 }
+
+export const section3Labels = {
+  en: {
+    title: "We make it easy to buy spare parts",
+    items: [
+      {
+        icon: 1,
+        title: "10-year experience",
+        text: "Over 10 years of experience and professional pre-purchase consultation."
+      },
+      {
+        icon: 2,
+        title: "Door-to-door delivery in one day",
+        text: "With the help of our good and long-term partners Cargo and DPD, you may order the spare part to your home, office or workshop in one day."
+      },
+      {
+        icon: 3,
+        title: "12-month warranty",
+        text: "12-month warranty to all reconditioned equipment sold by Enaco Group OÜ (without mileage limit)."
+      },
+      {
+        icon: 4,
+        title: "We care about our customers",
+        text: "We always strive to provide the best service and support for our customers, ensuring satisfaction and long-term cooperation."
+      }
+    ]
+  },
+  ee: {
+    title: "Varuosade ostmine on lihtne",
+    items: [
+      {
+        icon: 1,
+        title: "10-aastane kogemus",
+        text: "Üle 10 aasta kogemust ja professionaalne ostueelne nõustamine."
+      },
+      {
+        icon: 2,
+        title: "Kohaletoimetamine ühe päevaga",
+        text: "Meie head ja pikaajalised partnerid Cargo ja DPD toimetavad varuosa koju, kontorisse või töökotta ühe päevaga."
+      },
+      {
+        icon: 3,
+        title: "12-kuuline garantii",
+        text: "Kõigile Enaco Group OÜ poolt müüdud taastatud seadmetele kehtib 12-kuuline garantii (ilma läbisõidupiiranguta)."
+      },
+      {
+        icon: 4,
+        title: "Hoolime alati oma klientidest",
+        text: "Püüame alati pakkuda parimat teenindust ja tuge, et tagada klientide rahulolu ja pikaajaline koostöö."
+      }
+    ]
+  },
+  ru: {
+    title: "Покупать запчасти легко",
+    items: [
+      {
+        icon: 1,
+        title: "10 лет опыта",
+        text: "Более 10 лет опыта и профессиональная консультация перед покупкой."
+      },
+      {
+        icon: 2,
+        title: "Доставка за 1 день",
+        text: "С помощью наших давних партнеров Cargo и DPD вы можете получить запчасть домой, в офис или мастерскую за один день."
+      },
+      {
+        icon: 3,
+        title: "12 месяцев гарантии",
+        text: "12 месяцев гарантии на все восстановленное оборудование, продаваемое Enaco Group OÜ (без ограничения пробега)."
+      },
+      {
+        icon: 4,
+        title: "Мы всегда заботимся о клиентах",
+        text: "Мы всегда стремимся обеспечить лучший сервис и поддержку для наших клиентов, гарантируя удовлетворенность и долгосрочное сотрудничество."
+      }
+    ]
+  }
+};
