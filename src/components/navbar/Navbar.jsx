@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { getNavbarMenu, navbarLanguages } from '../../languages/navbar-languages.js';
-import { businessName } from '../bussines-data/bussines-data.js';
+import { getNavbarMenu, navbarLanguages } from '../utils/languages/navbar-languages.js';
+import { businessName } from '../utils/bussines-data/bussines-data.js';
 import {
   navStyle,
   navInnerStyle,
@@ -9,7 +9,6 @@ import {
   ulStyle,
   liStyle,
   linkStyle,
-  linkHoverStyle,
   activeLinkStyle,
   selectStyle,
   separatorStyle,
@@ -36,7 +35,7 @@ function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
   React.useEffect(() => {
     const check = () => {
-      setIsMobile(window.innerWidth <= 769);
+      setIsMobile(window.innerWidth <= 780);
       setShowFlagOnly(window.innerWidth <= 1010);
       setSmallMenuLabel(window.innerWidth <= 1010);
     };
@@ -57,7 +56,7 @@ function Navbar() {
           className={`navbar-desktop${isMobile ? ' hide' : ''}`}
           style={ulStyle}
         >
-          {!isMobile && menu.map((item, idx) => (
+          {menu.map((item, idx) => (
             <React.Fragment key={idx}>
               <li style={liStyle}>
                 <a
@@ -71,22 +70,8 @@ function Navbar() {
                     e.preventDefault();
                     setActiveIdx(idx);
                   }}
-                  onMouseOver={e => {
-                    if (activeIdx !== idx) {
-                      Object.assign(e.target.style, linkHoverStyle);
-                    }
-                  }}
-                  onMouseOut={e => {
-                    if (activeIdx !== idx) {
-                      Object.assign(e.target.style, linkStyle);
-                      if (smallMenuLabel) Object.assign(e.target.style, linkStyleSmall);
-                      else Object.assign(e.target.style, linkStyleNormalTransition);
-                    }
-                  }}
                 >
-                  <span
-                    style={smallMenuLabel ? menuLabelSpanSmall : menuLabelSpanNormal}
-                  >
+                  <span style={smallMenuLabel ? menuLabelSpanSmall : menuLabelSpanNormal}>
                     {item.label}
                   </span>
                 </a>
@@ -123,7 +108,7 @@ function Navbar() {
           <span style={burgerBarStyle}></span>
           <span style={burgerBarStyle}></span>
         </button>
-        {/* Mobile menu */}
+
         {menuOpen && isMobile && (
           <ul className="navbar-mobile" style={mobileMenuStyle}>
             {menu.map((item, idx) => (

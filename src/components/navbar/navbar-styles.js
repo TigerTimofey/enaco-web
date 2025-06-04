@@ -13,7 +13,6 @@ export const navStyle = {
   backdropFilter: 'blur(8px)',
   borderRadius: '18px',
   maxWidth: '1200px',
-  overflow: 'hidden', 
 };
 
 export const navInnerStyle = {
@@ -31,6 +30,7 @@ export const logoLinkStyle = {
   alignItems: 'center',
   gap: '0.5rem',
   textDecoration: 'none',
+  height: '100%',
 };
 
 export const logoImgStyle = {
@@ -41,7 +41,7 @@ export const logoImgStyle = {
 };
 
 export const logoTextStyle = {
-  fontWeight: 700,
+  fontWeight: 600,
   fontSize: '1rem',
   marginLeft: 8,
   marginRight: 18,
@@ -50,13 +50,14 @@ export const logoTextStyle = {
 export const ulStyle = {
   display: 'flex',
   justifyContent: 'center',
-  gap: '1.1rem',
+  gap: '0.9rem',
   listStyle: 'none',
   margin: 0,
   padding: 0,
-  fontSize: '1.01rem',
-  fontWeight: 500,
-  fontFamily: 'Inter, system-ui, sans-serif',
+  fontSize: '1rem',
+  fontWeight: 600,
+  fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif", 
+  letterSpacing: '0.01em',
 };
 
 export const liStyle = {
@@ -64,18 +65,20 @@ export const liStyle = {
 };
 
 export const linkStyle = {
-  color: '#23272f',
+  color: '#30353d',
   textDecoration: 'none',
   padding: '0.36em 0.9em',
   borderRadius: 7,
   transition: 'background 0.16s, color 0.16s, padding 0.18s cubic-bezier(.4,0,.2,1)',
   display: 'inline-block',
-  fontWeight: 500,
+  fontWeight: 600,
   letterSpacing: '0.01em',
+  fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif", 
+  fontSize: '1.08em',
 };
 
 export const linkStyleSmall = {
-  padding: '0px',
+  padding: '0 0 5px',
   transition: 'padding 0.18s cubic-bezier(.4,0,.2,1)',
 };
 
@@ -90,15 +93,17 @@ export const menuLabelSpanStyle = {
 export const menuLabelSpanSmall = {
   fontSize: '0.93em',
   transition: 'font-size 0.18s cubic-bezier(.4,0,.2,1)',
+  fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif",
+  fontWeight: 600,
 };
 
 export const menuLabelSpanNormal = {
   transition: 'font-size 0.18s cubic-bezier(.4,0,.2,1)',
+  fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif",
+  fontWeight: 600,
 };
 
-export const linkHoverStyle = {
-  color: '#2563eb',
-};
+
 
 export const selectStyle = {
   marginLeft: '1rem',
@@ -113,7 +118,7 @@ export const selectStyle = {
   outline: 'none',
   transition: 'border-color 0.16s',
   color: '#23272f',
-
+  fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif",
 };
 
 export const activeLinkStyle = {
@@ -206,19 +211,20 @@ export const dropdownItemStyle = {
   padding: '0.5em 1.2em',
   color: '#23272f',
   textDecoration: 'none',
-  fontWeight: 500,
+  fontWeight: 600,
   fontSize: '1em',
   border: 'none',
   background: 'none',
   cursor: 'pointer',
   borderRadius: 6,
   transition: 'background 0.16s, color 0.16s',
+  fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif", 
 };
 
 export const navbarSelectMobileStyle = {
   ...selectStyle,
   marginLeft: 0,
-  width: '80%',
+
 };
 
 if (typeof window !== 'undefined' && typeof document !== 'undefined' && !window.__navbar_styles_injected) {
@@ -248,13 +254,13 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined' && !window.
       visibility: visible !important;
       pointer-events: auto !important;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 780px) {
       .navbar-burger { display: flex !important; }
       .navbar-desktop { display: none !important; }
       .navbar-mobile { display: flex !important; }
       .navbar-select { margin-left: 0.5rem !important; }
     }
-    @media (min-width: 769px) {
+    @media (min-width: 781px) {
       .navbar-burger { display: none !important; }
       .navbar-desktop { display: flex !important; }
       .navbar-mobile { display: none !important; }
