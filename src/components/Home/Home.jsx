@@ -31,12 +31,12 @@ import {
   stepTitleStyle,
   stepTextGroupStyle,
   stepTextStyle,
-  contactBtnClass,         // <-- add this
-  animatedBtnClass,        // <-- add this
-  productBtnAnimatedClass, // <-- add this
-  contactBtnHoverStyle,    // <-- add this
-  animatedBtnHoverStyle,   // <-- add this
-  productBtnAnimatedHoverStyle, // <-- add this
+  contactBtnClass,         
+  animatedBtnClass,        
+  productBtnAnimatedClass, 
+  contactBtnHoverStyle,    
+  animatedBtnHoverStyle,   
+  productBtnAnimatedHoverStyle, 
   carouselSectionStyle,
   carouselWordsContainerStyle,
   carouselButtonStyle,
@@ -63,6 +63,13 @@ function Home({ lang }) {
       title: labels.productCardTitle2,
       desc: labels.productCardDesc2,
       btn: labels.productCardBtn2,
+    }, {
+      img: './4.png',
+      name: labels.PROD_FOUR_BTN || labels.PROD_FOUR || '',
+      id: labels.PROD_FOUR_ID || '104',
+      title: labels.productCardTitle4,
+      desc: labels.productCardDesc4,
+      btn: labels.productCardBtn4,
     },
     {
       img: './3.png',
@@ -72,19 +79,11 @@ function Home({ lang }) {
       desc: labels.productCardDesc3,
       btn: labels.productCardBtn3,
     },
-    {
-      img: './4.png',
-      name: labels.PROD_FOUR_BTN || labels.PROD_FOUR || '',
-      id: labels.PROD_FOUR_ID || '104',
-      title: labels.productCardTitle4,
-      desc: labels.productCardDesc4,
-      btn: labels.productCardBtn4,
-    },
+  
   ];
 
   const s3 = section3Labels[lang] || section3Labels.en;
 
-  // For animated appearance/disappearance on scroll, with per-word animation
   const wordsRef = useRef(null);
   const [showWords, setShowWords] = useState(false);
   const [visibleCount, setVisibleCount] = useState(0);
@@ -93,7 +92,6 @@ function Home({ lang }) {
     function onScroll() {
       if (!wordsRef.current) return;
       const rect = wordsRef.current.getBoundingClientRect();
-      // Show when section is in viewport, hide when out
       if (rect.bottom > 80 && rect.top < window.innerHeight - 80) {
         setShowWords(true);
       } else {
@@ -105,7 +103,6 @@ function Home({ lang }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Animate words in one by one when showWords is true, reset when false
   useEffect(() => {
     let timeout;
     if (showWords) {
