@@ -1,22 +1,22 @@
 const navbarMenus = {
   en: [
     { label: 'Home', href: '#' },
-    { label: 'About Us', href: '#' },
-    { label: 'Services/Products', href: '#' },
+    { label: 'About', href: '#' },
+    { label: 'Services', href: '#' },
     { label: 'Guarantees', href: '#' },
     { label: 'Contacts', href: '#' },
   ],
   ee: [
     { label: 'Avaleht', href: '#' },
     { label: 'Meist', href: '#' },
-    { label: 'Teenused/Tooted', href: '#' },
+    { label: 'Teenused', href: '#' },
     { label: 'Garantii', href: '#' },
     { label: 'Kontaktid', href: '#' },
   ],
   ru: [
     { label: 'Главная', href: '#' },
     { label: 'О нас', href: '#' },
-    { label: 'Услуги/Товары', href: '#' },
+    { label: 'Услуги', href: '#' },
     { label: 'Гарантии', href: '#' },
     { label: 'Контакты', href: '#' },
   ],
