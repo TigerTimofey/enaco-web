@@ -38,6 +38,7 @@ export const logoImgStyle = {
   width: 32,
   borderRadius: 7,
   boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
+  marginBottom: 3,
 };
 
 export const logoTextStyle = {
@@ -45,6 +46,7 @@ export const logoTextStyle = {
   fontSize: '1rem',
   marginLeft: 8,
   marginRight: 18,
+  marginBottom: 5,
 };
 
 export const ulStyle = {

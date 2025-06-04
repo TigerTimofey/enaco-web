@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { getNavbarMenu, navbarLanguages } from '../utils/languages/navbar-languages.js';
 import { businessName } from '../utils/bussines-data/bussines-data.js';
 import {
@@ -24,8 +25,7 @@ import {
   navbarSelectMobileStyle,
 } from './navbar-styles.js';
 
-function Navbar() {
-  const [lang, setLang] = useState('ee');
+function Navbar({ lang, setLang }) {
   const [activeIdx, setActiveIdx] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showFlagOnly, setShowFlagOnly] = useState(false);
@@ -33,7 +33,15 @@ function Navbar() {
   const menu = getNavbarMenu(lang);
 
   const [isMobile, setIsMobile] = useState(false);
-  React.useEffect(() => {
+  const location = useLocation();
+
+  // Set activeIdx based on current path
+  useEffect(() => {
+    const idx = menu.findIndex(item => item.href === location.pathname);
+    setActiveIdx(idx === -1 ? 0 : idx);
+  }, [location.pathname, menu]);
+
+  useEffect(() => {
     const check = () => {
       setIsMobile(window.innerWidth <= 780);
       setShowFlagOnly(window.innerWidth <= 1010);
@@ -47,10 +55,10 @@ function Navbar() {
   return (
     <nav style={navStyle}>
       <div style={navInnerStyle}>
-        <a href="#" style={logoLinkStyle} className="navbar-brand-center">
+        <Link to="/" style={logoLinkStyle} className="navbar-brand-center">
           <img src="/vite.svg" alt="Logo" style={logoImgStyle} />
           <span style={logoTextStyle}>{businessName}</span>
-        </a>
+        </Link>
 
         <ul
           className={`navbar-desktop${isMobile ? ' hide' : ''}`}
@@ -59,22 +67,19 @@ function Navbar() {
           {menu.map((item, idx) => (
             <React.Fragment key={idx}>
               <li style={liStyle}>
-                <a
-                  href={item.href}
+                <Link
+                  to={item.href}
                   style={{
                     ...linkStyle,
                     ...(activeIdx === idx ? activeLinkStyle : {}),
                     ...(smallMenuLabel ? linkStyleSmall : linkStyleNormalTransition),
                   }}
-                  onClick={e => {
-                    e.preventDefault();
-                    setActiveIdx(idx);
-                  }}
+                  onClick={() => setActiveIdx(idx)}
                 >
                   <span style={smallMenuLabel ? menuLabelSpanSmall : menuLabelSpanNormal}>
                     {item.label}
                   </span>
-                </a>
+                </Link>
               </li>
               {idx < menu.length - 1 && (
                 <span className="navbar-separator" style={separatorStyle} aria-hidden="true"></span>
@@ -113,20 +118,19 @@ function Navbar() {
           <ul className="navbar-mobile" style={mobileMenuStyle}>
             {menu.map((item, idx) => (
               <li key={idx} style={liStyle}>
-                <a
-                  href={item.href}
+                <Link
+                  to={item.href}
                   style={{
                     ...linkStyle,
                     ...(activeIdx === idx ? activeLinkStyle : {}),
                   }}
-                  onClick={e => {
-                    e.preventDefault();
+                  onClick={() => {
                     setActiveIdx(idx);
                     setMenuOpen(false);
                   }}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
 
