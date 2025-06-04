@@ -56,7 +56,6 @@ export const productSectionStyle = {
 };
 
 export const productSectionInnerStyle = {
-  maxWidth: 1200,
   width: '100%',
   textAlign: 'center'
 };
@@ -66,8 +65,7 @@ export const productCardsContainerStyle = {
   gap: 32,
   flexWrap: 'wrap',
   justifyContent: 'center',
-  width: '100%',
-  maxWidth: 1200,
+
 };
 
 export const productCardStyle = {
@@ -121,7 +119,7 @@ export const productBtnStyle = {
   border: 'none',
   cursor: 'pointer',
   boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
-  // background: '#e11d48',
+//   background: '#e11d48',
 };
 
 export const stepsSectionStyle = {
@@ -257,4 +255,4 @@ export const stepTextStyle = {
   overflowWrap: 'break-word'
 };
 
-// ...existing code...
+

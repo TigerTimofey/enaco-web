@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { homeLabels, section3Labels } from '../translations/navbar-languages.js';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -74,6 +74,48 @@ function Home({ lang }) {
 
   const s3 = section3Labels[lang] || section3Labels.en;
 
+  // For animated appearance/disappearance on scroll, with per-word animation
+  const wordsRef = useRef(null);
+  const [showWords, setShowWords] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(0);
+
+  useEffect(() => {
+    function onScroll() {
+      if (!wordsRef.current) return;
+      const rect = wordsRef.current.getBoundingClientRect();
+      // Show when section is in viewport, hide when out
+      if (rect.bottom > 80 && rect.top < window.innerHeight - 80) {
+        setShowWords(true);
+      } else {
+        setShowWords(false);
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Animate words in one by one when showWords is true, reset when false
+  useEffect(() => {
+    let timeout;
+    if (showWords) {
+      setVisibleCount(0);
+      function showNext() {
+        setVisibleCount(v => {
+          if (v < (labels.carouselWords?.length || 0)) {
+            timeout = setTimeout(showNext, 55);
+            return v + 1;
+          }
+          return v;
+        });
+      }
+      showNext();
+    } else {
+      setVisibleCount(0);
+    }
+    return () => clearTimeout(timeout);
+  }, [showWords, labels.carouselWords]);
+
   return (
     <div>
       <section style={heroSectionStyle}>
@@ -87,6 +129,7 @@ function Home({ lang }) {
           <div style={heroBtnGroupStyle}>
             <button
               style={heroBtnStyle}
+              className="contact-btn"
               onClick={() => navigate('/kontakt')}
             >
               {labels.contactBtn}
@@ -113,6 +156,7 @@ function Home({ lang }) {
                 </p>
                 <div style={productBtnGroupStyle}>
                   <button
+                    className="product-btn-animated"
                     style={productBtnStyle}
                     onClick={() => {
                       console.log('Product name:', prod.name, 'Product id:', prod.id);
@@ -128,6 +172,79 @@ function Home({ lang }) {
         </div>
       </section>
 
+     
+      {/* Carousel Section: Static words, different font sizes, animated on scroll */}
+      <section style={{
+        padding: '5rem 0',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: 180,
+        marginBottom: 90,
+      }}>
+        <div
+          ref={wordsRef}
+          style={{
+            width: '100%',
+            maxWidth: 1200,
+            margin: '0 auto',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '2.5rem'
+          }}
+        >
+          {(labels.carouselWords || []).map((word, idx) => (
+            <span
+              key={word + idx}
+              style={{
+                fontSize: [
+                  '4.2rem','1.7rem','2rem','1.2rem','1.6rem','2rem','1.2rem','1.4rem','2rem','3rem','2.5rem','1.8rem'
+                ][idx] || '1.5rem',
+                fontWeight: [
+                  600,100,600,600,200,600,100,600,400,600,600,300
+                ][idx] || 400,
+                color: '#888',
+                opacity: showWords && idx < visibleCount ? 1 : 0,
+                transform: showWords && idx < visibleCount
+                  ? 'translateY(0)'
+                  : 'translateY(40px)',
+                transition: `opacity 0.6s ${0.08 * idx}s, transform 0.6s ${0.08 * idx}s`,
+                display: 'inline-block',
+              }}
+            >
+              {word}
+            </span>
+          ))}
+        </div>
+        <button
+          style={{
+            marginTop: 80,
+            padding: '0.8em 2.2em',
+            borderRadius: 8,
+            background: '#888',
+            color: '#fff',
+            fontWeight: 600,
+            fontSize: '1.15em',
+            border: 'none',
+            cursor: 'pointer',
+            boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
+            opacity: showWords && visibleCount === (labels.carouselWords?.length || 0) ? 1 : 0,
+            transform: showWords && visibleCount === (labels.carouselWords?.length || 0)
+              ? 'translateY(0)'
+              : 'translateY(60px)',
+            transition: (showWords && visibleCount === (labels.carouselWords?.length || 0))
+              ? 'opacity 0.5s 0.6s, transform 0.5s 0.6s, background 0.18s'
+              : 'opacity 0.4s, transform 0.4s, background 0.18s',
+            pointerEvents: showWords && visibleCount === (labels.carouselWords?.length || 0) ? 'auto' : 'none',
+          }}
+          className="carousel-contact-btn animated-btn"
+          onClick={() => navigate('/kontakt')}
+        >
+          {labels.carouselButton}
+        </button>
+      </section>
       {/* Steps Section */}
       <section style={stepsSectionStyle}>
         <div style={stepsContainerStyle}>
@@ -214,6 +331,47 @@ function Home({ lang }) {
           </div>
         </div>
       </section>
+      {/* Product Info Section button animation */}
+      <style>
+        {`
+        .contact-btn:hover {
+            background: #f25577 !important;
+            box-shadow: 0 1px 4px 0 rgba(60,60,60,0.09);
+            transform: none;
+            transition: background 0.18s;
+          }
+          .animated-btn:hover {
+            background: #a1a1a1 !important;
+            box-shadow: 0 1px 4px 0 rgba(60,60,60,0.09);
+            transform: none;
+            transition: background 0.18s;
+          }
+          .animated-btn:active {
+            background: #666 !important;
+            transform: none;
+          }
+          .product-btn-animated:hover {
+            background: #a1a1a1 !important;
+            box-shadow: 0 1px 4px 0 rgba(60,60,60,0.09);
+            transform: none;
+            transition: background 0.18s;
+          }
+          .product-btn-animated:active {
+            background: #666 !important;
+            transform: none;
+          }
+          @media (max-width: 600px) {
+            .carousel-static-section {
+              flex-direction: column !important;
+              gap: 0.7rem !important;
+              align-items: center !important;
+            }
+            .carousel-static-section span {
+              font-size: 1.1rem !important;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 }

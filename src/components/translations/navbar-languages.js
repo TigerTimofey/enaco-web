@@ -79,7 +79,24 @@ export const homeLabels = {
     PROD_FOUR_ID: "104",
     productCardTitle4: "Sale of car engines",
     productCardDesc4: "Engines – used engines with checked history from Europe. Warranty to all products guaranteed!",
-    productCardBtn4: "Get price for {PRODUCT_NAME}"
+    productCardBtn4: "Get price for {PRODUCT_NAME}",
+
+    // Add carousel words and button
+    carouselWords: [
+      "ENGINES",
+      "GEARBOXES",
+      "TURBOS",
+      "DIFFERENTIALS",
+      "REDUCTORS",
+      "NEW",
+      "TRANSFER CASES",
+      "RADARS",
+      "NEW AIR SUSPENSION",
+      "FAST",
+      "USED",
+      "REFURBISHED"
+    ],
+    carouselButton: "Didn't find what you need? Contact us",
   },
   ee: {
     heroTitle: "Oleme tegelenud autovaruosadega üle 10 aasta",
@@ -113,7 +130,23 @@ export const homeLabels = {
     PROD_FOUR_ID: "104",
     productCardTitle4: "Mootorite müük",
     productCardDesc4: "Mootorid – kontrollitud ajalooga kasutatud mootorid Euroopast. Kõigile toodetele garantii!",
-    productCardBtn4: "Hind {PRODUCT_NAME}"
+    productCardBtn4: "Hind {PRODUCT_NAME}",
+
+    carouselWords: [
+      "MOOTORID",
+      "KÄIGUKASTID",
+      "TURBOD",
+      "DIFFRID",
+      "REDUKTORID",
+      "UUS",
+      "VAHEKASTID",
+      "RADARID",
+      "UUS ÕHKVEDRUSTUS",
+      "KIIRE",
+      "KASUTATUD",
+      "TAASTATUD"
+    ],
+    carouselButton: "Ei leidnud sobivat? Võta meiega ühendust",
   },
   ru: {
     heroTitle: "Мы занимаемся автомобильными деталями более 10 лет",
@@ -147,7 +180,23 @@ export const homeLabels = {
     PROD_FOUR_ID: "104",
     productCardTitle4: "Продажа автомобильных двигателей",
     productCardDesc4: "Двигатели – проверенные подержанные двигатели из Европы. Гарантия на все товары!",
-    productCardBtn4: "Получить цену {PRODUCT_NAME}"
+    productCardBtn4: "Получить цену {PRODUCT_NAME}",
+
+    carouselWords: [
+      "ДВИГАТЕЛИ",
+      "КПП",
+      "ТУРБИНЫ",
+      "ДИФФЕРЕНЦИАЛЫ",
+      "РЕДУКТОРЫ",
+      "НОВЫЕ",
+      "РАЗДАТОЧНЫЕ КОРОБКИ",
+      "РАДАРЫ",
+      "НОВАЯ ПНЕВМОПОДВЕСКА",
+      "БЫСТРО",
+      "БУ",
+      "ВОССТАНОВЛЕННЫЕ"
+    ],
+    carouselButton: "Не нашли, что искали? Свяжитесь с нами",
   }
 };
 
