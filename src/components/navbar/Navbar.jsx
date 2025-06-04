@@ -18,6 +18,11 @@ import {
   mobileMenuStyle,
   logoTextStyle,
   mobileSelectWrapperStyle,
+  linkStyleSmall,
+  linkStyleNormalTransition,
+  menuLabelSpanSmall,
+  menuLabelSpanNormal,
+  navbarSelectMobileStyle,
 } from './navbar-styles.js';
 
 function Navbar() {
@@ -60,7 +65,7 @@ function Navbar() {
                   style={{
                     ...linkStyle,
                     ...(activeIdx === idx ? activeLinkStyle : {}),
-                    ...(smallMenuLabel ? { padding: '0px', transition: 'padding 0.18s cubic-bezier(.4,0,.2,1)' } : { transition: 'padding 0.18s cubic-bezier(.4,0,.2,1)' }),
+                    ...(smallMenuLabel ? linkStyleSmall : linkStyleNormalTransition),
                   }}
                   onClick={e => {
                     e.preventDefault();
@@ -74,16 +79,13 @@ function Navbar() {
                   onMouseOut={e => {
                     if (activeIdx !== idx) {
                       Object.assign(e.target.style, linkStyle);
-                      if (smallMenuLabel) e.target.style.padding = '0px';
+                      if (smallMenuLabel) Object.assign(e.target.style, linkStyleSmall);
+                      else Object.assign(e.target.style, linkStyleNormalTransition);
                     }
                   }}
                 >
                   <span
-                    style={
-                      smallMenuLabel
-                        ? { fontSize: '0.93em', transition: 'font-size 0.18s cubic-bezier(.4,0,.2,1)' }
-                        : { transition: 'font-size 0.18s cubic-bezier(.4,0,.2,1)' }
-                    }
+                    style={smallMenuLabel ? menuLabelSpanSmall : menuLabelSpanNormal}
                   >
                     {item.label}
                   </span>
@@ -148,7 +150,7 @@ function Navbar() {
                 className="navbar-select-mobile"
                 value={lang}
                 onChange={e => setLang(e.target.value)}
-                style={{ ...selectStyle, marginLeft: 0, width: '80%' }}
+                style={navbarSelectMobileStyle}
               >
                 {navbarLanguages.map(l => (
                   <option key={l.code} value={l.code}>

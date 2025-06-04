@@ -74,7 +74,25 @@ export const linkStyle = {
   letterSpacing: '0.01em',
 };
 
+export const linkStyleSmall = {
+  padding: '0px',
+  transition: 'padding 0.18s cubic-bezier(.4,0,.2,1)',
+};
+
+export const linkStyleNormalTransition = {
+  transition: 'padding 0.18s cubic-bezier(.4,0,.2,1)',
+};
+
 export const menuLabelSpanStyle = {
+  transition: 'font-size 0.18s cubic-bezier(.4,0,.2,1)',
+};
+
+export const menuLabelSpanSmall = {
+  fontSize: '0.93em',
+  transition: 'font-size 0.18s cubic-bezier(.4,0,.2,1)',
+};
+
+export const menuLabelSpanNormal = {
   transition: 'font-size 0.18s cubic-bezier(.4,0,.2,1)',
 };
 
@@ -115,7 +133,6 @@ export const separatorStyle = {
   alignSelf: 'center',
 };
 
-// Burger menu button (hidden on desktop)
 export const burgerStyle = {
   display: 'none',
   flexDirection: 'column',
@@ -131,7 +148,6 @@ export const burgerStyle = {
   zIndex: 102,
 };
 
-// Burger bars
 export const burgerBarStyle = {
   width: 24,
   height: 3,
@@ -142,7 +158,6 @@ export const burgerBarStyle = {
   display: 'block',
 };
 
-// Mobile menu (vertical)
 export const mobileMenuStyle = {
   position: 'absolute',
   top: 56,
@@ -165,17 +180,14 @@ export const mobileSelectWrapperStyle = {
   justifyContent: 'center',
 };
 
-// Hide on mobile (for desktop menu)
 export const hideOnMobileStyle = {
   display: 'flex',
 };
 
-// Show on mobile (for burger)
 export const showOnMobileStyle = {
   display: 'none',
 };
 
-// Dropdown menu styles
 export const dropdownMenuStyle = {
   position: 'absolute',
   top: '100%',
@@ -203,7 +215,12 @@ export const dropdownItemStyle = {
   transition: 'background 0.16s, color 0.16s',
 };
 
-// Responsive overrides (inject only once)
+export const navbarSelectMobileStyle = {
+  ...selectStyle,
+  marginLeft: 0,
+  width: '80%',
+};
+
 if (typeof window !== 'undefined' && typeof document !== 'undefined' && !window.__navbar_styles_injected) {
   const style = document.createElement('style');
   style.innerHTML = `
