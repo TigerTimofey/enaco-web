@@ -73,7 +73,6 @@ export const productCardStyle = {
   borderRadius: 16,
   boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
   padding: '2rem 1.5rem',
-  minWidth: 260,
   maxWidth: 340,
   flex: '1 1 260px',
   textAlign: 'center',
@@ -116,7 +115,7 @@ export const productBtnStyle = {
   color: '#fff',
   fontWeight: 600,
   fontSize: '1.1em',
-  width: '290px',
+  width: '330px',
   border: 'none',
   cursor: 'pointer',
   boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
@@ -353,6 +352,128 @@ export const carouselSectionResponsiveStyle = `
   }
   .carousel-static-section span {
     font-size: 1.1rem !important;
+  }
+}
+`;
+
+export const advantagesFlexWrapStyle = {
+  maxWidth: 800,
+  margin: '0 auto',
+  borderRadius: 18,
+  background: '#fff',
+  boxShadow: '0 2px 12px 0 rgba(60,60,60,0.07)',
+  padding: '3.6rem 4.5rem',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  gap: '1.5rem',
+  flexWrap: 'wrap',
+};
+
+export const advantagesTitleColStyle = {
+  minWidth: 180,
+  maxWidth: 340,
+  flex: '1 1 220px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  minHeight: 120,
+  height: '100%',
+  wordBreak: 'break-word',
+};
+
+export const advantagesTitleH2Style = {
+  fontSize: '2.8rem',
+  fontWeight: 800,
+  color: '#e11d48',
+  margin: 0,
+  letterSpacing: '0.01em',
+  textAlign: 'left',
+  lineHeight: 1.1,
+  textTransform: 'uppercase',
+  whiteSpace: 'pre-line',
+  wordBreak: 'break-word',
+  width: '100%',
+};
+
+export const advantagesListColStyle = {
+  flex: '2 1 320px',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  fontSize: '1.1rem',
+  fontWeight: 600,
+  color: '#23272f',
+  justifyContent: 'center',
+  minWidth: 180,
+  width: '100%',
+  textAlign: 'left',
+  wordBreak: 'break-word',
+  position: 'relative',
+  minHeight: 180,
+};
+
+export const advantagesLearnMoreLinkStyle = {
+  position: 'absolute',
+  right: -45,
+  bottom: -50,
+  color: '#e11d48',
+  fontWeight: 400,
+  fontSize: '0.9em',
+  cursor: 'pointer',
+  textDecoration: 'underline',
+  transition: 'color 0.18s',
+  display: 'inline-block',
+  padding: '0.5em 0.2em',
+  background: 'rgba(255,255,255,0.85)',
+  borderRadius: 6,
+};
+
+export const advantagesLearnMoreArrowStyle = {
+  display: 'inline-block',
+  verticalAlign: 'middle',
+  marginLeft: 4,
+  transition: 'transform 0.22s cubic-bezier(.4,0,.2,1)',
+};
+
+export const advantagesLearnMoreLinkMedia = `
+.advantages-learn-more-link:hover .advantages-learn-more-arrow {
+  transform: translateX(7px) scale(1.15);
+}
+@media (max-width: 900px) {
+  .advantages-learn-more-link {
+    right: 0 !important;
+    bottom: 0 !important;
+  }
+}
+@media (max-width: 600px) {
+  .advantages-learn-more-link {
+    right: 0 !important;
+    bottom: 0 !important;
+  }
+}
+`;
+
+export const advantagesFlexWrapMedia = `
+@media (max-width: 900px) {
+  .advantages-flex-wrap {
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+    padding: 1.2rem 0.7rem !important;
+  }
+  .advantages-flex-wrap h2 {
+    text-align: center !important;
+    font-size: 3.5rem !important;
+    margin-top: 4rem !important;
+  }
+  .advantages-flex-wrap > div:last-child {
+    text-align: center !important;
+    font-size: 1rem !important;
+  }
+  .advantages-flex-wrap button {
+    align-self: center !important;
+    width: 100% !important;
+    margin-top: 1.5rem !important;
   }
 }
 `;

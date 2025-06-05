@@ -57,29 +57,49 @@ export const homeLabels = {
     PROD_ONE_BTN: "Turbocharger",
     PROD_ONE_ID: "101",
     productCardTitle: "Sale and repair of factory-reconditioned turbos",
-    productCardDesc: "Sale of new and renovated turbochargers, in the course of which we want to recover the old part as a replacement reserve. We provide a 1-year manufacturer’s warranty to the turbos (without mileage limit).",
-    productCardBtn: "Get price for {PRODUCT_NAME}",
+    productCardDesc: "Sale of new and renovated turbochargers. We recover the old part as a replacement reserve. Our experts will help you choose the right turbo for your vehicle and provide technical support.",
 
     PROD_TWO: "Steering rack",
     PROD_TWO_BTN: "Steering racks",
     PROD_TWO_ID: "102",
     productCardTitle2: "Sale of renovated, i.e. factory-reconditioned steering racks",
-    productCardDesc2: "Sale of factory-reconditioned steering racks and sale of renovated steering racks. 1-year warranty to steering racks (without mileage limit). We repair and recondition steering transmissions of passenger cars and vans. Feel free to ask for an offer!",
+    productCardDesc2: "Sale of factory-reconditioned steering racks and renovated steering racks. We repair and recondition steering transmissions of passenger cars and vans. Our team will help you select the correct steering rack and answer all your questions.",
     productCardBtn2: "Get price for {PRODUCT_NAME}",
 
     PROD_THREE: "Gearbox",
     PROD_THREE_BTN: "Gearboxes",
     PROD_THREE_ID: "103",
     productCardTitle3: "Sale and repair of manual gearboxes",
-    productCardDesc3: "Sale of factory-reconditioned manual gearboxes for Renault, Citroën, Opel, Mercedes-Benz, Nissan, Peugeot, Ford, Fiat and Volkswagen vans. 1-year warranty to manual gearboxes (without mileage limit).",
+    productCardDesc3: "Sale of factory-reconditioned manual gearboxes. We offer consultation and support for installation and maintenance.",
     productCardBtn3: "Get price for {PRODUCT_NAME}",
 
     PROD_FOUR: "Engine",
     PROD_FOUR_BTN: "Engines",
     PROD_FOUR_ID: "104",
     productCardTitle4: "Sale of car engines",
-    productCardDesc4: "Engines – used engines with checked history from Europe. Warranty to all products guaranteed!",
+    productCardDesc4: "Engines – used engines with checked history from Europe. We help you find the right engine and provide technical advice.",
     productCardBtn4: "Get price for {PRODUCT_NAME}",
+
+    PROD_FIVE: "Electronic",
+    PROD_FIVE_BTN: "Electronic",
+    PROD_FIVE_ID: "105",
+    productCardTitle5: "Sale of electronic components",
+    productCardDesc5: "We offer a wide range of tested electronic components for various car brands. Our specialists will assist with selection and compatibility.",
+    productCardBtn5: "Get price for {PRODUCT_NAME}",
+
+    PROD_SIX: "Differential",
+    PROD_SIX_BTN: "Differential",
+    PROD_SIX_ID: "106",
+    productCardTitle6: "Sale of differentials",
+    productCardDesc6: "We offer differentials for a wide range of vehicles. Our team will help you choose the right differential and provide installation guidance.",
+    productCardBtn6: "Get price for {PRODUCT_NAME}",
+
+    PROD_SEVEN: "Air Suspension",
+    PROD_SEVEN_BTN: "Air Suspension",
+    PROD_SEVEN_ID: "107",
+    productCardTitle7: "Sale of air suspension components",
+    productCardDesc7: "We offer air suspension parts for various vehicles. Get advice on selection, installation, and maintenance from our experts.",
+    productCardBtn7: "Get price for {PRODUCT_NAME}",
 
     carouselWords: [
       "ENGINES",
@@ -94,6 +114,14 @@ export const homeLabels = {
       "MODULES"
     ],
     carouselButton: "Didn't find what you need? Contact us",
+    advantagesTitle: "Why choose us?",
+    advantagesList: [
+      "All units undergo technical inspection",
+      "Warranty and assistance with VIN selection",
+      "Delivery across Estonia and the entire EU",
+      "We work with private and corporate clients"
+    ],
+    advantagesLearnMore: "Learn more about us",
   },
   ee: {
     heroTitle: "Oleme ettevõte, mis on alates 2020. aastast spetsialiseerunud kasutatud, taastatud ja uute autovaruosade müügile.",
@@ -105,29 +133,49 @@ export const homeLabels = {
     PROD_ONE_BTN: "Turbole",
     PROD_ONE_ID: "101",
     productCardTitle: "Tehaseremonditud turbode müük ja remont",
-    productCardDesc: "Müüme uusi ja renoveeritud turbosid, mille käigus soovime vana osa taastada asendusvaruks. Turbodele anname 1-aastase tootjagarantii (ilma läbisõidupiiranguta).",
-    productCardBtn: "Hind {PRODUCT_NAME}",
+    productCardDesc: "Müüme uusi ja renoveeritud turbosid. Taastame vana osa asendusvaruks. Meie eksperdid aitavad valida sobiva turbo ja pakuvad tehnilist tuge.",
 
     PROD_TWO: "Roolilatt",
     PROD_TWO_BTN: "Roolilatile",
     PROD_TWO_ID: "102",
     productCardTitle2: "Tehaseremonditud roolilattide müük",
-    productCardDesc2: "Tehaseremonditud ja renoveeritud roolilattide müük. 1-aastane garantii roolilattidele (ilma läbisõidupiiranguta). Remondime ja renoveerime sõiduautode ja väikebusside roolilatte. Küsi pakkumist!",
+    productCardDesc2: "Tehaseremonditud ja renoveeritud roolilattide müük. Remondime ja renoveerime sõiduautode ja väikebusside roolilatte. Aitame valida õige roolilati ja vastame kõigile küsimustele.",
     productCardBtn2: "Hind {PRODUCT_NAME}",
 
     PROD_THREE: "Käigukast",
     PROD_THREE_BTN: "Käigukastile",
     PROD_THREE_ID: "103",
     productCardTitle3: "Manuaalkäigukastide müük ja remont",
-    productCardDesc3: "Tehaseremonditud manuaalkäigukastide müük Renault, Citroën, Opel, Mercedes-Benz, Nissan, Peugeot, Ford, Fiat ja Volkswagen väikebussidele. 1-aastane garantii käigukastidele (ilma läbisõidupiiranguta).",
+    productCardDesc3: "Tehaseremonditud manuaalkäigukastide müük. Pakume konsultatsiooni ja tuge paigaldusel ning hooldusel.",
     productCardBtn3: "Hind {PRODUCT_NAME}",
 
     PROD_FOUR: "Mootor",
     PROD_FOUR_BTN: "Mootorile",
     PROD_FOUR_ID: "104",
     productCardTitle4: "Mootorite müük",
-    productCardDesc4: "Mootorid – kontrollitud ajalooga kasutatud mootorid Euroopast. Kõigile toodetele garantii!",
+    productCardDesc4: "Mootorid – kontrollitud ajalooga kasutatud mootorid Euroopast. Leiame sobiva mootori ja anname tehnilist nõu.",
     productCardBtn4: "Hind {PRODUCT_NAME}",
+
+    PROD_FIVE: "Elektroonika",
+    PROD_FIVE_BTN: "Elektroonika",
+    PROD_FIVE_ID: "105",
+    productCardTitle5: "Elektroonikakomponentide müük",
+    productCardDesc5: "Pakume laias valikus testitud elektroonikakomponente erinevatele automarkidele. Aitame valida ja kontrollida sobivust.",
+    productCardBtn5: "Hind {PRODUCT_NAME}",
+
+    PROD_SIX: "Diferentsiaal",
+    PROD_SIX_BTN: "Diferentsiaal",
+    PROD_SIX_ID: "106",
+    productCardTitle6: "Diferentsiaalide müük",
+    productCardDesc6: "Pakume diferentsiaale paljudele automarkidele. Aitame valida õige diferentsiaali ja pakume paigaldusjuhiseid.",
+    productCardBtn6: "Hind {PRODUCT_NAME}",
+
+    PROD_SEVEN: "Õhkvedrustus",
+    PROD_SEVEN_BTN: "Õhkvedrustus",
+    PROD_SEVEN_ID: "107",
+    productCardTitle7: "Õhkvedrustuse osade müük",
+    productCardDesc7: "Pakume õhkvedrustuse osi erinevatele automarkidele. Meie eksperdid nõustavad valiku, paigalduse ja hoolduse osas.",
+    productCardBtn7: "Hind {PRODUCT_NAME}",
 
     carouselWords: [
       "MOOTORID",
@@ -142,6 +190,14 @@ export const homeLabels = {
       "MOODULID"
     ],
     carouselButton: "Ei leidnud sobivat? Võta meiega ühendust",
+    advantagesTitle: "Miks valida meid?",
+    advantagesList: [
+      "Kõik agregaadid läbivad tehnilise kontrolli",
+      "Garantii ja abi valikul VIN-koodi alusel",
+      "Kohaletoimetamine Eestis ja kogu EL territooriumil",
+      "Töötame nii era- kui äriklientidega"
+    ],
+    advantagesLearnMore: "Loe meist lähemalt",
   },
   ru: {
     heroTitle: "Мы — компания, специализирующаяся на продаже б/у, восстановленных и новых автозапчастей с 2020 года.",
@@ -153,29 +209,50 @@ export const homeLabels = {
     PROD_ONE_BTN: "на Турбину",
     PROD_ONE_ID: "101",
     productCardTitle: "Продажа и ремонт восстановленных турбин",
-    productCardDesc: "Продажа новых и восстановленных турбокомпрессоров, при этом мы хотим получить старую деталь в качестве замены. На турбины предоставляется 1 год гарантии производителя (без ограничения пробега).",
+    productCardDesc: "Продажа новых и восстановленных турбокомпрессоров. Получаем старую деталь в качестве замены. Наши специалисты помогут подобрать турбину и окажут техническую поддержку.",
     productCardBtn: "Получить цену {PRODUCT_NAME}",
 
     PROD_TWO: "Рулевая рейка",
     PROD_TWO_BTN: "на Рейку",
     PROD_TWO_ID: "102",
     productCardTitle2: "Продажа восстановленных рулевых реек",
-    productCardDesc2: "Продажа восстановленных на заводе и отремонтированных рулевых реек. 1 год гарантии на рейки (без ограничения пробега). Ремонтируем и восстанавливаем рулевые механизмы легковых и грузовых авто. Запросите предложение!",
+    productCardDesc2: "Продажа восстановленных на заводе и отремонтированных рулевых реек. Ремонтируем и восстанавливаем рулевые механизмы. Поможем выбрать нужную рейку и ответим на все вопросы.",
     productCardBtn2: "Получить цену {PRODUCT_NAME}",
 
     PROD_THREE: "Механическая коробка передач",
     PROD_THREE_BTN: "на КПП",
     PROD_THREE_ID: "103",
     productCardTitle3: "Продажа и ремонт механических коробок передач",
-    productCardDesc3: "Продажа восстановленных на заводе механических коробок передач для микроавтобусов Renault, Citroën, Opel, Mercedes-Benz, Nissan, Peugeot, Ford, Fiat и Volkswagen. 1 год гарантии на коробки (без ограничения пробега).",
+    productCardDesc3: "Продажа восстановленных на заводе механических коробок передач. Консультируем по установке и обслуживанию.",
     productCardBtn3: "Получить цену {PRODUCT_NAME}",
 
     PROD_FOUR: "Двигатель",
     PROD_FOUR_BTN: "на Двигатель",
     PROD_FOUR_ID: "104",
     productCardTitle4: "Продажа автомобильных двигателей",
-    productCardDesc4: "Двигатели – проверенные подержанные двигатели из Европы. Гарантия на все товары!",
+    productCardDesc4: "Двигатели – проверенные подержанные двигатели из Европы. Поможем подобрать подходящий двигатель и дадим технические рекомендации.",
     productCardBtn4: "Получить цену {PRODUCT_NAME}",
+
+    PROD_FIVE: "Электроника",
+    PROD_FIVE_BTN: "Электроника",
+    PROD_FIVE_ID: "105",
+    productCardTitle5: "Продажа электронных компонентов",
+    productCardDesc5: "Предлагаем широкий ассортимент проверенных электронных компонентов для различных марок автомобилей. Поможем с выбором и совместимостью.",
+    productCardBtn5: "Получить цену {PRODUCT_NAME}",
+
+    PROD_SIX: "Дифференциал",
+    PROD_SIX_BTN: "Дифференциал",
+    PROD_SIX_ID: "106",
+    productCardTitle6: "Продажа дифференциалов",
+    productCardDesc6: "Предлагаем дифференциалы для различных марок автомобилей. Поможем выбрать нужный дифференциал и проконсультируем по установке.",
+    productCardBtn6: "Получить цену {PRODUCT_NAME}",
+
+    PROD_SEVEN: "Пневмоподвеска",
+    PROD_SEVEN_BTN: "Пневмоподвеска",
+    PROD_SEVEN_ID: "107",
+    productCardTitle7: "Продажа компонентов пневмоподвески",
+    productCardDesc7: "Предлагаем детали пневмоподвески для различных марок автомобилей. Консультируем по выбору, установке и обслуживанию.",
+    productCardBtn7: "Получить цену {PRODUCT_NAME}",
 
     carouselWords: [
       "ДВИГАТЕЛИ",
@@ -190,6 +267,14 @@ export const homeLabels = {
       "МОДУЛИ"
     ],
     carouselButton: "Не нашли, что искали? Свяжитесь с нами",
+    advantagesTitle: "Почему выбирают нас?",
+    advantagesList: [
+      "Все агрегаты проходят техническую проверку",
+      "Гарантия и помощь в подборе по VIN",
+      "Доставка по Эстонии и всей территории ЕС",
+      "Работаем с частными и корпоративными клиентами"
+    ],
+    advantagesLearnMore: "Подробнее о нас",
   }
 };
 
