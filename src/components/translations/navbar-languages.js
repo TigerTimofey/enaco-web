@@ -48,8 +48,8 @@ export const navbarLabels = {
 
 export const homeLabels = {
   en: {
-    heroTitle: "We have been dealing with car parts for over 10 years",
-    heroSubtitle: "Our main areas of activity are the sale of factory-refurbished turbochargers, steering racks, and manual gearboxes for minibuses.",
+    heroTitle: "We are a company specializing in used, refurbished, and new auto parts since 2020.",
+    heroSubtitle: "We supply parts across Estonia and the European Union, focusing on high-demand components with reliable quality, warranty, and fast delivery.",
     contactBtn: "Contact Us",
     subscribeBtn: "Subscribe",
     messageBtn: "Message",
@@ -83,23 +83,21 @@ export const homeLabels = {
 
     carouselWords: [
       "ENGINES",
-      "manual gearboxes",
-      "TURBOS",
-      "DIFFERENTIALS",
-      "REDUCTORS",
-      "NEW",
+      "MOTORS",
+      "GEARBOXES",
+      "TURBOCHARGERS",
+      "AIR SUSPENSION",
+      "DIFFERENTIAL BOXES",
       "TRANSFER CASES",
-      "RADARS",
-      "NEW AIR SUSPENSION",
-      "FAST",
-      "USED",
-      "REFURBISHED"
+      "ELECTRONIC COMPONENTS",
+      "ECUS",
+      "MODULES"
     ],
     carouselButton: "Didn't find what you need? Contact us",
   },
   ee: {
-    heroTitle: "Oleme tegelenud autovaruosadega üle 10 aasta",
-    heroSubtitle: "Meie põhitegevusalad on tehaseremonditud turbode, roolilattide ja manuaalkäigukastide müük väikebussidele.",
+    heroTitle: "Oleme ettevõte, mis on alates 2020. aastast spetsialiseerunud kasutatud, taastatud ja uute autovaruosade müügile.",
+    heroSubtitle: "Meie tooted jõuavad klientideni üle Eesti ja Euroopa Liidu. Pakume kvaliteetseid ja nõutud varuosi koos garantiiga ja kiire tarnimisega.",
     contactBtn: "Võta meiega ühendust",
     subscribeBtn: "Telli",
     messageBtn: "Sõnum",
@@ -133,23 +131,21 @@ export const homeLabels = {
 
     carouselWords: [
       "MOOTORID",
+      "MOOTORID",
       "KÄIGUKASTID",
-      "TURBOD",
-      "DIFFRID",
-      "REDUKTORID",
-      "UUS",
+      "TURBOKOMPRESSORID",
+      "ÕHKVEDRUSTUS",
+      "DIFERENTSIAALID",
       "VAHEKASTID",
-      "RADARID",
-      "UUS ÕHKVEDRUSTUS",
-      "KIIRE",
-      "KASUTATUD",
-      "TAASTATUD"
+      "ELEKTROONIKAKOMPONENDID",
+      "JUHTPLOKID",
+      "MOODULID"
     ],
     carouselButton: "Ei leidnud sobivat? Võta meiega ühendust",
   },
   ru: {
-    heroTitle: "Мы занимаемся автомобильными деталями более 10 лет",
-    heroSubtitle: "Наши основные сферы деятельности это продажа восстановленных на заводе турбин, рулевых реек и механических коробок переключения передач от микроавтобусов",
+    heroTitle: "Мы — компания, специализирующаяся на продаже б/у, восстановленных и новых автозапчастей с 2020 года.",
+    heroSubtitle: "Наша компания поставляет автозапчасти по всей Эстонии и странам Европейского Союза. Мы специализируемся на самых востребованных агрегатах, обеспечивая высокое качество, гарантию и оперативную доставку.",
     contactBtn: "Связаться с нами",
     subscribeBtn: "Подписаться",
     messageBtn: "Сообщение",
@@ -183,17 +179,15 @@ export const homeLabels = {
 
     carouselWords: [
       "ДВИГАТЕЛИ",
-      "КПП",
-      "ТУРБИНЫ",
-      "ДИФФЕРЕНЦИАЛЫ",
-      "РЕДУКТОРЫ",
-      "НОВЫЕ",
+      "МОТОРЫ",
+      "КОРОБКИ ПЕРЕДАЧ",
+      "ТУРБОКОМПРЕССОРЫ",
+      "ПНЕВМОПОДВЕСКА",
+      "ДИФФЕРЕНЦИАЛКОРМКИ",
       "РАЗДАТОЧНЫЕ КОРОБКИ",
-      "РАДАРЫ",
-      "НОВАЯ ПНЕВМОПОДВЕСКА",
-      "БЫСТРО",
-      "БУ",
-      "ВОССТАНОВЛЕННЫЕ"
+      "ЭЛЕКТРОННЫЕ КОМПОНЕНТЫ",
+      "ЭБУ",
+      "МОДУЛИ"
     ],
     carouselButton: "Не нашли, что искали? Свяжитесь с нами",
   }
@@ -215,18 +209,18 @@ export const section3Labels = {
     items: [
       {
         icon: 1,
-        title: "10-year experience",
-        text: "Over 10 years of experience and professional pre-purchase consultation."
+        title: "Experience since 2020",
+        text: "We have been operating since 2020 and offer professional pre-purchase consultation."
       },
       {
         icon: 2,
-        title: "Door-to-door delivery in one day",
-        text: "With the help of our good and long-term partners Cargo and DPD, you may order the spare part to your home, office or workshop in one day."
+        title: "Fast delivery",
+        text: "Our reliable and long-term partners deliver parts to your home, office or workshop. Parcel machine from 6 euros or OSC courier from 10 euros."
       },
       {
         icon: 3,
-        title: "12-month warranty",
-        text: "12-month warranty to all reconditioned equipment sold by Enaco Group OÜ (without mileage limit)."
+        title: "3-12 month warranty",
+        text: "3-12 month warranty to all reconditioned equipment sold by Enaco Group OÜ (without mileage limit)."
       },
       {
         icon: 4,
@@ -240,18 +234,18 @@ export const section3Labels = {
     items: [
       {
         icon: 1,
-        title: "10-aastane kogemus",
-        text: "Üle 10 aasta kogemust ja professionaalne ostueelne nõustamine."
+        title: "Kogemus alates 2020. aastast",
+        text: "Oleme tegutsenud alates 2020. aastast ning pakume professionaalset ostueelset nõustamist."
       },
       {
         icon: 2,
-        title: "Kohaletoimetamine ühe päevaga",
-        text: "Meie head ja pikaajalised partnerid Cargo ja DPD toimetavad varuosa koju, kontorisse või töökotta ühe päevaga."
+        title: "Kiire kohaletoimetamine",
+        text: "Meie head ja pikaajalised partnerid toimetavad varuosa koju, kontorisse või töökotta. Pakiautomaadiga alates 6 eurost või OSC kulleriga alates 10 eurost"
       },
       {
         icon: 3,
-        title: "12-kuuline garantii",
-        text: "Kõigile Enaco Group OÜ poolt müüdud taastatud seadmetele kehtib 12-kuuline garantii (ilma läbisõidupiiranguta)."
+        title: "3-12 kuuline garantii",
+        text: "Kõigile Enaco Group OÜ poolt müüdud taastatud seadmetele kehtib 3-12 kuuline garantii (ilma läbisõidupiiranguta)."
       },
       {
         icon: 4,
@@ -265,18 +259,18 @@ export const section3Labels = {
     items: [
       {
         icon: 1,
-        title: "10 лет опыта",
-        text: "Более 10 лет опыта и профессиональная консультация перед покупкой."
+        title: "Опыт с 2020 года",
+        text: "Мы работаем с 2020 года и предлагаем профессиональную консультацию перед покупкой."
       },
       {
         icon: 2,
-        title: "Доставка за 1 день",
-        text: "С помощью наших давних партнеров Cargo и DPD вы можете получить запчасть домой, в офис или мастерскую за один день."
+        title: "Быстрая доставка",
+        text: "Наши надежные и долгосрочные партнеры доставят запчасти домой, в офис или мастерскую. Через постамат от 6 евро или курьером OSC от 10 евро."
       },
       {
         icon: 3,
-        title: "12 месяцев гарантии",
-        text: "12 месяцев гарантии на все восстановленное оборудование, продаваемое Enaco Group OÜ (без ограничения пробега)."
+        title: "Гарантия 3-12 месяцев",
+        text: "На все восстановленное оборудование, продаваемое Enaco Group OÜ, предоставляется гарантия 3-12 месяцев (без ограничения пробега)."
       },
       {
         icon: 4,

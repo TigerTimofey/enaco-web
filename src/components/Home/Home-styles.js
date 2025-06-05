@@ -303,7 +303,7 @@ export const productBtnAnimatedHoverStyle = `
 
 // Carousel section styles
 export const carouselSectionStyle = {
-  padding: '5rem 0',
+  padding: '3rem 0',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
