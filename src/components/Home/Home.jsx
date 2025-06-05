@@ -123,6 +123,34 @@ function Home({ lang }) {
     return () => clearTimeout(timeout);
   }, [showWords, labels.carouselWords]);
 
+  // Use language file for advantages section
+  const advantagesTitle = {
+    ru: 'Почему выбирают нас?',
+    ee: 'Miks valida meid?',
+    en: 'Why choose us?'
+  }[lang] || 'Why choose us?';
+
+  const advantagesList = {
+    ru: [
+      "Все агрегаты проходят техническую проверку",
+      "Гарантия и помощь в подборе по VIN",
+      "Доставка по Эстонии и всей территории ЕС",
+      "Работаем с частными и корпоративными клиентами"
+    ],
+    ee: [
+      "Kõik agregaadid läbivad tehnilise kontrolli",
+      "Garantii ja abi valikul VIN-koodi alusel",
+      "Kohaletoimetamine Eestis ja kogu EL territooriumil",
+      "Töötame nii era- kui äriklientidega"
+    ],
+    en: [
+      "All units undergo technical inspection",
+      "Warranty and assistance with VIN selection",
+      "Delivery across Estonia and the entire EU",
+      "We work with private and corporate clients"
+    ]
+  }[lang] || [];
+
   return (
     <div>
       <section style={heroSectionStyle}>
@@ -179,7 +207,210 @@ function Home({ lang }) {
         </div>
       </section>
 
-     
+      {/* Advantages Section (Why choose us) */}
+      <section
+        style={{
+          width: '100%',
+          background: '#f8f6f1',
+          padding: '2.5rem 0 2.2rem 0',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginBottom: 0,
+        }}
+      >
+        <div
+          className="advantages-flex-wrap"
+          style={{
+            maxWidth: 800,
+            margin: '0 auto',
+            borderRadius: 18,
+            background: '#fff',
+            boxShadow: '0 2px 12px 0 rgba(60,60,60,0.07)',
+            padding: '3.6rem 4.5rem',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: '1.5rem',
+            flexWrap: 'wrap',
+          }}
+        >
+          <div
+            className="advantages-title-col"
+            style={{
+              minWidth: 180,
+              maxWidth: 340,
+              flex: '1 1 220px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-start',
+              minHeight: 120,
+              height: '100%',
+              wordBreak: 'break-word',
+            }}
+          >
+            <h2
+              className="advantages-title-h2"
+              style={{
+                fontSize: '2.8rem',
+                fontWeight: 800,
+                color: '#e11d48',
+                margin: 0,
+                letterSpacing: '0.01em',
+                textAlign: 'left',
+                lineHeight: 1.1,
+                textTransform: 'uppercase',
+                whiteSpace: 'pre-line',
+                wordBreak: 'break-word',
+                width: '100%',
+              }}
+            >
+              {advantagesTitle.split(' ').join('\n')}
+            </h2>
+            <style>
+              {`
+                @media (max-width: 900px) {
+                  .advantages-title-col {
+                    justify-content: center !important;
+                    align-items: center !important;
+                    min-width: 0 !important;
+                    max-width: 100% !important;
+                  }
+                  .advantages-title-h2 {
+                    font-size: 2.1rem !important;
+                    text-align: center !important;
+                    width: 100% !important;
+                  }
+                }
+                @media (max-width: 600px) {
+                  .advantages-title-h2 {
+                    font-size: 1.3rem !important;
+                  }
+                }
+              `}
+            </style>
+          </div>
+          <div
+            style={{
+              flex: '2 1 320px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1rem',
+              fontSize: '1.1rem',
+              fontWeight: 600,
+              color: '#23272f',
+              justifyContent: 'center',
+              minWidth: 180,
+              width: '100%',
+              textAlign: 'left',
+              wordBreak: 'break-word',
+              position: 'relative', 
+              minHeight: 180,
+            }}
+          >
+            {advantagesList.map((item, idx) => (
+              <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style={{ minWidth: 22 }}>
+                  <circle cx="11" cy="11" r="11" fill="#22c55e"/>
+                  <path d="M6 12.5L10 16L16 8" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>{item}</span>
+              </div>
+            ))}
+            <span
+              className="advantages-learn-more-link"
+              style={{
+                position: 'absolute',
+                right: -45,
+                bottom: -50,
+                color: '#e11d48',
+                fontWeight: 400,
+                fontSize: '0.9em',
+                cursor: 'pointer',
+                textDecoration: 'underline',
+                transition: 'color 0.18s',
+                display: 'inline-block',
+                padding: '0.5em 0.2em',
+                background: 'rgba(255,255,255,0.85)',
+                borderRadius: 6,
+              }}
+              onClick={() => navigate('/meist')}
+            >
+              {lang === 'ru'
+                ? 'Подробнее о нас'
+                : lang === 'ee'
+                ? 'Loe meist lähemalt'
+                : 'Learn more about us'}{' '}
+              <span style={{ display: 'inline-block', verticalAlign: 'middle', marginLeft: 4 }}>
+                <svg width="14" height="14" viewBox="0 0 18 18" fill="none" style={{ verticalAlign: 'middle' }}>
+                  <path d="M6 3l6 6-6 6" stroke="#e11d48" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </span>
+            <style>
+              {`
+                @media (max-width: 900px) {
+                  .advantages-flex-wrap {
+                    flex-direction: column !important;
+                    gap: 1.2rem !important;
+                    padding: 1.2rem 0.7rem !important;
+                  }
+                  .advantages-flex-wrap h2 {
+                    text-align: center !important;
+                    font-size: 3.5rem !important;
+                    margin-top: 4rem !important;
+                  }
+                  .advantages-flex-wrap > div:last-child {
+                    text-align: center !important;
+                    font-size: 1rem !important;
+                  }
+                  .advantages-flex-wrap button {
+                    align-self: center !important;
+                    width: 100% !important;
+                    margin-top: 1.5rem !important;
+                  }
+                  .advantages-learn-more-link {
+                    right: 0 !important;
+                    bottom: 0 !important;
+                  }
+                }
+                @media (max-width: 600px) {
+                  .advantages-learn-more-link {
+                    right: 0 !important;
+                    bottom: 0 !important;
+                  }
+                }
+              `}
+            </style>
+          </div>
+        </div>
+        <style>
+          {`
+            @media (max-width: 900px) {
+              .advantages-flex-wrap {
+                flex-direction: column !important;
+                gap: 1.2rem !important;
+                padding: 1.2rem 0.7rem !important;
+              }
+              .advantages-flex-wrap h2 {
+                text-align: center !important;
+                font-size: 3.5rem !important;
+                margin-top: 4rem !important;
+              }
+              .advantages-flex-wrap > div:last-child {
+                text-align: center !important;
+                fontSize: 1rem !important;
+              }
+              .advantages-flex-wrap button {
+                align-self: center !important;
+                width: 100% !important;
+                margin-top: 1.5rem !important;
+              }
+            }
+          `}
+        </style>
+      </section>
+
       {/* Carousel Section: Static words, different font sizes, animated on scroll */}
       <section style={carouselSectionStyle} className="carousel-static-section">
         <div
@@ -221,6 +452,7 @@ function Home({ lang }) {
           {labels.carouselButton}
         </button>
       </section>
+      
       {/* Steps Section */}
       <section style={stepsSectionStyle}>
         <div style={stepsContainerStyle}>
