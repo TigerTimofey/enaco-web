@@ -115,7 +115,7 @@ export const productBtnStyle = {
   color: '#fff',
   fontWeight: 600,
   fontSize: '1.1em',
-  width: '330px',
+  width: '350px',
   border: 'none',
   cursor: 'pointer',
   boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
