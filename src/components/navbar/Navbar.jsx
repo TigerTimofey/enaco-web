@@ -55,7 +55,7 @@ function Navbar({ lang, setLang }) {
     <nav style={navStyle}>
       <div style={navInnerStyle}>
         <Link to="/" style={logoLinkStyle} className="navbar-brand-center">
-          <img src="/vite.svg" alt="Logo" style={logoImgStyle} />
+          <img src="/logoOn.svg" alt="Logo" style={logoImgStyle} />
           <span style={logoTextStyle}>{businessName}</span>
         </Link>
 

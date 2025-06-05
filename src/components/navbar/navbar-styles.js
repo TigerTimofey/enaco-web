@@ -33,19 +33,18 @@ export const logoLinkStyle = {
 };
 
 export const logoImgStyle = {
-  height: 32,
-  width: 32,
-  borderRadius: 7,
-  boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
-  marginBottom: 3,
+  height: 35,
+  width: 35,
+  marginBottom: 6,
 };
 
 export const logoTextStyle = {
-  fontWeight: 600,
+  fontWeight: 900,
   fontSize: '1rem',
   marginLeft: 8,
   marginRight: 18,
   marginBottom: 5,
+  color: "#555555"
 };
 
 export const ulStyle = {

@@ -5,7 +5,7 @@ export const heroSectionStyle = {
   minHeight: 360,
   background: '#f8f6f1',
   padding: '3rem 0 2rem 0',
-  marginTop: 80
+  marginTop: 20
 };
 
 export const heroContainerStyle = {
@@ -477,5 +477,16 @@ export const advantagesFlexWrapMedia = `
   }
 }
 `;
+
+export const advantagesSectionAppearStyle = {
+marginBottom: 64,
+  width: '100%',
+  background: '#f8f6f1',
+  padding: '2.5rem 0 2.2rem 0',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  transition: 'opacity 0.5s cubic-bezier(.4,0,.2,1), transform 0.5s cubic-bezier(.4,0,.2,1)',
+};
 
 

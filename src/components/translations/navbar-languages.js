@@ -367,3 +367,48 @@ export const section3Labels = {
     ]
   }
 };
+
+export const contactFormLabels = {
+  en: {
+    title: "CONTACT",
+    heading: "Contact us",
+    name: "Your name",
+    email: "Your email",
+    phone: "Your phone",
+    message: "Message",
+    send: "Send",
+    thankYou: "Thank you! We will contact you soon.",
+    invalidEmail: "Please enter a valid email address.",
+    invalidPhone: "Please enter a valid phone number.",
+    invalidName: "Please enter your name.",
+    invalidMessage: "Please enter your message."
+  },
+  ee: {
+    title: "KONTAKT",
+    heading: "Võta ühendust",
+    name: "Teie nimi",
+    email: "Teie email",
+    phone: "Teie telefon",
+    message: "Sõnum",
+    send: "Saada",
+    thankYou: "Aitäh! Võtame teiega peagi ühendust.",
+    invalidEmail: "Palun sisestage korrektne e-posti aadress.",
+    invalidPhone: "Palun sisestage korrektne telefoninumber.",
+    invalidName: "Palun sisestage oma nimi.",
+    invalidMessage: "Palun sisestage sõnum."
+  },
+  ru: {
+    title: "КОНТАКТ",
+    heading: "Связаться с нами",
+    name: "Ваше имя",
+    email: "Ваш email",
+    phone: "Ваш телефон",
+    message: "Сообщение",
+    send: "Отправить",
+    thankYou: "Спасибо! Мы свяжемся с вами в ближайшее время.",
+    invalidEmail: "Пожалуйста, введите корректный email.",
+    invalidPhone: "Пожалуйста, введите корректный номер телефона.",
+    invalidName: "Пожалуйста, введите ваше имя.",
+    invalidMessage: "Пожалуйста, введите сообщение."
+  }
+};

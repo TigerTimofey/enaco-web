@@ -49,6 +49,7 @@ import {
   advantagesLearnMoreArrowStyle,
   advantagesLearnMoreLinkMedia,
   advantagesFlexWrapMedia,
+  advantagesSectionAppearStyle,
 } from './Home-styles';
 import { businessProducts } from '../utils/bussines-services/bussines-services.js';
 
@@ -110,6 +111,23 @@ function Home({ lang }) {
   const advantagesList = labels.advantagesList;
   const learnMoreText = labels.advantagesLearnMore;
 
+  // Advantages section scroll-in/out logic
+  const advantagesRef = useRef(null);
+  const [showAdvantages, setShowAdvantages] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      if (!advantagesRef.current) return;
+      const rect = advantagesRef.current.getBoundingClientRect();
+      // Appear when top is in lower 95% of viewport, disappear when scrolled past
+      const visible = rect.top < window.innerHeight * 0.95 && rect.bottom > 50;
+      setShowAdvantages(visible);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <div>
       <section style={heroSectionStyle}>
@@ -168,14 +186,12 @@ function Home({ lang }) {
 
       {/* Advantages Section (Why choose us) */}
       <section
+        ref={advantagesRef}
         style={{
-          width: '100%',
-          background: '#f8f6f1',
-          padding: '2.5rem 0 2.2rem 0',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginBottom: 0,
+          ...advantagesSectionAppearStyle,
+          opacity: showAdvantages ? 1 : 0,
+          transform: showAdvantages ? 'translateY(0)' : 'translateY(60px)',
+          pointerEvents: showAdvantages ? 'auto' : 'none',
         }}
       >
         <div

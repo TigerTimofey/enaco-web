@@ -2,8 +2,8 @@ export const businessName = "Enaco";
 export const businessData = {
   phone: "+372 5352 2022",
   address: "Allika tee 2, Peetri, Estonia",
-  contactCompany: "ENACO GROUP OÜ",
-  contactRegCode: "Registration code: 16682533",
+  contactCompany: "Enaco Group OÜ",
+  contactRegCode: "Reg. code: 16682533",
   contactVat: "VAT: EE102589911",
   contactEmail: "enacogroup@gmail.com",
 };
