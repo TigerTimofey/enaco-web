@@ -131,7 +131,7 @@ export const homeLabels = {
       title: "Reliable Auto Parts Supplier Since 2020",
       intro: "Enaco Group OÜ is a company specializing in the sale of new, reconditioned, and used auto parts. We have been operating since 2020, supplying throughout Estonia and the European Union.",
       specialization: "Our focus is on the most in-demand automotive units. We offer only verified parts with warranty, fast delivery, and technical support.",
-      directionsTitle: "Main directions:",
+      directionsTitle: "Main directions",
       directions: [
         "Engines (motors)",
         "Gearboxes",
@@ -140,7 +140,7 @@ export const homeLabels = {
         "Differentials and transfer cases",
         "Electronic components (ECUs, modules, and others)"
       ],
-      advantagesTitle: "Our advantages:",
+      advantagesTitle: "Our advantages",
       advantages: [
         "All units undergo technical inspection",
         "Warranty and assistance with VIN selection",
@@ -235,7 +235,7 @@ export const homeLabels = {
       title: "Usaldusväärne autovaruosade tarnija alates 2020. aastast",
       intro: "Enaco Group OÜ on ettevõte, mis on spetsialiseerunud uute, taastatud ja kasutatud autovaruosade müügile. Oleme tegutsenud alates 2020. aastast, pakkudes tarnet üle Eesti ja Euroopa Liidu.",
       specialization: "Meie fookus on kõige nõutumate autode agregaatidel. Pakume ainult kontrollitud detaile koos garantiiga, kiire tarnega ja tehnilise toega.",
-      directionsTitle: "Peamised suunad:",
+      directionsTitle: "Peamised suunad",
       directions: [
         "Mootorid",
         "Käigukastid",
@@ -244,7 +244,7 @@ export const homeLabels = {
         "Diferentsiaalid ja vahekastid",
         "Elektroonikakomponendid (juhtplokid, moodulid jm)"
       ],
-      advantagesTitle: "Meie eelised:",
+      advantagesTitle: "Meie eelised",
       advantages: [
         "Kõik agregaadid läbivad tehnilise kontrolli",
         "Garantii ja abi valikul VIN-koodi alusel",
@@ -339,7 +339,7 @@ export const homeLabels = {
       title: "Надёжный поставщик автозапчастей с 2020 года",
       intro: "Enaco Group OÜ — это компания, специализирующаяся на продаже новых, восстановленных и бывших в употреблении автозапчастей. Мы работаем с 2020 года, обеспечивая поставки по всей Эстонии и странам Европейского Союза.",
       specialization: "Наша специализация — наиболее востребованные автомобильные агрегаты. Мы предлагаем только проверенные детали с гарантией, оперативной доставкой и технической поддержкой.",
-      directionsTitle: "Основные направления:",
+      directionsTitle: "Основные направления",
       directions: [
         "Двигатели (моторы)",
         "Коробки передач",
@@ -348,7 +348,7 @@ export const homeLabels = {
         "Дифференциалы и раздаточные коробки",
         "Электронные компоненты (ЭБУ, модули и другие)"
       ],
-      advantagesTitle: "Наши преимущества:",
+      advantagesTitle: "Наши преимущества",
       advantages: [
         "Все агрегаты проходят техническую проверку",
         "Предоставляется гарантия и помощь в подборе по VIN-коду",

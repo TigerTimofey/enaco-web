@@ -1,3 +1,4 @@
+import React from 'react'
 import { homeLabels } from '../translations/navbar-languages.js';
 import * as aboutStyles from './About-styles.js';
 import { useNavigate } from 'react-router-dom';
@@ -27,19 +28,28 @@ function About({ lang }) {
         <div style={aboutStyles.columnsRow} className="about-columns">
           <div style={aboutStyles.leftColumn}>
             <div style={aboutStyles.aboutSectionTitle} className="about-section-title">{t.directionsTitle}</div>
+            <hr style={aboutStyles.hr} />
             <ul style={aboutStyles.aboutList} className="about-list">
               {t.directions.map((item, i) => (
-                <li key={i} style={aboutStyles.aboutListItem}>{item}</li>
+                <React.Fragment key={i}>
+                  <li style={aboutStyles.aboutListItem}>{item}</li>
+                  {i < t.directions.length - 1 && <hr style={aboutStyles.hr} />}
+                </React.Fragment>
               ))}
             </ul>
           </div>
           <div style={aboutStyles.divider} className="about-divider" />
           <div style={aboutStyles.rightColumn}>
             <div style={aboutStyles.aboutSectionTitle} className="about-section-title">{t.advantagesTitle}</div>
+            <hr style={aboutStyles.hr} />
             <ul style={aboutStyles.aboutList} className="about-list">
               {t.advantages.map((item, i) => (
-                <li key={i} style={aboutStyles.aboutListItem}>{item}</li>
+                <React.Fragment key={i}>
+                  <li style={aboutStyles.aboutListItem}>{item}</li>
+                  {i < t.advantages.length - 1 && <hr style={aboutStyles.hr} />}
+                </React.Fragment>
               ))}
+              
             </ul>
           </div>
         </div>

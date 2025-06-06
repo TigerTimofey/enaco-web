@@ -23,8 +23,8 @@ export const productSectionStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  marginTop: 94,
   width: '100%',
+  marginTop: 24,
 };
 
 export const productSectionInnerStyle = {
@@ -57,8 +57,8 @@ export const productRowStyle = {
 };
 
 export const productImgStyle = {
-  width: 300,
-  height: 300,
+  width: 400,
+  height: 400,
   objectFit: 'contain',
   borderRadius: 0,
   marginRight: 0,
@@ -73,9 +73,9 @@ export const productCardStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  background: '#fff',
+  // background: '#fff',
   borderRadius: 22,
-  boxShadow: '0 2px 12px 0 rgba(60,60,60,0.09)',
+  // boxShadow: '0 2px 12px 0 rgba(60,60,60,0.09)',
   padding: '2.5rem 2.5rem',
   maxWidth: 700,
   marginLeft: 32,
@@ -88,7 +88,7 @@ export const productCardStyle = {
 
 export const productTitleStyle = {
   fontWeight: 800,
-  fontSize: '1.45em',
+  fontSize: '1.65em',
   marginBottom: 10,
   color: '#e11d48',
   textTransform: 'uppercase',
@@ -97,20 +97,21 @@ export const productTitleStyle = {
 };
 
 export const productDescStyle = {
-  color: '#23272f',
+  // color: '#23272f', 
+  color: '#888888',
   fontSize: '1.08em',
   marginBottom: 18,
   fontWeight: 500,
   lineHeight: 1.7,
   whiteSpace: 'pre-line',
   textAlign: 'center',
+
 };
 
 export const productBtnGroupStyle = {
   display: 'flex',
   justifyContent: 'center',
   width: '100%',
-  marginTop: 16,
 };
 
 export const productBtnStyle = {
@@ -123,6 +124,7 @@ export const productBtnStyle = {
   border: 'none',
   cursor: 'pointer',
   boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
+  
 };
 
 export const productBtnAnimatedClass = "product-btn-animated";
@@ -199,7 +201,7 @@ export const responsiveStyle = `
   100% { opacity: 0; transform: translateX(120px);}
 }
 @media (max-width: 900px) {
-  .services-product-row {
+  .services-product-row {    margin-top: 94px !important;
     flex-direction: column !important;
     align-items: center !important;
     padding: 0 !important;
@@ -208,6 +210,7 @@ export const responsiveStyle = `
     box-sizing: border-box !important;
   }
   .services-product-img {
+    
     width: 100% !important;
     height: 180px !important;
     margin: 0 0 18px 0 !important;
@@ -225,6 +228,9 @@ export const responsiveStyle = `
     justify-content: center !important;
     width: 100% !important;
     margin-top: 16px !important;
+  }
+  .services-product-section {
+    margin-top: 94px !important;
   }
 }
 @media (max-width: 600px) {
@@ -244,7 +250,7 @@ export const responsiveStyle = `
 `;
 
 export const formSectionStyle = {
-  margin: '48px auto',
+  // margin: '48px auto', 
   width: '100%',
 };
 
@@ -254,7 +260,6 @@ export const formOuterStyle = {
   boxShadow: '0 2px 12px 0 rgba(60,60,60,0.09)',
   padding: '2.5rem 2.5rem',
   margin: '0 auto',
-
   display: 'flex',
   flexDirection: 'column',
   gap: 0,
@@ -337,7 +342,7 @@ export const contactBtnGroupStyle = {
   display: 'flex',
   justifyContent: 'center',
   width: '100%',
-  marginTop: 28,
+  marginTop: 58,
   marginBottom: 4,
 };
 
@@ -346,7 +351,7 @@ export const contactBtnStyle = {
   color: '#fff',
   fontWeight: 700,
   fontSize: '1em',
-  marginTop: 46,
+  marginTop: 56,
   minWidth: 260,
   maxWidth: 450,
   width: '100%',

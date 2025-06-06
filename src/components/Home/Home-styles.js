@@ -353,7 +353,7 @@ export const carouselSectionResponsiveStyle = `
 `;
 
 export const advantagesFlexWrapStyle = {
-  maxWidth: 800,
+  maxWidth: 860,
   margin: '0 auto',
   borderRadius: 18,
   background: '#fff',

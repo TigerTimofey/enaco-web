@@ -20,7 +20,6 @@ export const headerTitle = {
   
 };
 
-// About styles (empty for now)
 export const aboutContainer = {
 
   maxWidth: 900,
@@ -94,7 +93,7 @@ export const columnsRow = {
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'flex-start',
-  gap: 48,
+  gap: 8,
   width: '100%',
   margin: '32px 0 18px 0',
   flexWrap: 'nowrap',
@@ -120,6 +119,8 @@ export const divider = {
   alignSelf: 'stretch',
   margin: '0 12px',
   display: 'block',
+  listStyle: 'none',
+  
 };
 
 export const aboutSectionTitle = {
@@ -128,7 +129,7 @@ export const aboutSectionTitle = {
   color: '#e11d48',
   marginTop: 18,
   marginBottom: 10,
-  textAlign: 'left',
+  textAlign: 'center',
   letterSpacing: '0.01em',
 };
 
@@ -138,13 +139,34 @@ export const aboutList = {
   fontWeight: 500,
   marginBottom: 18,
   paddingLeft: 24,
-  textAlign: 'left',
-  lineHeight: 1.7,
+  textAlign: 'center',
+  
+  listStyle: 'none',
+  listStylePosition: 'inside',
+  lineHeight: 1.6,
+  fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif",
+  marginTop: 0,
+  marginLeft: 0,
+  paddingRight: 24,
+  paddingTop: 0,
+  paddingBottom: 0,
+  display: 'flex',
+  flexDirection: 'column',
 };
 
 export const aboutListItem = {
   marginBottom: 6,
   fontWeight: 600,
+};
+
+
+export const hr = {
+  border: 'none',
+  borderTop: '1px solid #e5e7eb',
+  margin: '12px 0',
+  width: '100%',
+  background: '#e5e7eb',
+  display: 'block'
 };
 
 export const aboutCta = {

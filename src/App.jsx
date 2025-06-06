@@ -19,7 +19,6 @@ function ScrollToTop() {
 
 function AppContent({ lang, setLang }) {
   const location = useLocation();
-  // Parse product from query string for /teenused
   let selectedProductId = null;
   if (location.pathname === '/teenused') {
     const params = new URLSearchParams(location.search);

@@ -180,7 +180,7 @@ function Home({ lang }) {
           </div>
         </div>
       </section>
-      {/* Product Info Section */}
+
       <section
         style={productSectionStyle}
       >
@@ -235,7 +235,6 @@ function Home({ lang }) {
         </div>
       </section>
 
-      {/* Advantages Section (Why choose us) */}
       <section
         ref={advantagesRef}
         style={{
@@ -295,7 +294,7 @@ function Home({ lang }) {
         </div>
       </section>
 
-      {/* Carousel Section: Static words, different font sizes, animated on scroll */}
+
       <section style={carouselSectionStyle} className="carousel-static-section">
         <div
           ref={wordsRef}
@@ -337,7 +336,7 @@ function Home({ lang }) {
         </button>
       </section>
       
-      {/* Steps Section */}
+
       <section style={stepsSectionStyle}>
         <div style={stepsContainerStyle}>
           <div style={stepsHeaderOuterStyle}>
@@ -423,7 +422,7 @@ function Home({ lang }) {
           </div>
         </div>
       </section>
-      {/* Product Info Section button animation */}
+
       <style>
         {`
           ${contactBtnHoverStyle}

@@ -243,7 +243,6 @@ function Services({ lang, selectedProductId }) {
             </div>
           </div>
           <div style={formRowStyle}>
-            {/* aasta left, skub right */}
             <div style={formColumnInputWrapperStyle}>
               {errors.aasta && (
                 <span style={formErrorTextStyle}>{errors.aasta}</span>
