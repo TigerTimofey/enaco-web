@@ -75,6 +75,7 @@ export const linkStyle = {
   letterSpacing: '0.01em',
   fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif", 
   fontSize: '1.08em',
+
 };
 
 export const linkStyleSmall = {
@@ -213,13 +214,12 @@ export const dropdownMenuStyle = {
 
 export const dropdownItemStyle = {
   display: 'block',
-  padding: '0.5em 1.2em',
+  padding: '.7em 1.2em',
   color: '#23272f',
   textDecoration: 'none',
   fontWeight: 600,
   fontSize: '1em',
   border: 'none',
-  background: 'none',
   cursor: 'pointer',
   borderRadius: 6,
   transition: 'background 0.16s, color 0.16s',
@@ -317,3 +317,29 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined' && !window.
   document.head.appendChild(style);
   window.__navbar_styles_injected = true;
 }
+
+// Add these styles for clarity and maintainability
+export const servicesDropdownWrapperStyle = {
+  position: 'relative',
+  display: 'inline-block'
+};
+
+export const servicesDropdownTriggerStyle = {
+  cursor: 'pointer',
+  userSelect: 'none',
+  pointerEvents: 'none',
+  background: 'transparent',
+  border: 'none',
+  outline: 'none',
+  display: 'inline-block',
+  position: 'relative',
+  zIndex: 2,
+};
+
+export const servicesDropdownMenuStyle = {
+  left: '50%',
+  transform: 'translateX(-50%)',
+  position: 'absolute',
+  top: '100%',
+  zIndex: 10,
+};

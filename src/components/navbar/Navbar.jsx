@@ -10,9 +10,9 @@ function Navbar({ lang, setLang }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showFlagOnly, setShowFlagOnly] = useState(false);
   const [smallMenuLabel, setSmallMenuLabel] = useState(false);
-  const menu = getNavbarMenu(lang);
-
   const [isMobile, setIsMobile] = useState(false);
+  const [openDropdownIdx, setOpenDropdownIdx] = useState(null); 
+  const menu = getNavbarMenu(lang);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -32,24 +32,22 @@ function Navbar({ lang, setLang }) {
     return () => window.removeEventListener('resize', check);
   }, []);
 
-const productDropdown = businessProducts.map((prod, idx) => {
-  const labels = homeLabels[lang] || {};
-  let name = '';
+  const productDropdown = businessProducts.map((prod, idx) => {
+    const labels = homeLabels[lang] || {};
+    let name = '';
 
-  if (lang === 'ru') {
-    name = labels[prod.fallbackNameKey] || '';
-  } else if (idx === 0) {
-    name = labels['PROD_ONE'] || '';
-  } else {
-    name = labels[prod.fallbackNameKey] ||  '';
-  }
+    if (lang === 'ru') {
+      name = labels[prod.fallbackNameKey] || '';
+    } else if (idx === 0) {
+      name = labels['PROD_ONE'] || '';
+    } else {
+      name = labels[prod.fallbackNameKey] ||  '';
+    }
 
-  const id = prod.idKey ? (labels[prod.idKey] || prod.idKey) : '';
+    const id = prod.idKey ? (labels[prod.idKey] || prod.idKey) : '';
 
-  return { id, name };
-});
-
-
+    return { id, name };
+  });
 
   return (
     <nav style={navbarStyles.navStyle}>
@@ -65,22 +63,19 @@ const productDropdown = businessProducts.map((prod, idx) => {
         >
           {menu.map((item, idx) => (
             <React.Fragment key={idx}>
-              <li style={navbarStyles.liStyle}>
+              <li
+                style={navbarStyles.liStyle}
+                onMouseEnter={item.href === '/teenused' ? () => setOpenDropdownIdx(idx) : undefined}
+                onMouseLeave={item.href === '/teenused' ? () => setOpenDropdownIdx(null) : undefined}
+              >
                 {item.href === '/teenused' ? (
-                  <div style={{ position: 'relative', display: 'inline-block' }}>
-
+                  <div style={navbarStyles.servicesDropdownWrapperStyle || { position: 'relative', display: 'inline-block' }}>
                     <span
                       style={{
                         ...navbarStyles.linkStyle,
                         ...(activeIdx === idx ? navbarStyles.activeLinkStyle : {}),
                         ...(smallMenuLabel ? navbarStyles.linkStyleSmall : navbarStyles.linkStyleNormalTransition),
-                        cursor: 'pointer',
-                        userSelect: 'none',
-                        pointerEvents: 'none',
-                        background: 'transparent',
-                        border: 'none',
-                        outline: 'none',
-                        display: 'inline-block'
+                        ...navbarStyles.servicesDropdownTriggerStyle,
                       }}
                       tabIndex={-1}
                       className={`navbar-services-trigger${activeIdx === idx ? ' active' : ''}`}
@@ -92,9 +87,8 @@ const productDropdown = businessProducts.map((prod, idx) => {
                     <div
                       style={{
                         ...navbarStyles.dropdownMenuStyle,
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        display: 'none',
+                        ...navbarStyles.servicesDropdownMenuStyle,
+                        display: openDropdownIdx === idx ? 'block' : 'none',
                       }}
                       className="services-dropdown"
                     >
@@ -102,12 +96,12 @@ const productDropdown = businessProducts.map((prod, idx) => {
                         <div
                           key={prod.id}
                           className="services-dropdown-item"
-                          style={{
-                            ...navbarStyles.dropdownItemStyle,
-                          }}
+                          style={navbarStyles.dropdownItemStyle}
                           onClick={() => {
                             setActiveIdx(idx);
                             navigate(`/teenused?product=${prod.id}`);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            setOpenDropdownIdx(null);
                           }}
                         >
                           {prod.name}
@@ -168,21 +162,89 @@ const productDropdown = businessProducts.map((prod, idx) => {
         {menuOpen && isMobile && (
           <ul className="navbar-mobile" style={navbarStyles.mobileMenuStyle}>
             {menu.map((item, idx) => (
-              <li key={idx} style={navbarStyles.liStyle}>
-                <Link
-                  to={item.href}
-                  style={{
-                    ...navbarStyles.linkStyle,
-                    ...(activeIdx === idx ? navbarStyles.activeLinkStyle : {}),
-                  }}
-                  onClick={() => {
-                    setActiveIdx(idx);
-                    setMenuOpen(false);
-                  }}
-                >
-                  {item.label}
-                </Link>
-              </li>
+              <React.Fragment key={idx}>
+                <li style={navbarStyles.liStyle}>
+                  {item.href === '/teenused' ? (
+                    <>
+                      <button
+                        type="button"
+                        style={{
+                          ...navbarStyles.linkStyle,
+                          width: '100%',
+                          textAlign: 'center',
+                          background: 'none',
+                          border: 'none',
+                          outline: 'none',
+                          cursor: 'pointer',
+                          padding: '0.36em 0.9em',
+                          fontWeight: 600,
+                          fontSize: '1.08em',
+                          color: '#30353d',
+                        }}
+                        onClick={() =>
+                          setOpenDropdownIdx(openDropdownIdx === idx ? null : idx)
+                        }
+                      >    <span style={{ float: 'right', fontSize: 15, marginLeft: 8 }}>
+                          {openDropdownIdx === idx ? '↑' : '↓'}
+                        </span>
+                        {item.label}
+                
+                      </button>
+                      {openDropdownIdx === idx && (
+                        <ul style={{
+                          listStyle: 'none',
+                          padding: '.4em 0.4em .4em 0.4em',
+                          background: '#f9fafb',
+                          borderRadius: 8,
+                          border: '1px solid #e5e7eb',
+                        }}>
+                          {productDropdown.map(prod => (
+                            <li key={prod.id}>
+                              <button
+                                type="button"
+                                style={{
+                                  ...navbarStyles.dropdownItemStyle,
+                                  width: '100%',
+                                  textAlign: 'center',
+                                  background: 'none',
+                                  border: 'none',
+                                  outline: 'none',
+                                  cursor: 'pointer',
+                                  padding: '0.9em 0.6em',
+                                }}
+                                onClick={() => {
+                                  setActiveIdx(idx);
+                                  setMenuOpen(false);
+                                  setOpenDropdownIdx(null);
+                                  navigate(`/teenused?product=${prod.id}`);
+                                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
+                              >
+                                {prod.name}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      style={{
+                        ...navbarStyles.linkStyle,
+                        ...(activeIdx === idx ? navbarStyles.activeLinkStyle : {}),
+                      }}
+                      onClick={() => {
+                        setActiveIdx(idx);
+                        setMenuOpen(false);
+                        setOpenDropdownIdx(null);
+                      }}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
+              </React.Fragment>
             ))}
 
             <li style={navbarStyles.mobileSelectWrapperStyle}>

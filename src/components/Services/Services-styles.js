@@ -272,7 +272,7 @@ export const contactBtnStyle = {
   background: '#888',
   color: '#fff',
   fontWeight: 700,
-  fontSize: '1.08em',
+  fontSize: '1em',
   marginTop: 46,
   minWidth: 260,
   maxWidth: 450,
