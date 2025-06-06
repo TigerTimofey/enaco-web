@@ -221,8 +221,8 @@ function Home({ lang }) {
                       className={productBtnAnimatedClass}
                       style={productBtnStyle}
                       onClick={() => {
-                        console.log('Product name:', prod.name, 'Product id:', prod.id);
-                        navigate('/teenused');
+                        // navigate to services with selected product
+                        navigate(`/teenused?product=${prod.id}`);
                       }}
                     >
                       {(prod.btn || '').replace('{PRODUCT_NAME}', prod.name)}
