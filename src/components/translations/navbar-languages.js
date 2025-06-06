@@ -3,7 +3,7 @@ const navbarMenus = {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/meist' },
     { label: 'Services', href: '/teenused' },
-    { label: 'Guarantees', href: '/garantiid' },
+    { label: 'Warranty', href: '/garantiid' },
     { label: 'Contacts', href: '/kontakt' },
   ],
   ee: [
@@ -411,4 +411,140 @@ export const contactFormLabels = {
     invalidName: "Пожалуйста, введите ваше имя.",
     invalidMessage: "Пожалуйста, введите сообщение."
   }
+};
+
+export const guaranteesContent = {
+  ee: {
+    warranty: {
+      title: "GARANTII",
+      icon: "green-check",
+      text: `Garantii kehtib järgmistel juhtudel:
+
+- Taastatud varuosadele kehtib garantii 3 kuni 12 kuud.
+- Kasutatud varuosadele kehtib garantii 14 kuni 180 päeva, sõltuvalt konkreetsest varuosast.
+
+NB! Mootoritele ja käigukastidele kehtib garantii ainult juhul, kui varuosa on paigaldatud vastavalt reglemendile, mis tuleb varuosaga kaasa. Kui reglement puudub, tuleb see kindlasti eelnevalt meie käest eraldi küsida.
+
+Kasutatud varuosadele kehtib 14-päevane paigaldusgarantii, tingimusel et varuosa tagastatakse samas komplektsuses.`
+    },
+    notApply: {
+      title: "Garantii ei kehti",
+      icon: "red-cross",
+      text: `Garantii ei kehti järgmistel juhtudel:
+
+- varuosa on demonteeritud või lahti võetud.
+- defektid on põhjustatud kliendi poolt.
+- esineb paigaldus vigade või kasutusjuhiste eiramise tagajärgi.
+
+NB! Garantii ei kata kulusid, mis on seotud varuosa transpordi, paigaldamise või eemaldamisega.
+Kauba tagastamise kulud tasub ostja.`
+    },
+    delivery: {
+      title: "Tarneinfo",
+      icon: "yellow-box",
+      text: `Varuosa ostusoovi korral palume eelnevalt meiega ühendust võtta, et vältida olukorda, kus soovitud varuosa on juba müüdud teisele kliendile.
+
+Kauba saatmine:
+- Pakiautomaadiga alates 6 eurost
+- OSC kulleriga alates 10 eurost`,
+      contactLink: "võta meiega ühendust"
+    }
+  },
+  en: {
+    warranty: {
+      title: "WARRANTY",
+      icon: "green-check",
+      text: `Warranty does apply in the following cases:
+
+- a warranty of 3 to 12 months applies to reconditioned spare parts.
+- a warranty of 14 to 180 days applies to used spare parts, depending on the specific part.
+
+NB! Engines and gearboxes are covered by warranty only if the part is installed according to the regulations provided with the part. If the regulation is missing, please request it from us in advance.
+
+Used spare parts have a 14-day installation warranty, provided the part is returned in the same completeness.`
+    },
+    notApply: {
+      title: "No Warranty",
+      icon: "red-cross",
+      text: `Warranty does not apply in the following cases:
+
+- the part has been disassembled or taken apart.
+- defects are caused by the customer.
+- installation errors or non-compliance with instructions are present.
+
+NB! The warranty does not cover costs related to the transport, installation, or removal of the part.
+The buyer pays the cost of returning the goods.`
+    },
+    delivery: {
+      title: "Delivery info",
+      icon: "yellow-box",
+      text: `If you wish to purchase a part, please `,
+      contactLink: "contact us",
+      textAfter: ` in advance to avoid the situation where the desired part has already been sold to another customer.
+
+Shipping:
+- Parcel machine from 6 euros
+- OSC courier from 10 euros`
+    }
+  },
+  ru: {
+    warranty: {
+      title: "ГАРАНТИЯ",
+      icon: "green-check",
+      text: `Гарантия предоставляется в следующих случаях:
+
+- на восстановленные запчасти предоставляется гарантия от 3 до 12 месяцев.
+- на б/у запчасти предоставляется гарантия от 14 до 180 дней, в зависимости от конкретной детали.
+
+Внимание! На двигатели и коробки передач гарантия распространяется только при условии установки детали в соответствии с регламентом, который прилагается к детали. Если регламента нет, обязательно запросите его у нас заранее.
+
+На б/у запчасти предоставляется 14-дневная гарантия на установку при условии возврата детали в полной комплектации.`
+    },
+    notApply: {
+      title: "Нет гарантии",
+      icon: "red-cross",
+      text: `Гарантия не распространяется в следующих случаях:
+
+- деталь была разобрана или вскрыта.
+- дефекты вызваны клиентом.
+- имеются последствия ошибок установки или несоблюдения инструкций.
+
+Внимание! Гарантия не покрывает расходы, связанные с транспортировкой, установкой или снятием детали.
+Расходы по возврату товара оплачивает покупатель.`
+    },
+    delivery: {
+      title: "Доставка",
+      icon: "yellow-box",
+      text: `При желании приобрести деталь просьба заранее `,
+      contactLink: "связаться с нами",
+      textAfter: `, чтобы избежать ситуации, когда нужная деталь уже продана другому клиенту.
+
+Доставка:
+- Через постамат от 6 евро
+- Курьер OSC от 10 евро`
+    }
+  }
+};
+
+export const guaranteesBoldPhrases = {
+  ee: [
+    "Garantii kehtib järgmistel juhtudel:",
+    "Garantii ei kehti järgmistel juhtudel:",
+    "NB!",
+    "Kauba saatmine:",
+    "Võta meiega ühendust"
+  ],
+  en: [
+    "Warranty does apply in the following cases:",
+    "Warranty does not apply in the following cases:",
+    "NB!",
+    "Shipping:"
+  ],
+  ru: [
+    "Гарантия предоставляется в следующих случаях:",
+    "Гарантия не распространяется в следующих случаях:",
+    "NB!",
+    "Доставка:",
+    "Внимание!"
+  ]
 };

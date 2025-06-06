@@ -119,7 +119,6 @@ export const productBtnStyle = {
   border: 'none',
   cursor: 'pointer',
   boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
-//   background: '#e11d48',
 };
 
 export const stepsSectionStyle = {

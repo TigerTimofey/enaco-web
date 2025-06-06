@@ -236,7 +236,6 @@ export const responsiveAndKeyframes = `
     .contacts-grid {
       display: flex !important;
       flex-direction: column !important;
-      width: 100vw !important;
       max-width: 100vw !important;
       padding: 0 !important;
       gap: 0 !important;
