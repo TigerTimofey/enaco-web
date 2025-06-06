@@ -48,8 +48,8 @@ export const navbarLabels = {
 
 export const homeLabels = {
   en: {
-    heroTitle: "We are a company specializing in used, refurbished, and new auto parts since 2020.",
-    heroSubtitle: "We supply parts across Estonia and the European Union, focusing on high-demand components with reliable quality, warranty, and fast delivery.",
+    heroTitle: "We are a company specializing in used, refurbished, and new auto parts since 2020",
+    heroSubtitle: "We supply parts across Estonia and the European Union, focusing on high-demand components with reliable quality, warranty, and fast delivery",
     contactBtn: "Contact Us",
     subscribeBtn: "Subscribe",
     messageBtn: "Message",
@@ -126,10 +126,33 @@ export const homeLabels = {
     orderFormTitle: "Order Form",
     contactBtnSecondary: "Still have questions? Contact us",
     fillFormPrefix: "Fill form for",
+    aboutPage: {
+      title: "Reliable Auto Parts Supplier Since 2020",
+      intro: "Enaco Group OÜ is a company specializing in the sale of new, reconditioned, and used auto parts. We have been operating since 2020, supplying throughout Estonia and the European Union.",
+      specialization: "Our focus is on the most in-demand automotive units. We offer only verified parts with warranty, fast delivery, and technical support.",
+      directionsTitle: "Main directions:",
+      directions: [
+        "Engines (motors)",
+        "Gearboxes",
+        "Turbochargers (turbos)",
+        "Air suspension",
+        "Differentials and transfer cases",
+        "Electronic components (ECUs, modules, and others)"
+      ],
+      advantagesTitle: "Our advantages:",
+      advantages: [
+        "All units undergo technical inspection",
+        "Warranty and assistance with VIN selection",
+        "Delivery across Estonia and the entire EU",
+        "We work with private and corporate clients"
+      ],
+      cta: "Looking for reliable auto parts in Estonia or the European Union?",
+      cta2: "Enaco Group OÜ will help you find the right part and ensure fast and safe delivery.",
+    },
   },
   ee: {
-    heroTitle: "Oleme ettevõte, mis on alates 2020. aastast spetsialiseerunud kasutatud, taastatud ja uute autovaruosade müügile.",
-    heroSubtitle: "Meie tooted jõuavad klientideni üle Eesti ja Euroopa Liidu. Pakume kvaliteetseid ja nõutud varuosi koos garantiiga ja kiire tarnimisega.",
+    heroTitle: "Oleme ettevõte, mis on alates 2020. aastast spetsialiseerunud kasutatud, taastatud ja uute autovaruosade müügile",
+    heroSubtitle: "Meie tooted jõuavad klientideni üle Eesti ja Euroopa Liidu. Pakume kvaliteetseid ja nõutud varuosi koos garantiiga ja kiire tarnimisega",
     contactBtn: "Võta meiega ühendust",
     subscribeBtn: "Telli",
     messageBtn: "Sõnum",
@@ -206,10 +229,33 @@ export const homeLabels = {
     orderFormTitle: "Tellimisvorm",
     contactBtnSecondary: "Jäid küsimused? Võta meiega ühendust",
     fillFormPrefix: "Täida vorm",
+    aboutPage: {
+      title: "Usaldusväärne autovaruosade tarnija alates 2020. aastast",
+      intro: "Enaco Group OÜ on ettevõte, mis on spetsialiseerunud uute, taastatud ja kasutatud autovaruosade müügile. Oleme tegutsenud alates 2020. aastast, pakkudes tarnet üle Eesti ja Euroopa Liidu.",
+      specialization: "Meie fookus on kõige nõutumate autode agregaatidel. Pakume ainult kontrollitud detaile koos garantiiga, kiire tarnega ja tehnilise toega.",
+      directionsTitle: "Peamised suunad:",
+      directions: [
+        "Mootorid",
+        "Käigukastid",
+        "Turbokompressorid (turbo)",
+        "Õhkvedrustus",
+        "Diferentsiaalid ja vahekastid",
+        "Elektroonikakomponendid (juhtplokid, moodulid jm)"
+      ],
+      advantagesTitle: "Meie eelised:",
+      advantages: [
+        "Kõik agregaadid läbivad tehnilise kontrolli",
+        "Garantii ja abi valikul VIN-koodi alusel",
+        "Kohaletoimetamine Eestis ja kogu EL territooriumil",
+        "Töötame nii era- kui äriklientidega"
+      ],
+      cta: "Otsite usaldusväärseid autovaruosi Eestis või Euroopa Liidus?",
+      cta2: "Enaco Group OÜ aitab leida vajaliku detaili ja tagab kiire ning turvalise kohaletoimetamise.",
+    },
   },
   ru: {
-    heroTitle: "Мы — компания, специализирующаяся на продаже б/у, восстановленных и новых автозапчастей с 2020 года.",
-    heroSubtitle: "Наша компания поставляет автозапчасти по всей Эстонии и странам Европейского Союза. Мы специализируемся на самых востребованных агрегатах, обеспечивая высокое качество, гарантию и оперативную доставку.",
+    heroTitle: "Мы — компания, специализирующаяся на продаже б/у, восстановленных и новых автозапчастей с 2020 года",
+    heroSubtitle: "Наша компания поставляет автозапчасти по всей Эстонии и странам Европейского Союза. Мы специализируемся на самых востребованных агрегатах, обеспечивая высокое качество, гарантию и оперативную доставку",
     contactBtn: "Связаться с нами",
     subscribeBtn: "Подписаться",
     messageBtn: "Сообщение",
@@ -286,6 +332,29 @@ export const homeLabels = {
     orderFormTitle: "Форма заказа",
     contactBtnSecondary: "Остались вопросы? Свяжитесь с нами",
     fillFormPrefix: "Заполнить форму",
+    aboutPage: {
+      title: "Надёжный поставщик автозапчастей с 2020 года",
+      intro: "Enaco Group OÜ — это компания, специализирующаяся на продаже новых, восстановленных и бывших в употреблении автозапчастей. Мы работаем с 2020 года, обеспечивая поставки по всей Эстонии и странам Европейского Союза.",
+      specialization: "Наша специализация — наиболее востребованные автомобильные агрегаты. Мы предлагаем только проверенные детали с гарантией, оперативной доставкой и технической поддержкой.",
+      directionsTitle: "Основные направления:",
+      directions: [
+        "Двигатели (моторы)",
+        "Коробки передач",
+        "Турбокомпрессоры (турбины)",
+        "Пневмоподвеска",
+        "Дифференциалы и раздаточные коробки",
+        "Электронные компоненты (ЭБУ, модули и другие)"
+      ],
+      advantagesTitle: "Наши преимущества:",
+      advantages: [
+        "Все агрегаты проходят техническую проверку",
+        "Предоставляется гарантия и помощь в подборе по VIN-коду",
+        "Доставка по всей Эстонии и территории ЕС",
+        "Работа с частными и корпоративными клиентами"
+      ],
+      cta: "Ищете надёжные автозапчасти в Эстонии или Европейском союзе?",
+      cta2: "Enaco Group OÜ поможет подобрать нужную деталь и обеспечит её быструю и безопасную доставку.",
+    },
   }
 };
 

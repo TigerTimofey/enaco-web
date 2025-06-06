@@ -1,11 +1,69 @@
-import React from 'react';
-import { navbarLabels } from '../translations/navbar-languages.js';
+import { navbarLabels, homeLabels } from '../translations/navbar-languages.js';
+import * as aboutStyles from './About-styles.js';
+import { useNavigate } from 'react-router-dom';
 
 function About({ lang }) {
+  const t = homeLabels[lang]?.aboutPage || homeLabels.en.aboutPage;
+  const navigate = useNavigate();
+
   return (
     <div>
-      <h1>{navbarLabels[lang].about}</h1>
-      {/* Add your About page content here */}
+      {/* Page name header */}
+      <div style={aboutStyles.headerOuter}>
+        <h1 style={aboutStyles.headerTitle}>
+          {navbarLabels[lang].about}
+        </h1>
+      </div>
+      <div style={aboutStyles.aboutContainer}>
+        <div style={aboutStyles.logoTitleRow} className="about-logo-title-row">
+          <img src="/logo.svg" alt="Enaco Group OÜ" style={aboutStyles.aboutLogo} className="about-logo" />
+          <div>
+            <h1 style={aboutStyles.aboutTitle} className="about-title">
+              {t.title}
+            </h1>
+            <h2 style={aboutStyles.aboutSubtitle}>
+              <br />
+              {t.specialization}
+            </h2>
+          </div>
+        </div>
+
+        <div style={aboutStyles.columnsRow} className="about-columns">
+          <div style={aboutStyles.leftColumn}>
+            <div style={aboutStyles.aboutSectionTitle} className="about-section-title">{t.directionsTitle}</div>
+            <ul style={aboutStyles.aboutList} className="about-list">
+              {t.directions.map((item, i) => (
+                <li key={i} style={aboutStyles.aboutListItem}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div style={aboutStyles.divider} className="about-divider" />
+          <div style={aboutStyles.rightColumn}>
+            <div style={aboutStyles.aboutSectionTitle} className="about-section-title">{t.advantagesTitle}</div>
+            <ul style={aboutStyles.aboutList} className="about-list">
+              {t.advantages.map((item, i) => (
+                <li key={i} style={aboutStyles.aboutListItem}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div style={aboutStyles.aboutCta}>
+          {t.cta.split('?')[0]}?
+          <span
+            style={aboutStyles.aboutCtaLink}
+            onClick={() => navigate('/kontakt')}
+          >
+            {lang === 'ru'
+              ? 'Свяжитесь с нами!'
+              : lang === 'ee'
+                ? 'Võta meiega ühendust!'
+                : 'Contact us!'}
+          </span>
+        </div>
+        <div style={aboutStyles.aboutSpecialization}>{t.cta2}</div>
+      </div>
+      <style>{aboutStyles.responsiveStyle}</style>
     </div>
   );
 }

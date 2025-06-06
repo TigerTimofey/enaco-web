@@ -1,4 +1,4 @@
-// Contacts styles
+
 
 export const contactHeaderOuter = {
   width: '100%',
@@ -25,7 +25,6 @@ export const contactsGrid = {
   display: 'grid',
   gridTemplateColumns: '4fr 8fr',
   maxWidth: 1200,
-  margin: '80px auto 0 auto',
   background: 'transparent',
   gap: 90,
   alignItems: 'stretch',
@@ -89,9 +88,9 @@ export const contactsForm = {
 };
 
 export const formTitle = {
+  marginTop: 34,
   fontSize: 32,
   fontWeight: 700,
-  margin: '0 0 12px 0',
   color: '#e11d48',
   textAlign: 'center',
   width: '100%'
@@ -145,6 +144,7 @@ export const form = {
 };
 
 export const input = {
+
   padding: '1em 1.2em',
   borderRadius: 10,
   border: '1.5px solid #e5e7eb',

@@ -25,7 +25,6 @@ export const gridStyle = {
   gridTemplateColumns: '1fr 1fr',
   gap: '36px',
   maxWidth: 1100,
-  margin: '80px auto 0px auto',
   padding: '0 1.5rem',
 };
 
