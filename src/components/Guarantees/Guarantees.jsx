@@ -55,11 +55,7 @@ function Guarantees({ lang }) {
 
   return (
     <div>
-      <div style={guaranteeStyles.pageHeaderOuter}>
-        <h1 style={guaranteeStyles.pageHeaderTitle}>
-          {t.warranty.title}
-        </h1>
-      </div>
+
       <div className="guarantees-grid" style={guaranteeStyles.gridStyle}>
         <div style={guaranteeStyles.cardStyle}>
           <div style={guaranteeStyles.cardTitleStyle}>

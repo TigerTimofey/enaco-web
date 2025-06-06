@@ -74,13 +74,7 @@ function Contacts({ lang }) {
 
   return (
     <div>
-      {/* Centered CONTACT section on top */}
-      <div style={contactStyles.contactHeaderOuter}>
-        <h1 style={contactStyles.contactHeaderTitle}>
-          {labels.title}
-        </h1>
-      </div>
-
+ 
       <div
         className="contacts-grid"
         style={contactStyles.contactsGrid}

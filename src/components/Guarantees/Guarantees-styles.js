@@ -26,6 +26,7 @@ export const gridStyle = {
   gap: '36px',
   maxWidth: 1100,
   padding: '0 1.5rem',
+  marginTop: 94,
 };
 
 export const cardStyle = {

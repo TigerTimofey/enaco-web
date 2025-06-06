@@ -13,16 +13,18 @@ export const headerTitle = {
   fontWeight: 800,
   color: '#555555',
   letterSpacing: '0.04em',
-  margin: 0,
+
   textAlign: 'center',
   textTransform: 'uppercase',
   fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif"
+  
 };
 
 // About styles (empty for now)
 export const aboutContainer = {
+
   maxWidth: 900,
-  margin: '48px auto 64px auto',
+  margin: '94px auto 64px auto',
   background: '#fff',
   borderRadius: 18,
   boxShadow: '0 2px 12px 0 rgba(60,60,60,0.09)',

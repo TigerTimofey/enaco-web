@@ -23,6 +23,7 @@ export const productSectionStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  marginTop: 94,
   width: '100%',
 };
 
@@ -248,15 +249,16 @@ export const formSubmitBtnAnimatedHoverStyle = `
 `;
 
 export const orderFormTitleStyle = {
-  fontSize: '3em',
+  fontSize: '1.6em',
   fontWeight: 800,
-  color: '#555555',
+  color: ' #e11d48',
   letterSpacing: '0.04em',
   margin: 0,
   textAlign: 'center',
   textTransform: 'uppercase',
   fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif",
   padding: 30,
+  marginBottom: 10,
   marginTop: 0,
 };
 

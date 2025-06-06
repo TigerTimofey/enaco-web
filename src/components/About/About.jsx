@@ -1,4 +1,4 @@
-import { navbarLabels, homeLabels } from '../translations/navbar-languages.js';
+import { homeLabels } from '../translations/navbar-languages.js';
 import * as aboutStyles from './About-styles.js';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,12 +8,7 @@ function About({ lang }) {
 
   return (
     <div>
-      {/* Page name header */}
-      <div style={aboutStyles.headerOuter}>
-        <h1 style={aboutStyles.headerTitle}>
-          {navbarLabels[lang].about}
-        </h1>
-      </div>
+
       <div style={aboutStyles.aboutContainer}>
         <div style={aboutStyles.logoTitleRow} className="about-logo-title-row">
           <img src="/logo.svg" alt="Enaco Group OÜ" style={aboutStyles.aboutLogo} className="about-logo" />
@@ -22,6 +17,7 @@ function About({ lang }) {
               {t.title}
             </h1>
             <h2 style={aboutStyles.aboutSubtitle}>
+
               <br />
               {t.specialization}
             </h2>

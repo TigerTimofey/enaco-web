@@ -1,4 +1,4 @@
-import { navbarLabels, homeLabels, formLabels } from '../translations/navbar-languages.js';
+import {  homeLabels, formLabels } from '../translations/navbar-languages.js';
 import { businessProducts } from '../utils/bussines-services/bussines-services.js';
 import * as servicesStyles from './Services-styles.js';
 import { orderFormTitleStyle, contactBtnGroupStyle, contactBtnStyle, formSubmitBtnAnimatedClass, formSubmitBtnAnimatedHoverStyle } from './Services-styles.js';
@@ -37,11 +37,7 @@ function Services({ lang, selectedProductId }) {
 
   return (
     <div>
-      <div style={servicesStyles.servicesHeaderOuter}>
-        <h1 style={servicesStyles.servicesHeaderTitle}>
-          {navbarLabels[lang].services}
-        </h1>
-      </div>
+ 
       <section style={servicesStyles.productSectionStyle}>
         <div style={servicesStyles.productSectionInnerStyle}>
           <div style={servicesStyles.productCardsContainerStyle}>
