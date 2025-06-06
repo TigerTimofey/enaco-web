@@ -123,6 +123,9 @@ export const homeLabels = {
       "We work with private and corporate clients"
     ],
     advantagesLearnMore: "Learn more about us",
+    orderFormTitle: "Order Form",
+    contactBtnSecondary: "Still have questions? Contact us",
+    fillFormPrefix: "Fill form for",
   },
   ee: {
     heroTitle: "Oleme ettevõte, mis on alates 2020. aastast spetsialiseerunud kasutatud, taastatud ja uute autovaruosade müügile.",
@@ -200,6 +203,9 @@ export const homeLabels = {
       "Töötame nii era- kui äriklientidega"
     ],
     advantagesLearnMore: "Loe meist lähemalt",
+    orderFormTitle: "Tellimisvorm",
+    contactBtnSecondary: "Jäid küsimused? Võta meiega ühendust",
+    fillFormPrefix: "Täida vorm",
   },
   ru: {
     heroTitle: "Мы — компания, специализирующаяся на продаже б/у, восстановленных и новых автозапчастей с 2020 года.",
@@ -277,6 +283,9 @@ export const homeLabels = {
       "Работаем с частными и корпоративными клиентами"
     ],
     advantagesLearnMore: "Подробнее о нас",
+    orderFormTitle: "Форма заказа",
+    contactBtnSecondary: "Остались вопросы? Свяжитесь с нами",
+    fillFormPrefix: "Заполнить форму",
   }
 };
 
@@ -547,4 +556,58 @@ export const guaranteesBoldPhrases = {
     "Доставка:",
     "Внимание!"
   ]
+};
+
+export const formLabels = {
+  en: {
+    smark: "Car brand",
+    smudel: "Car model",
+    aasta: "Year",
+    skub: "Engine capacity (cm³)",
+    mvoimsus: "Engine power (kW)",
+    mtahis: "Engine code",
+    kytus: "Fuel",
+    rek: "Car reg. number",
+    detail: "What parts are you looking for?",
+    nimi: "Your name",
+    email: "Your email",
+    aadress: "Your address",
+    telefon: "Your phone",
+    markused: "Notes",
+    send: "Send"
+  },
+  ee: {
+    smark: "Sõiduki mark",
+    smudel: "Sõiduki mudel",
+    aasta: "Aasta",
+    skub: "Mootori kubatuur (cm³)",
+    mvoimsus: "Mootori võimsus (kW)",
+    mtahis: "Mootori tähis",
+    kytus: "Kütus",
+    rek: "Auto reg. number",
+    detail: "Milliseid detaile otsite?",
+    nimi: "Teie nimi",
+    email: "Teie email",
+    aadress: "Teie aadress",
+    telefon: "Teie telefon",
+    markused: "Märkused",
+    send: "Saada"
+  },
+  ru: {
+    smark: "Марка автомобиля",
+    smudel: "Модель автомобиля",
+    aasta: "Год",
+    skub: "Объем двигателя (см³)",
+    mvoimsus: "Мощность двигателя (кВт)",
+    mtahis: "Код двигателя",
+    kytus: "Топливо",
+    rek: "Рег. номер авто",
+    detail: "Какие детали Вы ищите?",
+    nimi: "Ваше имя",
+    email: "Ваш email",
+    aadress: "Ваш адрес",
+    telefon: "Ваш телефон",
+    markused: "Примечания",
+    send: "Отправить"
+  }
 };

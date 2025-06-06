@@ -254,12 +254,10 @@ export const stepTextStyle = {
   overflowWrap: 'break-word'
 };
 
-// Add class names for buttons
 export const contactBtnClass = "contact-btn";
 export const animatedBtnClass = "animated-btn";
 export const productBtnAnimatedClass = "product-btn-animated";
 
-// Add hover styles as string for <style> tag in Home.jsx
 export const contactBtnHoverStyle = `
 .contact-btn:hover {
   background: #f25577 !important;
@@ -299,7 +297,6 @@ export const productBtnAnimatedHoverStyle = `
 }
 `;
 
-// Carousel section styles
 export const carouselSectionStyle = {
   padding: '3rem 0',
   display: 'flex',
@@ -341,7 +338,7 @@ export const carouselButtonStyle = (showWords, visibleCount, wordsLength) => ({
   pointerEvents: showWords && visibleCount === wordsLength ? 'auto' : 'none',
 });
 
-// Responsive styles for carousel section
+
 export const carouselSectionResponsiveStyle = `
 @media (max-width: 600px) {
   .carousel-static-section {

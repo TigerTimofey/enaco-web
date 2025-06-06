@@ -147,7 +147,6 @@ export const responsiveStyle = `
     padding: 0 !important;
     min-height: unset !important;
     max-width: 98vw !important;
-    width: 98vw !important;
     box-sizing: border-box !important;
   }
   .services-product-img {
@@ -171,3 +170,124 @@ export const responsiveStyle = `
   }
 }
 `;
+
+export const formSectionStyle = {
+  margin: '48px auto',
+  width: '100%',
+};
+
+export const formOuterStyle = {
+  background: '#fff',
+  borderRadius: 22,
+  boxShadow: '0 2px 12px 0 rgba(60,60,60,0.09)',
+  padding: '2.5rem 2.5rem',
+  margin: '0 auto',
+
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 0,
+};
+
+export const formRowStyle = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: 24,
+};
+
+export const formInputStyle = {
+  padding: '0.5em 1.2em',
+  borderRadius: 10,
+  border: '1.5px solid #e5e7eb',
+  fontSize: 17,
+  background: '#fff',
+  color: '#555555',
+  marginBottom: 16,
+  boxShadow: '0 1px 4px 0 rgba(60,60,60,0.04)',
+  outline: 'none',
+  transition: 'border 0.18s',
+  fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif",
+  flex: 1,
+};
+
+export const formTextareaStyle = {
+  ...formInputStyle,
+  width: '100%',
+  minHeight: 80,
+  resize: 'vertical',
+  boxSizing: 'border-box',
+  flex: 1,
+  minWidth: 0,
+  marginBottom: 16,
+};
+
+export const formSubmitStyle = {
+  background: '#e11d48',
+  color: '#fff',
+  fontWeight: 700,
+  fontSize: '1.1em',
+  border: 'none',
+  borderRadius: 8,
+  padding: '0.7em 2em',
+  marginTop: 12,
+  width: 180,
+  alignSelf: 'center',
+  cursor: 'pointer'
+};
+
+export const formSubmitBtnAnimatedClass = "form-submit-btn-animated";
+
+export const formSubmitBtnAnimatedHoverStyle = `
+.form-submit-btn-animated:hover {
+    background: #f25577 !important;
+  box-shadow: 0 1px 4px 0 rgba(60,60,60,0.09);
+  transition: background 0.18s;
+}
+.form-submit-btn-animated:active {
+  background: #666 !important;
+}
+`;
+
+export const orderFormTitleStyle = {
+  fontSize: '3em',
+  fontWeight: 800,
+  color: '#555555',
+  letterSpacing: '0.04em',
+  margin: 0,
+  textAlign: 'center',
+  textTransform: 'uppercase',
+  fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif",
+  padding: 30,
+  marginTop: 0,
+};
+
+export const contactBtnGroupStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
+  marginTop: 28,
+  marginBottom: 4,
+};
+
+export const contactBtnStyle = {
+  background: '#888',
+  color: '#fff',
+  fontWeight: 700,
+  fontSize: '1.08em',
+  marginTop: 46,
+  minWidth: 260,
+  maxWidth: 450,
+  width: '100%',
+  padding: '0.9em 2em',
+  borderRadius: 10,
+  cursor: 'pointer',
+  boxShadow: '0 2px 8px 0 rgba(60,60,60,0.09)',
+  letterSpacing: '0.01em',
+  transition: 'background 0.18s, box-shadow 0.18s',
+  border: 'none',
+  outline: 'none',
+  margin: 0,
+  textAlign: 'center',
+  alignItems: 'center',
+  display: 'flex',
+  justifyContent: 'center',
+};
