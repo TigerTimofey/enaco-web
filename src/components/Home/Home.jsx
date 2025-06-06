@@ -111,15 +111,21 @@ function Home({ lang }) {
   const advantagesList = labels.advantagesList;
   const learnMoreText = labels.advantagesLearnMore;
 
-  // Advantages section scroll-in/out logic
   const advantagesRef = useRef(null);
   const [showAdvantages, setShowAdvantages] = useState(false);
+  const [advantagesScrollDir, setAdvantagesScrollDir] = useState('down');
+  const lastScrollYAdv = useRef(window.scrollY);
 
   useEffect(() => {
     function onScroll() {
+
+      const currY = window.scrollY;
+      setAdvantagesScrollDir(currY > lastScrollYAdv.current ? 'down' : 'up');
+      lastScrollYAdv.current = currY;
+
       if (!advantagesRef.current) return;
       const rect = advantagesRef.current.getBoundingClientRect();
-      // Appear when top is in lower 95% of viewport, disappear when scrolled past
+
       const visible = rect.top < window.innerHeight * 0.95 && rect.bottom > 50;
       setShowAdvantages(visible);
     }
@@ -127,6 +133,31 @@ function Home({ lang }) {
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+
+  const productCardsRef = useRef([]);
+  const [visibleCards, setVisibleCards] = useState([]);
+  const [scrollDir, setScrollDir] = useState('down');
+  const lastScrollY = useRef(window.scrollY);
+
+  useEffect(() => {
+    function onScroll() {
+
+      const currY = window.scrollY;
+      setScrollDir(currY > lastScrollY.current ? 'down' : 'up');
+      lastScrollY.current = currY;
+
+      setVisibleCards(products.map((_, idx) => {
+        const el = productCardsRef.current[idx];
+        if (!el) return false;
+        const rect = el.getBoundingClientRect();
+        return rect.bottom > 0 && rect.top < window.innerHeight;
+      }));
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [products.length]);
 
   return (
     <div>
@@ -150,36 +181,56 @@ function Home({ lang }) {
         </div>
       </section>
       {/* Product Info Section */}
-      <section style={productSectionStyle}>
+      <section
+        style={productSectionStyle}
+      >
         <div style={productSectionInnerStyle}>
           <div style={productCardsContainerStyle}>
-            {products.map((prod) => (
-              <div key={prod.id} style={productCardStyle}>
-                <img
-                  src={prod.img}
-                  alt={prod.name}
-                  style={productImgStyle}
-                />
-                <p style={productTitleStyle}>
-                  {prod.title}
-                </p>
-                <p style={productDescStyle}>
-                  {prod.desc}
-                </p>
-                <div style={productBtnGroupStyle}>
-                  <button
-                    className={productBtnAnimatedClass}
-                    style={productBtnStyle}
-                    onClick={() => {
-                      console.log('Product name:', prod.name, 'Product id:', prod.id);
-                      navigate('/teenused');
-                    }}
-                  >
-                    {(prod.btn || '').replace('{PRODUCT_NAME}', prod.name)}
-                  </button>
+            {products.map((prod, idx) => {
+
+              const translateY = visibleCards[idx]
+                ? '0'
+                : scrollDir === 'down'
+                  ? '60px'
+                  : '-60px';
+              return (
+                <div
+                  key={prod.id}
+                  ref={el => (productCardsRef.current[idx] = el)}
+                  style={{
+                    ...productCardStyle,
+                    opacity: visibleCards[idx] ? 1 : 0,
+                    transform: `translateY(${translateY})`,
+                    pointerEvents: visibleCards[idx] ? 'auto' : 'none',
+                    transition: 'opacity 0.5s cubic-bezier(.4,0,.2,1), transform 0.5s cubic-bezier(.4,0,.2,1)',
+                  }}
+                >
+                  <img
+                    src={prod.img}
+                    alt={prod.name}
+                    style={productImgStyle}
+                  />
+                  <p style={productTitleStyle}>
+                    {prod.title}
+                  </p>
+                  <p style={productDescStyle}>
+                    {prod.desc}
+                  </p>
+                  <div style={productBtnGroupStyle}>
+                    <button
+                      className={productBtnAnimatedClass}
+                      style={productBtnStyle}
+                      onClick={() => {
+                        console.log('Product name:', prod.name, 'Product id:', prod.id);
+                        navigate('/teenused');
+                      }}
+                    >
+                      {(prod.btn || '').replace('{PRODUCT_NAME}', prod.name)}
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -190,8 +241,13 @@ function Home({ lang }) {
         style={{
           ...advantagesSectionAppearStyle,
           opacity: showAdvantages ? 1 : 0,
-          transform: showAdvantages ? 'translateY(0)' : 'translateY(60px)',
+          transform: showAdvantages
+            ? 'translateY(0)'
+            : advantagesScrollDir === 'down'
+              ? 'translateY(60px)'
+              : 'translateY(-60px)',
           pointerEvents: showAdvantages ? 'auto' : 'none',
+          transition: 'opacity 0.5s cubic-bezier(.4,0,.2,1), transform 0.5s cubic-bezier(.4,0,.2,1)',
         }}
       >
         <div

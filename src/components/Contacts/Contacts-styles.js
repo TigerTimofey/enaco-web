@@ -100,7 +100,7 @@ export const formTitle = {
 export const formOuter = {
   width: '100%',
   maxWidth: 650,
-  minHeight: 270,
+  minHeight: 340,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center'
@@ -113,7 +113,7 @@ export const thankYouBox = {
   marginTop: 32,
   textAlign: 'center',
   width: '100%',
-  minHeight: 120,
+  minHeight: 180,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
