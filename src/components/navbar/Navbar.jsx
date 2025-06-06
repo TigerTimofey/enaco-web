@@ -1,29 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { getNavbarMenu, navbarLanguages } from '../translations/navbar-languages.js';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { getNavbarMenu, navbarLanguages, homeLabels } from '../translations/navbar-languages.js';
+import { businessProducts } from '../utils/bussines-services/bussines-services.js';
 import { businessName } from '../utils/bussines-data/bussines-data.js';
-import {
-  navStyle,
-  navInnerStyle,
-  logoLinkStyle,
-  logoImgStyle,
-  ulStyle,
-  liStyle,
-  linkStyle,
-  activeLinkStyle,
-  selectStyle,
-  separatorStyle,
-  burgerStyle,
-  burgerBarStyle,
-  mobileMenuStyle,
-  logoTextStyle,
-  mobileSelectWrapperStyle,
-  linkStyleSmall,
-  linkStyleNormalTransition,
-  menuLabelSpanSmall,
-  menuLabelSpanNormal,
-  navbarSelectMobileStyle,
-} from './navbar-styles.js';
+import * as navbarStyles from './navbar-styles.js';
 
 function Navbar({ lang, setLang }) {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -34,6 +14,7 @@ function Navbar({ lang, setLang }) {
 
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const idx = menu.findIndex(item => item.href === location.pathname);
@@ -51,37 +32,109 @@ function Navbar({ lang, setLang }) {
     return () => window.removeEventListener('resize', check);
   }, []);
 
+  // Prepare product dropdown for Services
+  const productDropdown = businessProducts.map((prod, idx) => {
+    const labels = homeLabels[lang] || {};
+    let name;
+    if (lang === 'ru') {
+      const ruNames = [
+        labels['PROD_FOUR'] || '',
+        labels['PROD_FIVE'] || '',
+        labels['PROD_SIX'] || '',
+        labels['PROD_SEVEN'] || '',
+      ];
+      name = ruNames[idx] || (labels[prod.fallbackNameKey] || '');
+    } else if (idx === 0) {
+      name = labels['PROD_ONE'] || '';
+    } else {
+      name = labels[prod.nameKey] || labels[prod.fallbackNameKey] || '';
+    }
+    const id = labels[prod.idKey] || '';
+    return { id, name };
+  });
+
   return (
-    <nav style={navStyle}>
-      <div style={navInnerStyle}>
-        <Link to="/" style={logoLinkStyle} className="navbar-brand-center">
-          <img src="/logoOn.svg" alt="Logo" style={logoImgStyle} />
-          <span style={logoTextStyle}>{businessName}</span>
+    <nav style={navbarStyles.navStyle}>
+      <div style={navbarStyles.navInnerStyle}>
+        <Link to="/" style={navbarStyles.logoLinkStyle} className="navbar-brand-center">
+          <img src="/logoOn.svg" alt="Logo" style={navbarStyles.logoImgStyle} />
+          <span style={navbarStyles.logoTextStyle}>{businessName}</span>
         </Link>
 
         <ul
           className={`navbar-desktop${isMobile ? ' hide' : ''}`}
-          style={ulStyle}
+          style={navbarStyles.ulStyle}
         >
           {menu.map((item, idx) => (
             <React.Fragment key={idx}>
-              <li style={liStyle}>
-                <Link
-                  to={item.href}
-                  style={{
-                    ...linkStyle,
-                    ...(activeIdx === idx ? activeLinkStyle : {}),
-                    ...(smallMenuLabel ? linkStyleSmall : linkStyleNormalTransition),
-                  }}
-                  onClick={() => setActiveIdx(idx)}
-                >
-                  <span style={smallMenuLabel ? menuLabelSpanSmall : menuLabelSpanNormal}>
-                    {item.label}
-                  </span>
-                </Link>
+              <li style={navbarStyles.liStyle}>
+                {item.href === '/teenused' ? (
+                  <div style={{ position: 'relative', display: 'inline-block' }}>
+                    {/* Not a Link: just a span for Services, not clickable */}
+                    <span
+                      style={{
+                        ...navbarStyles.linkStyle,
+                        ...(activeIdx === idx ? navbarStyles.activeLinkStyle : {}),
+                        ...(smallMenuLabel ? navbarStyles.linkStyleSmall : navbarStyles.linkStyleNormalTransition),
+                        cursor: 'pointer',
+                        userSelect: 'none',
+                        pointerEvents: 'none',
+                        background: 'transparent',
+                        border: 'none',
+                        outline: 'none',
+                        display: 'inline-block'
+                      }}
+                      tabIndex={-1}
+                      className="navbar-services-trigger"
+                    >
+                      <span style={smallMenuLabel ? navbarStyles.menuLabelSpanSmall : navbarStyles.menuLabelSpanNormal}>
+                        {item.label}
+                      </span>
+                    </span>
+                    <div
+                      style={{
+                        ...navbarStyles.dropdownMenuStyle,
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        display: 'none',
+                      }}
+                      className="services-dropdown"
+                    >
+                      {productDropdown.map(prod => (
+                        <div
+                          key={prod.id}
+                          className="services-dropdown-item"
+                          style={{
+                            ...navbarStyles.dropdownItemStyle,
+                          }}
+                          onClick={() => {
+                            setActiveIdx(idx);
+                            navigate(`/teenused?product=${prod.id}`);
+                          }}
+                        >
+                          {prod.name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    to={item.href}
+                    style={{
+                      ...navbarStyles.linkStyle,
+                      ...(activeIdx === idx ? navbarStyles.activeLinkStyle : {}),
+                      ...(smallMenuLabel ? navbarStyles.linkStyleSmall : navbarStyles.linkStyleNormalTransition),
+                    }}
+                    onClick={() => setActiveIdx(idx)}
+                  >
+                    <span style={smallMenuLabel ? navbarStyles.menuLabelSpanSmall : navbarStyles.menuLabelSpanNormal}>
+                      {item.label}
+                    </span>
+                  </Link>
+                )}
               </li>
               {idx < menu.length - 1 && (
-                <span className="navbar-separator" style={separatorStyle} aria-hidden="true"></span>
+                <span className="navbar-separator" style={navbarStyles.separatorStyle} aria-hidden="true"></span>
               )}
             </React.Fragment>
           ))}
@@ -92,7 +145,7 @@ function Navbar({ lang, setLang }) {
             className="navbar-select"
             value={lang}
             onChange={e => setLang(e.target.value)}
-            style={selectStyle}
+            style={navbarStyles.selectStyle}
           >
             {navbarLanguages.map(l => (
               <option key={l.code} value={l.code}>
@@ -104,24 +157,24 @@ function Navbar({ lang, setLang }) {
 
         <button
           className={`navbar-burger${isMobile ? ' show' : ''}`}
-          style={burgerStyle}
+          style={navbarStyles.burgerStyle}
           onClick={() => setMenuOpen(open => !open)}
           aria-label="Toggle menu"
         >
-          <span style={burgerBarStyle}></span>
-          <span style={burgerBarStyle}></span>
-          <span style={burgerBarStyle}></span>
+          <span style={navbarStyles.burgerBarStyle}></span>
+          <span style={navbarStyles.burgerBarStyle}></span>
+          <span style={navbarStyles.burgerBarStyle}></span>
         </button>
 
         {menuOpen && isMobile && (
-          <ul className="navbar-mobile" style={mobileMenuStyle}>
+          <ul className="navbar-mobile" style={navbarStyles.mobileMenuStyle}>
             {menu.map((item, idx) => (
-              <li key={idx} style={liStyle}>
+              <li key={idx} style={navbarStyles.liStyle}>
                 <Link
                   to={item.href}
                   style={{
-                    ...linkStyle,
-                    ...(activeIdx === idx ? activeLinkStyle : {}),
+                    ...navbarStyles.linkStyle,
+                    ...(activeIdx === idx ? navbarStyles.activeLinkStyle : {}),
                   }}
                   onClick={() => {
                     setActiveIdx(idx);
@@ -133,12 +186,12 @@ function Navbar({ lang, setLang }) {
               </li>
             ))}
 
-            <li style={mobileSelectWrapperStyle}>
+            <li style={navbarStyles.mobileSelectWrapperStyle}>
               <select
                 className="navbar-select-mobile"
                 value={lang}
                 onChange={e => setLang(e.target.value)}
-                style={navbarSelectMobileStyle}
+                style={navbarStyles.navbarSelectMobileStyle}
               >
                 {navbarLanguages.map(l => (
                   <option key={l.code} value={l.code}>
@@ -149,6 +202,9 @@ function Navbar({ lang, setLang }) {
             </li>
           </ul>
         )}
+        <style>
+          {navbarStyles.navbarDropdownCss}
+        </style>
       </div>
     </nav>
   );

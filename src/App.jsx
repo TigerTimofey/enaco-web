@@ -18,13 +18,20 @@ function ScrollToTop() {
 }
 
 function AppContent({ lang, setLang }) {
+  const location = useLocation();
+  // Parse product from query string for /teenused
+  let selectedProductId = null;
+  if (location.pathname === '/teenused') {
+    const params = new URLSearchParams(location.search);
+    selectedProductId = params.get('product');
+  }
   return (
     <>
       <Navbar lang={lang} setLang={setLang} />
       <Routes>
         <Route path="/" element={<Home lang={lang} />} />
         <Route path="/meist" element={<About lang={lang} />} />
-        <Route path="/teenused" element={<Services lang={lang} />} />
+        <Route path="/teenused" element={<Services lang={lang} selectedProductId={selectedProductId} />} />
         <Route path="/garantiid" element={<Guarantees lang={lang} />} />
         <Route path="/kontakt" element={<Contacts lang={lang} />} />
       </Routes>

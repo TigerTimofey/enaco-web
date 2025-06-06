@@ -101,6 +101,7 @@ export const menuLabelSpanNormal = {
   transition: 'font-size 0.18s cubic-bezier(.4,0,.2,1)',
   fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif",
   fontWeight: 600,
+  alignItems: 'center',
 };
 
 
@@ -226,6 +227,26 @@ export const navbarSelectMobileStyle = {
   marginLeft: 0,
 
 };
+
+export const navbarDropdownCss = `
+  .navbar-desktop li:hover .services-dropdown {
+    display: block !important;
+  }
+  .services-dropdown-item {
+    transition: background 0.16s, color 0.16s;
+  }
+  .services-dropdown-item:hover {
+    background: #e11d48 !important;
+    color: #fff !important;
+  }
+  .navbar-services-trigger:hover {
+    cursor: pointer !important;
+  }
+  .services-dropdown {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+`;
 
 if (typeof window !== 'undefined' && typeof document !== 'undefined' && !window.__navbar_styles_injected) {
   const style = document.createElement('style');
