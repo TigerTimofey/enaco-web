@@ -123,10 +123,14 @@ export const selectStyle = {
 };
 
 export const activeLinkStyle = {
-  borderBottom: '3px solid #e11d48', 
   color: '#e11d48',
   background: 'transparent',
+  fontWeight: 800,
+  borderRadius: 10,
   boxShadow: 'none',
+  textShadow: '0 1px 0 #fff',
+  position: 'relative',
+  transition: 'background 0.18s, color 0.18s, box-shadow 0.18s, outline 0.18s',
 };
 
 export const separatorStyle = {
@@ -245,6 +249,29 @@ export const navbarDropdownCss = `
   .services-dropdown {
     left: 50% !important;
     transform: translateX(-50%) !important;
+  }
+  .navbar-desktop .navbar-services-trigger,
+  .navbar-desktop a {
+    position: relative;
+  }
+  .navbar-desktop .navbar-services-trigger.active,
+  .navbar-desktop a.active {
+    color: #e11d48 !important;
+  }
+  .navbar-desktop .navbar-services-trigger.active::after,
+  .navbar-desktop a.active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    bottom: -6px; /* moved underline further down */
+    height: 3px;
+    border-radius: 2px;
+    background: #e11d48;
+    opacity: 1;
+    transition: opacity 0.18s;
+    z-index: 2;
   }
 `;
 

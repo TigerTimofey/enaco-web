@@ -32,26 +32,24 @@ function Navbar({ lang, setLang }) {
     return () => window.removeEventListener('resize', check);
   }, []);
 
-  // Prepare product dropdown for Services
-  const productDropdown = businessProducts.map((prod, idx) => {
-    const labels = homeLabels[lang] || {};
-    let name;
-    if (lang === 'ru') {
-      const ruNames = [
-        labels['PROD_FOUR'] || '',
-        labels['PROD_FIVE'] || '',
-        labels['PROD_SIX'] || '',
-        labels['PROD_SEVEN'] || '',
-      ];
-      name = ruNames[idx] || (labels[prod.fallbackNameKey] || '');
-    } else if (idx === 0) {
-      name = labels['PROD_ONE'] || '';
-    } else {
-      name = labels[prod.nameKey] || labels[prod.fallbackNameKey] || '';
-    }
-    const id = labels[prod.idKey] || '';
-    return { id, name };
-  });
+const productDropdown = businessProducts.map((prod, idx) => {
+  const labels = homeLabels[lang] || {};
+  let name = '';
+
+  if (lang === 'ru') {
+    name = labels[prod.fallbackNameKey] || '';
+  } else if (idx === 0) {
+    name = labels['PROD_ONE'] || '';
+  } else {
+    name = labels[prod.fallbackNameKey] ||  '';
+  }
+
+  const id = prod.idKey ? (labels[prod.idKey] || prod.idKey) : '';
+
+  return { id, name };
+});
+
+
 
   return (
     <nav style={navbarStyles.navStyle}>
@@ -70,7 +68,7 @@ function Navbar({ lang, setLang }) {
               <li style={navbarStyles.liStyle}>
                 {item.href === '/teenused' ? (
                   <div style={{ position: 'relative', display: 'inline-block' }}>
-                    {/* Not a Link: just a span for Services, not clickable */}
+
                     <span
                       style={{
                         ...navbarStyles.linkStyle,
@@ -85,7 +83,7 @@ function Navbar({ lang, setLang }) {
                         display: 'inline-block'
                       }}
                       tabIndex={-1}
-                      className="navbar-services-trigger"
+                      className={`navbar-services-trigger${activeIdx === idx ? ' active' : ''}`}
                     >
                       <span style={smallMenuLabel ? navbarStyles.menuLabelSpanSmall : navbarStyles.menuLabelSpanNormal}>
                         {item.label}
@@ -126,6 +124,7 @@ function Navbar({ lang, setLang }) {
                       ...(smallMenuLabel ? navbarStyles.linkStyleSmall : navbarStyles.linkStyleNormalTransition),
                     }}
                     onClick={() => setActiveIdx(idx)}
+                    className={activeIdx === idx ? 'active' : ''}
                   >
                     <span style={smallMenuLabel ? navbarStyles.menuLabelSpanSmall : navbarStyles.menuLabelSpanNormal}>
                       {item.label}
