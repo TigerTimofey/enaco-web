@@ -126,6 +126,7 @@ export const homeLabels = {
     orderFormTitle: "Order Form",
     contactBtnSecondary: "Still have questions? Contact us",
     fillFormPrefix: "Fill form for",
+    yourInfoTitle: "Your information",
     aboutPage: {
       title: "Reliable Auto Parts Supplier Since 2020",
       intro: "Enaco Group OÜ is a company specializing in the sale of new, reconditioned, and used auto parts. We have been operating since 2020, supplying throughout Estonia and the European Union.",
@@ -229,6 +230,7 @@ export const homeLabels = {
     orderFormTitle: "Tellimisvorm",
     contactBtnSecondary: "Jäid küsimused? Võta meiega ühendust",
     fillFormPrefix: "Täida vorm",
+    yourInfoTitle: "Teie andmed",
     aboutPage: {
       title: "Usaldusväärne autovaruosade tarnija alates 2020. aastast",
       intro: "Enaco Group OÜ on ettevõte, mis on spetsialiseerunud uute, taastatud ja kasutatud autovaruosade müügile. Oleme tegutsenud alates 2020. aastast, pakkudes tarnet üle Eesti ja Euroopa Liidu.",
@@ -332,6 +334,7 @@ export const homeLabels = {
     orderFormTitle: "Форма заказа",
     contactBtnSecondary: "Остались вопросы? Свяжитесь с нами",
     fillFormPrefix: "Заполнить форму",
+    yourInfoTitle: "Ваша информация",
     aboutPage: {
       title: "Надёжный поставщик автозапчастей с 2020 года",
       intro: "Enaco Group OÜ — это компания, специализирующаяся на продаже новых, восстановленных и бывших в употреблении автозапчастей. Мы работаем с 2020 года, обеспечивая поставки по всей Эстонии и странам Европейского Союза.",

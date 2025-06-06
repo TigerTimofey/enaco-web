@@ -293,3 +293,12 @@ export const contactBtnStyle = {
   display: 'flex',
   justifyContent: 'center',
 };
+
+export const formErrorTextStyle = {
+  color: '#e11d48',
+  fontSize: 13,
+  position: 'absolute',
+  left: 8,
+  top: -2,
+  zIndex: 2
+};
