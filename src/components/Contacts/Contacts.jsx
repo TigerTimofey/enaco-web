@@ -5,13 +5,11 @@ import * as contactStyles from './Contacts-styles.js';
 
 
 function Contacts({ lang }) {
-  // Use translations from navbar-languages.js
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [, setSubmitted] = useState(false);
-  const [showThankYou, setShowThankYou] = useState(false);
-  const [showForm, setShowForm] = useState(true);
   const [errors, setErrors] = useState({});
   const [labels, setLabels] = useState(contactFormLabels[lang] || contactFormLabels.en);
+  const [sliderMsg, setSliderMsg] = useState(null);
 
   useEffect(() => {
     setLabels(contactFormLabels[lang] || contactFormLabels.en);
@@ -28,7 +26,6 @@ function Contacts({ lang }) {
 
   const contactHeading = labels.heading;
 
-  // Validation helpers
   const validateEmail = email =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -61,25 +58,21 @@ function Contacts({ lang }) {
     }
     console.log('Contact form submitted:', form);
     setSubmitted(true);
-    setShowThankYou(true);
-    setShowForm(false);
+    setSliderMsg(labels.thankYou);
+    setForm({ name: '', email: '', phone: '', message: '' });
+    setErrors({});
     setTimeout(() => {
-      setShowThankYou(false);
+      setSliderMsg(null);
       setSubmitted(false);
-      setForm({ name: '', email: '', phone: '', message: '' });
-      setShowForm(true);
-      setErrors({});
-    }, 3500);
+    }, 3000);
   };
 
   return (
     <div>
- 
       <div
         className="contacts-grid"
         style={contactStyles.contactsGrid}
       >
-        {/* Left: Business Info */}
         <div
           className="contacts-info"
           style={contactStyles.contactsInfo}
@@ -112,7 +105,6 @@ function Contacts({ lang }) {
             <div>{businessData.contactVat}</div>
           </div>
         </div>
-        {/* Right: Heading, Description, and Form */}
         <div
           className="contacts-form"
           style={contactStyles.contactsForm}
@@ -121,98 +113,95 @@ function Contacts({ lang }) {
             {contactHeading}
           </h2>
           <div style={contactStyles.formOuter}>
-            {showThankYou ? (
-              <div style={contactStyles.thankYouBox}>
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style={contactStyles.thankYouIcon}>
-                  <circle cx="24" cy="24" r="24" fill="#22c55e" />
+            {sliderMsg && (
+              <div
+                className="thank-you-slider"
+                style={contactStyles.thankYouSlider}
+              >
+                <svg width="32" height="32" viewBox="0 0 48 48" fill="none" style={{ marginBottom: 6, display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
+                  <circle cx="24" cy="24" r="24" fill="#fff" opacity="0.18" />
                   <path d="M15 25.5L22 32.5L34 18.5" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span style={contactStyles.thankYouText}>
-                  {labels.thankYou}
+                <span>
+                  {sliderMsg}
                 </span>
               </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                style={{
-                  ...contactStyles.form,
-                  opacity: showForm ? 1 : 0,
-                  transform: showForm ? 'translateY(0)' : 'translateY(30px)',
-                }}
-                noValidate
-              >
-                <input
-                  type="text"
-                  name="name"
-                  placeholder={labels.name}
-                  value={form.name}
-                  onChange={handleChange}
-                  required
-                  style={{
-                    ...contactStyles.input,
-                    borderColor: errors.name ? '#e11d48' : contactStyles.input.borderColor
-                  }}
-                />
-                {errors.name && (
-                  <span style={contactStyles.errorText}>{errors.name}</span>
-                )}
-                <input
-                  type="email"
-                  name="email"
-                  placeholder={labels.email}
-                  value={form.email}
-                  onChange={handleChange}
-                  required
-                  style={{
-                    ...contactStyles.input,
-                    borderColor: errors.email ? '#e11d48' : contactStyles.input.borderColor
-                  }}
-                />
-                {errors.email && (
-                  <span style={contactStyles.errorText}>{errors.email}</span>
-                )}
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder={labels.phone}
-                  value={form.phone}
-                  onChange={handleChange}
-                  required
-                  style={{
-                    ...contactStyles.input,
-                    borderColor: errors.phone ? '#e11d48' : contactStyles.input.borderColor
-                  }}
-                />
-                {errors.phone && (
-                  <span style={contactStyles.errorText}>{errors.phone}</span>
-                )}
-                <textarea
-                  name="message"
-                  placeholder={labels.message}
-                  value={form.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  style={{
-                    ...contactStyles.textarea,
-                    borderColor: errors.message ? '#e11d48' : contactStyles.textarea.borderColor
-                  }}
-                />
-                {errors.message && (
-                  <span style={contactStyles.errorText}>{errors.message}</span>
-                )}
-                <button
-                  type="submit"
-                  style={contactStyles.submitBtn}
-                >
-                  {labels.send}
-                </button>
-              </form>
             )}
+            <form
+              onSubmit={handleSubmit}
+              style={contactStyles.form}
+              noValidate
+            >
+              <input
+                type="text"
+                name="name"
+                placeholder={labels.name}
+                value={form.name}
+                onChange={handleChange}
+                required
+                style={{
+                  ...contactStyles.input,
+                  borderColor: errors.name ? '#e11d48' : contactStyles.input.borderColor
+                }}
+              />
+              {errors.name && (
+                <span style={contactStyles.errorText}>{errors.name}</span>
+              )}
+              <input
+                type="email"
+                name="email"
+                placeholder={labels.email}
+                value={form.email}
+                onChange={handleChange}
+                required
+                style={{
+                  ...contactStyles.input,
+                  borderColor: errors.email ? '#e11d48' : contactStyles.input.borderColor
+                }}
+              />
+              {errors.email && (
+                <span style={contactStyles.errorText}>{errors.email}</span>
+              )}
+              <input
+                type="tel"
+                name="phone"
+                placeholder={labels.phone}
+                value={form.phone}
+                onChange={handleChange}
+                required
+                style={{
+                  ...contactStyles.input,
+                  borderColor: errors.phone ? '#e11d48' : contactStyles.input.borderColor
+                }}
+              />
+              {errors.phone && (
+                <span style={contactStyles.errorText}>{errors.phone}</span>
+              )}
+              <textarea
+                name="message"
+                placeholder={labels.message}
+                value={form.message}
+                onChange={handleChange}
+                required
+                rows={4}
+                style={{
+                  ...contactStyles.textarea,
+                  borderColor: errors.message ? '#e11d48' : contactStyles.textarea.borderColor
+                }}
+              />
+              {errors.message && (
+                <span style={contactStyles.errorText}>{errors.message}</span>
+              )}
+              <button
+                type="submit"
+                style={contactStyles.submitBtn}
+              >
+                {labels.send}
+              </button>
+            </form>
           </div>
         </div>
       </div>
-      {/* Map at the very bottom, full screen width */}
       <div style={contactStyles.mapOuter}>
         <div style={contactStyles.mapInner}>
           <iframe
@@ -227,7 +216,6 @@ function Contacts({ lang }) {
           />
         </div>
       </div>
-      {/* Responsive styles and animations */}
       <style>
         {contactStyles.responsiveAndKeyframes}
       </style>

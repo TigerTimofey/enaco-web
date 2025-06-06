@@ -140,7 +140,64 @@ export const productBtnAnimatedHoverStyle = `
 }
 `;
 
+export const thankYouSlider = {
+  position: 'fixed',
+  top: 80,
+  right: 32,
+  left: 'unset',
+  zIndex: 9999,
+  background: '#22c55e',
+  color: '#fff',
+  fontWeight: 700,
+  fontSize: 18,
+  padding: '16px 32px',
+  borderRadius: 12,
+  boxShadow: '0 4px 24px 0 rgba(34,197,94,0.13)',
+  minWidth: 220,
+  maxWidth: 340,
+  textAlign: 'center',
+  animation: 'slideInOutRightThankYou 3s cubic-bezier(.4,0,.2,1) forwards',
+  width: 'auto',
+};
+
+export const thankYouSliderIcon = {
+  marginBottom: 6,
+  display: 'block',
+  marginLeft: 'auto',
+  marginRight: 'auto'
+};
+
 export const responsiveStyle = `
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.92);}
+  100% { opacity: 1; transform: scale(1);}
+}
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.5);}
+  80% { opacity: 1; transform: scale(1.15);}
+  100% { opacity: 1; transform: scale(1);}
+}
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(30px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+@keyframes pulseSuccess {
+  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.18);}
+  70% { box-shadow: 0 0 0 12px rgba(34,197,94,0);}
+  100% { box-shadow: 0 2px 12px 0 rgba(34,197,94,0.10);}
+}
+@keyframes slideInOutRightThankYou {
+  0% { opacity: 0; transform: translateX(120px);}
+  10% { opacity: 1; transform: translateX(0);}
+  85% { opacity: 1; transform: translateX(0);}
+  100% { opacity: 0; transform: translateX(120px);}
+}
+@keyframes slideInOutRightMobile {
+  0% { opacity: 0; transform: translateX(120px);}
+  10% { opacity: 1; transform: translateX(0);}
+  85% { opacity: 1; transform: translateX(0);}
+  100% { opacity: 0; transform: translateX(120px);}
+}
 @media (max-width: 900px) {
   .services-product-row {
     flex-direction: column !important;
@@ -168,6 +225,20 @@ export const responsiveStyle = `
     justify-content: center !important;
     width: 100% !important;
     margin-top: 16px !important;
+  }
+}
+@media (max-width: 600px) {
+  .thank-you-slider {
+    left: 50% !important;
+    right: unset !important;
+    transform: translateX(-50%) !important;
+    top: 64px !important;
+    bottom: unset !important;
+    min-width: 70vw !important;
+    max-width: 96vw !important;
+    font-size: 16px !important;
+    padding: 14px 8vw !important;
+    animation: slideInOutRightMobile 3s cubic-bezier(.4,0,.2,1) forwards;
   }
 }
 `;
@@ -301,4 +372,25 @@ export const formErrorTextStyle = {
   left: 8,
   top: -2,
   zIndex: 2
+};
+
+export const formMarginBlockStyle = {
+  margin: '18px 0'
+};
+
+export const formColumnInputWrapperStyle = {
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  position: 'relative'
+};
+
+export const formColumnTextareaWrapperStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  position: 'relative'
+};
+
+export const formHiddenBlockStyle = {
+  display: 'none'
 };

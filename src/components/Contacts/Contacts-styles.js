@@ -1,5 +1,3 @@
-
-
 export const contactHeaderOuter = {
   width: '100%',
   maxWidth: 1200,
@@ -214,6 +212,26 @@ export const mapIframe = {
   display: 'block'
 };
 
+export const thankYouSlider = {
+  position: 'fixed',
+  top: 80,
+  right: 32,
+  left: 'unset',
+  zIndex: 9999,
+  background: '#22c55e',
+  color: '#fff',
+  fontWeight: 700,
+  fontSize: 18,
+  padding: '16px 32px',
+  borderRadius: 12,
+  boxShadow: '0 4px 24px 0 rgba(34,197,94,0.13)',
+  minWidth: 220,
+  maxWidth: 340,
+  textAlign: 'center',
+  animation: 'slideInOutRightThankYou 3s cubic-bezier(.4,0,.2,1) forwards',
+  width: 'auto',
+};
+
 export const responsiveAndKeyframes = `
   @keyframes fadeInScale {
     0% { opacity: 0; transform: scale(0.92);}
@@ -232,6 +250,18 @@ export const responsiveAndKeyframes = `
     0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.18);}
     70% { box-shadow: 0 0 0 12px rgba(34,197,94,0);}
     100% { box-shadow: 0 2px 12px 0 rgba(34,197,94,0.10);}
+  }
+  @keyframes slideInOutRightThankYou {
+    0% { opacity: 0; transform: translateX(120px);}
+    10% { opacity: 1; transform: translateX(0);}
+    85% { opacity: 1; transform: translateX(0);}
+    100% { opacity: 0; transform: translateX(120px);}
+  }
+  @keyframes slideInOutRightMobile {
+    0% { opacity: 0; transform: translateX(120px);}
+    10% { opacity: 1; transform: translateX(0);}
+    85% { opacity: 1; transform: translateX(0);}
+    100% { opacity: 0; transform: translateX(120px);}
   }
   @media (max-width: 1052px) {
     .contacts-grid {
