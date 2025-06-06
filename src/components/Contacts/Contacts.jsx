@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { businessData } from '../utils/bussines-data/bussines-data.js';
 import { contactFormLabels } from '../translations/navbar-languages.js';
 import * as contactStyles from './Contacts-styles.js';
+import emailjs from 'emailjs-com';
 
 
 function Contacts({ lang }) {
@@ -37,7 +38,11 @@ function Contacts({ lang }) {
     setErrors({ ...errors, [e.target.name]: undefined });
   };
 
-  const handleSubmit = e => {
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const EMAILJS_USER_ID = import.meta.env.VITE_EMAILJS_USER_ID;
+
+  const handleSubmit = async e => {
     e.preventDefault();
     const newErrors = {};
     if (!validateEmail(form.email)) {
@@ -56,15 +61,42 @@ function Contacts({ lang }) {
       setErrors(newErrors);
       return;
     }
-    console.log('Contact form submitted:', form);
-    setSubmitted(true);
-    setSliderMsg(labels.thankYou);
-    setForm({ name: '', email: '', phone: '', message: '' });
-    setErrors({});
-    setTimeout(() => {
-      setSliderMsg(null);
-      setSubmitted(false);
-    }, 3000);
+
+    // Prepare data for EmailJS
+    const templateParams = {
+      from_name: form.name,
+      from_email: form.email,
+      from_phone: form.phone,
+      message: form.message,
+      time: new Date().toLocaleString(),
+    };
+
+    // Debug: log what will be sent
+    console.log('EmailJS payload:', templateParams);
+
+    // Send email via EmailJS
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_USER_ID
+      );
+      setSubmitted(true);
+      setSliderMsg(labels.thankYou);
+      setForm({ name: '', email: '', phone: '', message: '' });
+      setErrors({});
+      setTimeout(() => {
+        setSliderMsg(null);
+        setSubmitted(false);
+      }, 3000);
+    } catch (e) {
+      setSliderMsg('Failed to send. Please try again later.');
+      setTimeout(() => setSliderMsg(null), 3000);
+      // Optionally log the error for debugging:
+      console.error('EmailJS error:', e);
+      throw new Error('Email sending failed: ' + (e?.text || e?.message || e));
+    }
   };
 
   return (
