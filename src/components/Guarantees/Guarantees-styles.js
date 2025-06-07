@@ -1,4 +1,3 @@
-
 export const pageHeaderOuter = {
   width: '100%',
   maxWidth: 1200,
@@ -105,4 +104,20 @@ export const cardTextStyle = {
   border: '1px solid #f1f1f1',
   minHeight: 120,
   transition: 'box-shadow 0.18s, border 0.18s',
+};
+
+export const selectStyle = {
+  marginLeft: '1rem',
+  padding: '0.35em 0.7em',
+  borderRadius: 7,
+  border: '1px solid #e5e7eb',
+  fontSize: '1em',
+  background: '#f9fafb',
+  fontWeight: 500,
+  cursor: 'pointer',
+  boxShadow: '0 1px 4px 0 rgba(60,60,60,0.03)',
+  outline: 'none',
+  transition: 'border-color 0.16s',
+  color: '#23272f',
+  fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif",
 };

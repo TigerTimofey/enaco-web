@@ -3,21 +3,42 @@ const navbarMenus = {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/meist' },
     { label: 'Services', href: '/teenused' },
-    { label: 'Warranty', href: '/garantiid' },
+    {
+      label: 'Warranty',
+      href: null, // disables main link, only dropdown
+      dropdown: [
+        { label: 'Warranty', href: '/garantiid?warranty=1' },
+        { label: 'Esto', href: '/garantiid?warranty=esto' }
+      ]
+    },
     { label: 'Contacts', href: '/kontakt' },
   ],
   ee: [
     { label: 'Avaleht', href: '/' },
     { label: 'Meist', href: '/meist' },
     { label: 'Teenused', href: '/teenused' },
-    { label: 'Garantii', href: '/garantiid' },
+    {
+      label: 'Garantii',
+      href: null, // disables main link, only dropdown
+      dropdown: [
+        { label: 'Garantii', href: '/garantiid?warranty=1' },
+        { label: 'Esto', href: '/garantiid?warranty=esto' }
+      ]
+    },
     { label: 'Kontaktid', href: '/kontakt' },
   ],
   ru: [
     { label: 'Главная', href: '/' },
     { label: 'О нас', href: '/meist' },
     { label: 'Услуги', href: '/teenused' },
-    { label: 'Гарантии', href: '/garantiid' },
+    {
+      label: 'Гарантии',
+      href: null, // disables main link, only dropdown
+      dropdown: [
+        { label: 'Гарантия', href: '/garantiid?warranty=1' },
+        { label: 'Esto', href: '/garantiid?warranty=esto' }
+      ]
+    },
     { label: 'Контакты', href: '/kontakt' },
   ],
 };

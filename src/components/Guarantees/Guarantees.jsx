@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { guaranteesContent, guaranteesBoldPhrases } from '../translations/navbar-languages.js';
 import * as guaranteeStyles from './Guarantees-styles.js';
-import { useNavigate } from 'react-router-dom';
+import * as estoStyles from './guarantees-esto-styles.js';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 // Icon render helper
 function GuaranteeIcon({ type }) {
@@ -59,6 +60,16 @@ function Guarantees({ lang }) {
   const [scrollDir, setScrollDir] = useState('down');
   const lastScrollY = useRef(window.scrollY);
   const navigate = useNavigate();
+  const location = useLocation();
+  const [selected, setSelected] = useState('warranty');
+
+  // Read warranty param from URL
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const warrantyParam = params.get('warranty');
+    if (warrantyParam === 'esto') setSelected('esto');
+    else setSelected('warranty');
+  }, [location.search]);
 
   useEffect(() => {
     function onScroll() {
@@ -92,100 +103,142 @@ function Guarantees({ lang }) {
     };
   };
 
+  // When dropdown changes, update URL
+  const handleDropdownChange = (e) => {
+    const val = e.target.value;
+    setSelected(val);
+    const params = new URLSearchParams(location.search);
+    if (val === 'esto') {
+      params.set('warranty', 'esto');
+    } else {
+      params.set('warranty', '1');
+    }
+    navigate(`${location.pathname}?${params.toString()}`, { replace: true });
+  };
+
   return (
     <div>
-      <div
-        className="guarantees-grid"
-        style={guaranteeStyles.gridStyle}
-      >
-        <div
-          ref={el => (cardRefs.current[0] = el)}
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 40 }}>
+        <select
+          value={selected}
+          onChange={handleDropdownChange}
           style={{
-            ...guaranteeStyles.cardStyle,
-            ...getCardAnimStyle(0),
+            ...guaranteeStyles.selectStyle,
+            fontWeight: 700,
+            fontSize: 18,
+            minWidth: 180,
+            marginBottom: 24,
           }}
         >
-          <div style={guaranteeStyles.cardTitleStyle}>
-            <GuaranteeIcon type={t.warranty.icon} />
-            {t.warranty.title}
-          </div>
-          <div style={guaranteeStyles.cardTextStyle}>
-            {boldify(t.warranty.text, boldPhrases)}
-          </div>
-        </div>
-        <hr className="guarantees-hr-mobile" style={guaranteeStyles.hrMobileStyle} />
-        <div
-          ref={el => (cardRefs.current[1] = el)}
-          style={{
-            ...guaranteeStyles.cardStyle,
-            ...getCardAnimStyle(1),
-          }}
-        >
-          <div style={guaranteeStyles.cardTitleStyle}>
-            <GuaranteeIcon type={t.notApply.icon} />
-            {t.notApply.title}
-          </div>
-          <div style={guaranteeStyles.cardTextStyle}>
-            {boldify(t.notApply.text, boldPhrases)}
-          </div>
-        </div>
-        <div
-          ref={el => (cardRefs.current[2] = el)}
-          className="guarantees-delivery-card"
-          style={{
-            ...guaranteeStyles.deliveryCardStyle,
-            ...getCardAnimStyle(2),
-          }}
-        >
-          <hr style={guaranteeStyles.hrStyle} />
-          <div style={guaranteeStyles.cardTitleStyle}>
-            <GuaranteeIcon type={t.delivery.icon} />
-            {t.delivery.title}
-          </div>
-          <div style={{...guaranteeStyles.cardTextStyle, textAlign: 'center'}}>
-            {lang === 'en' ? (
-              <>
-                {t.delivery.text}
-                <span
-                  style={{ color: '#e11d48', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}
-                  onClick={() => navigate('/kontakt')}
-                >
-                  {t.delivery.contactLink}
-                </span>
-                {boldify(t.delivery.textAfter, boldPhrases)}
-              </>
-            ) : lang === 'ru' ? (
-              <>
-                {t.delivery.text}
-                <span
-                  style={{ color: '#e11d48', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}
-                  onClick={() => navigate('/kontakt')}
-                >
-                  {t.delivery.contactLink}
-                </span>
-                {boldify(t.delivery.textAfter, boldPhrases)}
-              </>
-            ) : (
-              <>
-                {t.delivery.text.split('palume eelnevalt meiega ühendust võtta').map((part, idx, arr) =>
-                  idx < arr.length - 1 ? (
-                    <React.Fragment key={idx}>
-                      {part}
-                      <span
-                        style={{ color: '#e11d48', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}
-                        onClick={() => navigate('/kontakt')}
-                      >
-                        <b style={{ fontWeight: 700 }}>võta meiega ühendust</b>
-                      </span>
-                    </React.Fragment>
-                  ) : boldify(part, boldPhrases)
-                )}
-              </>
-            )}
-          </div>
-        </div>
+          <option value="warranty">Warranty</option>
+          <option value="esto">Esto</option>
+        </select>
       </div>
-      <style>{guaranteeStyles.responsiveStyle}</style>
+      {selected === 'warranty' && (
+        <div>
+          <div
+            className="guarantees-grid"
+            style={guaranteeStyles.gridStyle}
+          >
+            <div
+              ref={el => (cardRefs.current[0] = el)}
+              style={{
+                ...guaranteeStyles.cardStyle,
+                ...getCardAnimStyle(0),
+              }}
+            >
+              <div style={guaranteeStyles.cardTitleStyle}>
+                <GuaranteeIcon type={t.warranty.icon} />
+                {t.warranty.title}
+              </div>
+              <div style={guaranteeStyles.cardTextStyle}>
+                {boldify(t.warranty.text, boldPhrases)}
+              </div>
+            </div>
+            <hr className="guarantees-hr-mobile" style={guaranteeStyles.hrMobileStyle} />
+            <div
+              ref={el => (cardRefs.current[1] = el)}
+              style={{
+                ...guaranteeStyles.cardStyle,
+                ...getCardAnimStyle(1),
+              }}
+            >
+              <div style={guaranteeStyles.cardTitleStyle}>
+                <GuaranteeIcon type={t.notApply.icon} />
+                {t.notApply.title}
+              </div>
+              <div style={guaranteeStyles.cardTextStyle}>
+                {boldify(t.notApply.text, boldPhrases)}
+              </div>
+            </div>
+            <div
+              ref={el => (cardRefs.current[2] = el)}
+              className="guarantees-delivery-card"
+              style={{
+                ...guaranteeStyles.deliveryCardStyle,
+                ...getCardAnimStyle(2),
+              }}
+            >
+              <hr style={guaranteeStyles.hrStyle} />
+              <div style={guaranteeStyles.cardTitleStyle}>
+                <GuaranteeIcon type={t.delivery.icon} />
+                {t.delivery.title}
+              </div>
+              <div style={{...guaranteeStyles.cardTextStyle, textAlign: 'center'}}>
+                {lang === 'en' ? (
+                  <>
+                    {t.delivery.text}
+                    <span
+                      style={{ color: '#e11d48', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}
+                      onClick={() => navigate('/kontakt')}
+                    >
+                      {t.delivery.contactLink}
+                    </span>
+                    {boldify(t.delivery.textAfter, boldPhrases)}
+                  </>
+                ) : lang === 'ru' ? (
+                  <>
+                    {t.delivery.text}
+                    <span
+                      style={{ color: '#e11d48', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}
+                      onClick={() => navigate('/kontakt')}
+                    >
+                      {t.delivery.contactLink}
+                    </span>
+                    {boldify(t.delivery.textAfter, boldPhrases)}
+                  </>
+                ) : (
+                  <>
+                    {t.delivery.text.split('palume eelnevalt meiega ühendust võtta').map((part, idx, arr) =>
+                      idx < arr.length - 1 ? (
+                        <React.Fragment key={idx}>
+                          {part}
+                          <span
+                            style={{ color: '#e11d48', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}
+                            onClick={() => navigate('/kontakt')}
+                          >
+                            <b style={{ fontWeight: 700 }}>võta meiega ühendust</b>
+                          </span>
+                        </React.Fragment>
+                      ) : boldify(part, boldPhrases)
+                    )}
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+          <style>{guaranteeStyles.responsiveStyle}</style>
+        </div>
+      )}
+      {selected === 'esto' && (
+        <div style={estoStyles.estoContainer}>
+          <h1 style={estoStyles.estoTitle}>Esto Information</h1>
+          <p style={estoStyles.estoText}>
+            {/* Placeholder for Esto content. Replace with actual content as needed. */}
+            Esto payment and financing information will be shown here.
+          </p>
+        </div>
+      )}
     </div>
   );
 }

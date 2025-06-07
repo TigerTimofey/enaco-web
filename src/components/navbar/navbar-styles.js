@@ -343,3 +343,6 @@ export const servicesDropdownMenuStyle = {
   top: '100%',
   zIndex: 10,
 };
+
+// Add warranty dropdown style (reuse servicesDropdownMenuStyle)
+export const warrantyDropdownMenuStyle = servicesDropdownMenuStyle;

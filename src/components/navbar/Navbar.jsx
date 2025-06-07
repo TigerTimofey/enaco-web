@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getNavbarMenu, navbarLanguages, homeLabels } from '../translations/navbar-languages.js';
 import { businessProducts } from '../utils/bussines-services/bussines-services.js';
 import { businessName } from '../utils/bussines-data/bussines-data.js';
@@ -52,10 +52,14 @@ function Navbar({ lang, setLang }) {
   return (
     <nav style={navbarStyles.navStyle}>
       <div style={navbarStyles.navInnerStyle}>
-        <Link to="/" style={navbarStyles.logoLinkStyle} className="navbar-brand-center">
+        <span
+          style={navbarStyles.logoLinkStyle}
+          className="navbar-brand-center"
+          onClick={() => navigate('/')}
+        >
           <img src="/logoOn.svg" alt="Logo" style={navbarStyles.logoImgStyle} />
           <span style={navbarStyles.logoTextStyle}>{businessName}</span>
-        </Link>
+        </span>
 
         <ul
           className={`navbar-desktop${isMobile ? ' hide' : ''}`}
@@ -65,8 +69,16 @@ function Navbar({ lang, setLang }) {
             <React.Fragment key={idx}>
               <li
                 style={navbarStyles.liStyle}
-                onMouseEnter={item.href === '/teenused' ? () => setOpenDropdownIdx(idx) : undefined}
-                onMouseLeave={item.href === '/teenused' ? () => setOpenDropdownIdx(null) : undefined}
+                onMouseEnter={
+                  (item.href === '/teenused' || item.dropdown)
+                    ? () => setOpenDropdownIdx(idx)
+                    : undefined
+                }
+                onMouseLeave={
+                  (item.href === '/teenused' || item.dropdown)
+                    ? () => setOpenDropdownIdx(null)
+                    : undefined
+                }
               >
                 {item.href === '/teenused' ? (
                   <div style={navbarStyles.servicesDropdownWrapperStyle || { position: 'relative', display: 'inline-block' }}>
@@ -79,6 +91,7 @@ function Navbar({ lang, setLang }) {
                       }}
                       tabIndex={-1}
                       className={`navbar-services-trigger${activeIdx === idx ? ' active' : ''}`}
+                      onClick={() => setOpenDropdownIdx(openDropdownIdx === idx ? null : idx)}
                     >
                       <span style={smallMenuLabel ? navbarStyles.menuLabelSpanSmall : navbarStyles.menuLabelSpanNormal}>
                         {item.label}
@@ -109,21 +122,67 @@ function Navbar({ lang, setLang }) {
                       ))}
                     </div>
                   </div>
+                ) : item.dropdown ? (
+                  <div style={navbarStyles.servicesDropdownWrapperStyle || { position: 'relative', display: 'inline-block' }}>
+                    <span
+                      style={{
+                        ...navbarStyles.linkStyle,
+                        ...(activeIdx === idx ? navbarStyles.activeLinkStyle : {}),
+                        ...(smallMenuLabel ? navbarStyles.linkStyleSmall : navbarStyles.linkStyleNormalTransition),
+                        ...navbarStyles.servicesDropdownTriggerStyle,
+                        pointerEvents: 'auto',
+                        cursor: 'pointer',
+                      }}
+                      tabIndex={-1}
+                      className={`navbar-warranty-trigger${activeIdx === idx ? ' active' : ''}`}
+                      onClick={() => setOpenDropdownIdx(openDropdownIdx === idx ? null : idx)}
+                    >
+                      <span style={smallMenuLabel ? navbarStyles.menuLabelSpanSmall : navbarStyles.menuLabelSpanNormal}>
+                        {item.label}
+                      </span>
+                    </span>
+                    <div
+                      style={{
+                        ...navbarStyles.dropdownMenuStyle,
+                        ...navbarStyles.servicesDropdownMenuStyle,
+                        display: openDropdownIdx === idx ? 'block' : 'none',
+                      }}
+                      className="warranty-dropdown"
+                    >
+                      {item.dropdown.map((sub,) => (
+                        <div
+                          key={sub.href}
+                          className="warranty-dropdown-item"
+                          style={navbarStyles.dropdownItemStyle}
+                          onClick={() => {
+                            setOpenDropdownIdx(null);
+                            setActiveIdx(idx);
+                            navigate(sub.href);
+                          }}
+                        >
+                          {sub.label}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 ) : (
-                  <Link
-                    to={item.href}
+                  <span
                     style={{
                       ...navbarStyles.linkStyle,
                       ...(activeIdx === idx ? navbarStyles.activeLinkStyle : {}),
                       ...(smallMenuLabel ? navbarStyles.linkStyleSmall : navbarStyles.linkStyleNormalTransition),
+                      cursor: 'pointer',
                     }}
-                    onClick={() => setActiveIdx(idx)}
+                    onClick={() => {
+                      setActiveIdx(idx);
+                      if (item.href) navigate(item.href);
+                    }}
                     className={activeIdx === idx ? 'active' : ''}
                   >
                     <span style={smallMenuLabel ? navbarStyles.menuLabelSpanSmall : navbarStyles.menuLabelSpanNormal}>
                       {item.label}
                     </span>
-                  </Link>
+                  </span>
                 )}
               </li>
               {idx < menu.length - 1 && (
@@ -184,11 +243,11 @@ function Navbar({ lang, setLang }) {
                         onClick={() =>
                           setOpenDropdownIdx(openDropdownIdx === idx ? null : idx)
                         }
-                      >    <span style={{ float: 'right', fontSize: 15, marginLeft: 8 }}>
+                      >
+                        <span style={{ float: 'right', fontSize: 15, marginLeft: 8 }}>
                           {openDropdownIdx === idx ? '↑' : '↓'}
                         </span>
                         {item.label}
-                
                       </button>
                       {openDropdownIdx === idx && (
                         <ul style={{
@@ -213,11 +272,9 @@ function Navbar({ lang, setLang }) {
                                   padding: '0.9em 0.6em',
                                 }}
                                 onClick={() => {
-                                  setActiveIdx(idx);
-                                  setMenuOpen(false);
                                   setOpenDropdownIdx(null);
+                                  setActiveIdx(idx);
                                   navigate(`/teenused?product=${prod.id}`);
-                                  window.scrollTo({ top: 0, behavior: 'smooth' });
                                 }}
                               >
                                 {prod.name}
@@ -227,21 +284,91 @@ function Navbar({ lang, setLang }) {
                         </ul>
                       )}
                     </>
+                  ) : item.dropdown ? (
+                    <>
+                      <button
+                        type="button"
+                        style={{
+                          ...navbarStyles.linkStyle,
+                          width: '100%',
+                          textAlign: 'center',
+                          background: 'none',
+                          border: 'none',
+                          outline: 'none',
+                          cursor: 'pointer',
+                          padding: '0.36em 0.9em',
+                          fontWeight: 600,
+                          fontSize: '1.08em',
+                          color: '#30353d',
+                        }}
+                        onClick={() =>
+                          setOpenDropdownIdx(openDropdownIdx === idx ? null : idx)
+                        }
+                      >
+                        <span style={{ float: 'right', fontSize: 15, marginLeft: 8 }}>
+                          {openDropdownIdx === idx ? '↑' : '↓'}
+                        </span>
+                        {item.label}
+                      </button>
+                      {openDropdownIdx === idx && (
+                        <ul style={{
+                          listStyle: 'none',
+                          padding: '.4em 0.4em .4em 0.4em',
+                          background: '#f9fafb',
+                          borderRadius: 8,
+                          border: '1px solid #e5e7eb',
+                        }}>
+                          {item.dropdown.map((sub,) => (
+                            <li key={sub.href}>
+                              <button
+                                type="button"
+                                style={{
+                                  ...navbarStyles.dropdownItemStyle,
+                                  width: '100%',
+                                  textAlign: 'center',
+                                  background: 'none',
+                                  border: 'none',
+                                  outline: 'none',
+                                  cursor: 'pointer',
+                                  padding: '0.9em 0.6em',
+                                }}
+                                onClick={() => {
+                                  setOpenDropdownIdx(null);
+                                  setActiveIdx(idx);
+                                  navigate(sub.href);
+                                }}
+                              >
+                                {sub.label}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
                   ) : (
-                    <Link
-                      to={item.href}
+                    <button
+                      type="button"
                       style={{
                         ...navbarStyles.linkStyle,
                         ...(activeIdx === idx ? navbarStyles.activeLinkStyle : {}),
+                        width: '100%',
+                        textAlign: 'center',
+                        background: 'none',
+                        border: 'none',
+                        outline: 'none',
+                        cursor: 'pointer',
+                        padding: '0.36em 0.9em',
+                        fontWeight: 600,
+                        fontSize: '1.08em',
+                        color: '#30353d',
                       }}
                       onClick={() => {
                         setActiveIdx(idx);
-                        setMenuOpen(false);
-                        setOpenDropdownIdx(null);
+                        if (item.href) navigate(item.href);
                       }}
                     >
                       {item.label}
-                    </Link>
+                    </button>
                   )}
                 </li>
               </React.Fragment>
