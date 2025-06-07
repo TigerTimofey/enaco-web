@@ -25,7 +25,6 @@ function Footer() {
         gap: 24,
         position: 'relative'
       }}>
-        {/* Social icons: move to top on mobile */}
         <div
           className="footer-social-icons"
           style={{
@@ -35,7 +34,6 @@ function Footer() {
             position: 'absolute',
             right: 0,
             top: '50%',
-            // transform: 'translateY(-50%)',
           }}
         >
           <a
