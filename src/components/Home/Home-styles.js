@@ -65,14 +65,13 @@ export const productCardsContainerStyle = {
   gap: 32,
   flexWrap: 'wrap',
   justifyContent: 'center',
-
 };
 
 export const productCardStyle = {
   background: '#fff',
   borderRadius: 16,
   boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
-  padding: '2rem 1.5rem',
+  padding: '2rem 1rem',
   maxWidth: 340,
   flex: '1 1 260px',
   textAlign: 'center',
@@ -128,6 +127,7 @@ export const stepsSectionStyle = {
   right: '50%',
   marginLeft: '-50vw',
   marginRight: '-50vw',
+
   maxWidth: '100vw',
   paddingLeft: 0,
   paddingRight: 0,
@@ -319,7 +319,6 @@ export const carouselWordsContainerStyle = {
 
 export const carouselButtonStyle = (showWords, visibleCount, wordsLength) => ({
   marginTop: 80,
-  padding: '0.8em 2.2em',
   borderRadius: 8,
   background: '#888',
   color: '#fff',
@@ -364,6 +363,7 @@ export const advantagesFlexWrapStyle = {
   alignItems: 'center',
   gap: '1.5rem',
   flexWrap: 'wrap',
+  
 };
 
 export const advantagesTitleColStyle = {
@@ -455,7 +455,9 @@ export const advantagesFlexWrapMedia = `
   .advantages-flex-wrap {
     flex-direction: column !important;
     gap: 1.2rem !important;
-    padding: 1.2rem 0.7rem !important;
+    border-radius: 0px !important;
+    // padding: 1.2rem 0.7rem !important;
+    
   }
   .advantages-flex-wrap h2 {
     text-align: center !important;
