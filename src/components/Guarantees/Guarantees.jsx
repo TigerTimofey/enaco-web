@@ -1,10 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { guaranteesContent, guaranteesBoldPhrases } from '../translations/navbar-languages.js';
 import * as guaranteeStyles from './Guarantees-styles.js';
-import * as estoStyles from './guarantees-esto-styles.js';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Esto from './Esto.jsx';
 
-// Icon render helper
 function GuaranteeIcon({ type }) {
   if (type === "green-check") {
     return (
@@ -103,36 +102,11 @@ function Guarantees({ lang }) {
     };
   };
 
-  // When dropdown changes, update URL
-  const handleDropdownChange = (e) => {
-    const val = e.target.value;
-    setSelected(val);
-    const params = new URLSearchParams(location.search);
-    if (val === 'esto') {
-      params.set('warranty', 'esto');
-    } else {
-      params.set('warranty', '1');
-    }
-    navigate(`${location.pathname}?${params.toString()}`, { replace: true });
-  };
 
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: 40 }}>
-        <select
-          value={selected}
-          onChange={handleDropdownChange}
-          style={{
-            ...guaranteeStyles.selectStyle,
-            fontWeight: 700,
-            fontSize: 18,
-            minWidth: 180,
-            marginBottom: 24,
-          }}
-        >
-          <option value="warranty">Warranty</option>
-          <option value="esto">Esto</option>
-        </select>
+ 
       </div>
       {selected === 'warranty' && (
         <div>
@@ -231,13 +205,7 @@ function Guarantees({ lang }) {
         </div>
       )}
       {selected === 'esto' && (
-        <div style={estoStyles.estoContainer}>
-          <h1 style={estoStyles.estoTitle}>Esto Information</h1>
-          <p style={estoStyles.estoText}>
-            {/* Placeholder for Esto content. Replace with actual content as needed. */}
-            Esto payment and financing information will be shown here.
-          </p>
-        </div>
+        <Esto />
       )}
     </div>
   );
