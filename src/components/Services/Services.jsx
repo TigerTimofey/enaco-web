@@ -1,5 +1,6 @@
 import {  homeLabels, formLabels } from '../translations/navbar-languages.js';
 import { businessProducts } from '../utils/bussines-services/bussines-services.js';
+import { businessProducts as englishProducts } from '../utils/bussines-services/bussines-services.js';
 import * as servicesStyles from './Services-styles.js';
 import {
   orderFormTitleStyle,
@@ -33,6 +34,7 @@ import {
 } from './Services-styles.js';
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 
 function getBtnText(name, lang) {
 
@@ -98,7 +100,11 @@ function Services({ lang, selectedProductId }) {
   };
 
 
-  const handleSubmit = e => {
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_REQUEST_ID;
+  const EMAILJS_USER_ID = import.meta.env.VITE_EMAILJS_USER_ID;
+
+  const handleSubmit = async e => {
     e.preventDefault();
     const newErrors = {};
 
@@ -116,20 +122,47 @@ function Services({ lang, selectedProductId }) {
     }
 
     let selectedProduct = null;
+    let selectedProductEn = null;
     if (selectedProductId) {
       selectedProduct = products.find(p => p.id === selectedProductId);
+      selectedProductEn = englishProducts.find(p => p.id === selectedProductId);
     }
-    const logData = {
+
+    // Prepare data for EmailJS (current language)
+    const templateParams = {
       ...form,
       productName: selectedProduct ? selectedProduct.name : '',
-      productTitle: selectedProduct ? selectedProduct.title : ''
+      productTitle: selectedProduct ? selectedProduct.title : '',
+      time: new Date().toLocaleString(),
     };
-    console.log('Order form submitted:', logData);
 
-    setForm(initialForm);
-    setErrors({});
-    setSliderMsg(homeLabels[lang]?.thankYouMessage || "Thank you! We have received your request and will contact you soon.");
-    setTimeout(() => setSliderMsg(null), 3000);
+    // Prepare data for logging (always English)
+    const logData = {
+      ...form,
+      productName: selectedProductEn ? selectedProductEn.name : '',
+      productTitle: selectedProductEn ? selectedProductEn.title : ''
+    };
+
+    // Debug: log what will be sent (always in English)
+    console.log('EmailJS payload (EN):', logData);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_USER_ID
+      );
+      setForm(initialForm);
+      setErrors({});
+      setSliderMsg(homeLabels[lang]?.thankYouMessage || "Thank you! We have received your request and will contact you soon.");
+      setTimeout(() => setSliderMsg(null), 3000);
+    } catch (e) {
+      setSliderMsg('Failed to send. Please try again later.');
+      setTimeout(() => setSliderMsg(null), 3000);
+      console.error('EmailJS error:', e);
+      throw new Error('Email sending failed: ' + (e?.text || e?.message || e));
+    }
   };
 
   return (
