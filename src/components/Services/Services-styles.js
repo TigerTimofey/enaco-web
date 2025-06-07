@@ -227,7 +227,6 @@ export const responsiveStyle = `
   .services-product-btn-group {
     justify-content: center !important;
     width: 100% !important;
-    margin-top: 16px !important;
   }
   .services-product-section {
     margin-top: 94px !important;
@@ -352,7 +351,6 @@ export const contactBtnStyle = {
   marginTop: 56,
   minWidth: 260,
   maxWidth: 450,
-  width: '100%',
   padding: '0.9em 2em',
   borderRadius: 10,
   cursor: 'pointer',
