@@ -7,7 +7,6 @@ import emailjs from 'emailjs-com';
 
 function Contacts({ lang }) {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
-  const [, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [labels, setLabels] = useState(contactFormLabels[lang] || contactFormLabels.en);
   const [sliderMsg, setSliderMsg] = useState(null);
@@ -77,13 +76,11 @@ function Contacts({ lang }) {
         templateParams,
         EMAILJS_USER_ID
       );
-      setSubmitted(true);
       setSliderMsg(labels.thankYou);
       setForm({ name: '', email: '', phone: '', message: '' });
       setErrors({});
       setTimeout(() => {
         setSliderMsg(null);
-        setSubmitted(false);
       }, 3000);
     } catch (e) {
       setSliderMsg('Failed to send. Please try again later.');
@@ -132,6 +129,20 @@ function Contacts({ lang }) {
 
   return (
     <div>
+      {sliderMsg && (
+        <div
+          className="thank-you-slider"
+          style={contactStyles.thankYouSlider}
+        >
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none" style={contactStyles.thankYouSliderIcon}>
+            <circle cx="24" cy="24" r="24" fill="#fff" opacity="0.18" />
+            <path d="M15 25.5L22 32.5L34 18.5" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <span>
+            {sliderMsg}
+          </span>
+        </div>
+      )}
       <div
         className="contacts-grid"
         style={contactStyles.contactsGrid}
@@ -184,20 +195,6 @@ function Contacts({ lang }) {
             {contactHeading}
           </h2>
           <div style={contactStyles.formOuter}>
-            {sliderMsg && (
-              <div
-                className="thank-you-slider"
-                style={contactStyles.thankYouSlider}
-              >
-                <svg width="32" height="32" viewBox="0 0 48 48" fill="none" style={{ marginBottom: 6, display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
-                  <circle cx="24" cy="24" r="24" fill="#fff" opacity="0.18" />
-                  <path d="M15 25.5L22 32.5L34 18.5" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <span>
-                  {sliderMsg}
-                </span>
-              </div>
-            )}
             <form
               onSubmit={handleSubmit}
               style={contactStyles.form}

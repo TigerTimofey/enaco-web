@@ -232,6 +232,13 @@ export const thankYouSlider = {
   width: 'auto',
 };
 
+export const thankYouSliderIcon = {
+  marginBottom: 6,
+  display: 'block',
+  marginLeft: 'auto',
+  marginRight: 'auto'
+};
+
 export const responsiveAndKeyframes = `
   @keyframes fadeInScale {
     0% { opacity: 0; transform: scale(0.92);}
@@ -304,5 +311,19 @@ export const responsiveAndKeyframes = `
   }
   .contacts-info, .contacts-form {
     height: 100%;
+  }
+  @media (max-width: 600px) {
+    .thank-you-slider {
+      left: 50% !important;
+      right: unset !important;
+      transform: translateX(-50%) !important;
+      top: 64px !important;
+      bottom: unset !important;
+      min-width: 70vw !important;
+      max-width: 96vw !important;
+      font-size: 16px !important;
+      padding: 14px 8vw !important;
+      animation: slideInOutRightMobile 3s cubic-bezier(.4,0,.2,1) forwards;
+    }
   }
 `;
