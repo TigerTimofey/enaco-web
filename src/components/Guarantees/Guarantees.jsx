@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { guaranteesContent, guaranteesBoldPhrases } from '../translations/navbar-languages.js';
 import * as guaranteeStyles from './Guarantees-styles.js';
+import { useNavigate } from 'react-router-dom';
 
 // Icon render helper
 function GuaranteeIcon({ type }) {
@@ -57,6 +58,7 @@ function Guarantees({ lang }) {
   const [visibleCards, setVisibleCards] = useState([false, false, false]);
   const [scrollDir, setScrollDir] = useState('down');
   const lastScrollY = useRef(window.scrollY);
+  const navigate = useNavigate();
 
   useEffect(() => {
     function onScroll() {
@@ -141,21 +143,26 @@ function Guarantees({ lang }) {
             {t.delivery.title}
           </div>
           <div style={{...guaranteeStyles.cardTextStyle, textAlign: 'center'}}>
-            {/* Delivery text with contact link */}
             {lang === 'en' ? (
               <>
                 {t.delivery.text}
-                <a href="/kontakt" style={{ color: '#e11d48', textDecoration: 'underline', fontWeight: 600 }}>
+                <span
+                  style={{ color: '#e11d48', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}
+                  onClick={() => navigate('/kontakt')}
+                >
                   {t.delivery.contactLink}
-                </a>
+                </span>
                 {boldify(t.delivery.textAfter, boldPhrases)}
               </>
             ) : lang === 'ru' ? (
               <>
                 {t.delivery.text}
-                <a href="/kontakt" style={{ color: '#e11d48', textDecoration: 'underline', fontWeight: 600 }}>
+                <span
+                  style={{ color: '#e11d48', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}
+                  onClick={() => navigate('/kontakt')}
+                >
                   {t.delivery.contactLink}
-                </a>
+                </span>
                 {boldify(t.delivery.textAfter, boldPhrases)}
               </>
             ) : (
@@ -164,9 +171,12 @@ function Guarantees({ lang }) {
                   idx < arr.length - 1 ? (
                     <React.Fragment key={idx}>
                       {part}
-                      <a href="/kontakt" style={{ color: '#e11d48', textDecoration: 'underline', fontWeight: 600 }}>
+                      <span
+                        style={{ color: '#e11d48', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}
+                        onClick={() => navigate('/kontakt')}
+                      >
                         <b style={{ fontWeight: 700 }}>võta meiega ühendust</b>
-                      </a>
+                      </span>
                     </React.Fragment>
                   ) : boldify(part, boldPhrases)
                 )}

@@ -400,7 +400,7 @@ function Home({ lang }) {
                                   onClick={e => {
                                     e.preventDefault();
                                     localStorage.setItem('enaco_lang', lang);
-                                    window.location.href = `/garantiid?lang=${lang}`;
+                                    navigate(`/garantiid?lang=${lang}`);
                                   }}
                                 >
                                   {part}
