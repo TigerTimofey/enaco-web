@@ -5,7 +5,8 @@ export const headerOuter = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  marginTop: 84
+  marginTop: 84,
+
 };
 
 export const headerTitle = {
@@ -13,7 +14,6 @@ export const headerTitle = {
   fontWeight: 800,
   color: '#555555',
   letterSpacing: '0.04em',
-
   textAlign: 'center',
   textTransform: 'uppercase',
   fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif"
@@ -21,13 +21,12 @@ export const headerTitle = {
 };
 
 export const aboutContainer = {
-
   maxWidth: 900,
   margin: '94px auto 64px auto',
   background: '#fff',
   borderRadius: 18,
   boxShadow: '0 2px 12px 0 rgba(60,60,60,0.09)',
-  padding: '3.5rem 2.5rem',
+  padding: '2rem 1rem',
   fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif",
   display: 'flex',
   flexDirection: 'column',
@@ -196,6 +195,11 @@ export const aboutCta2 = {
 
 export const responsiveStyle = `
   @media (max-width: 900px) {
+    .about-container {
+      margin-left: 1rem !important;
+      margin-right: 1rem !important;
+    }
+
     .about-divider {
       display: block !important;
       width: 80% !important;
@@ -206,30 +210,31 @@ export const responsiveStyle = `
       border-radius: 2px !important;
       align-self: center !important;
     }
+
     .about-columns {
       flex-direction: column !important;
       gap: 0 !important;
       align-items: center !important;
       justify-content: center !important;
     }
+
     .about-logo-title-row {
       flex-direction: column !important;
       gap: 12px !important;
       align-items: center !important;
     }
+
     .about-logo {
       width: 160px !important;
       height: 160px !important;
       margin-bottom: 8px !important;
       margin-top: 0 !important;
     }
+
     .about-title {
       text-align: center !important;
-      font-size: 1.5rem !important;
     }
-    .about-container {
-      padding: 2rem 0.7rem !important;
-    }
+
     .about-columns > div {
       align-items: center !important;
       justify-content: center !important;
@@ -237,11 +242,13 @@ export const responsiveStyle = `
       display: flex !important;
       flex-direction: column !important;
     }
+
     .about-section-title,
     .about-list {
       text-align: center !important;
       align-items: center !important;
     }
+
     .about-list {
       list-style: none !important;
       padding-left: 0 !important;

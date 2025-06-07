@@ -22,7 +22,7 @@ export const contactHeaderTitle = {
 export const contactsGrid = {
   display: 'grid',
   gridTemplateColumns: '4fr 8fr',
-  marginTop: 94,
+  marginTop: 64,
   maxWidth: 1200,
   background: 'transparent',
   gap: 90,
