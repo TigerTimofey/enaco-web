@@ -373,6 +373,7 @@ export const formErrorTextStyle = {
   left: 8,
   top: -2,
   zIndex: 2
+  
 };
 
 export const formMarginBlockStyle = {
