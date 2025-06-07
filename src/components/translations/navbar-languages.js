@@ -228,7 +228,7 @@ export const homeLabels = {
     ],
     advantagesLearnMore: "Loe meist lähemalt",
     orderFormTitle: "Tellimisvorm",
-    contactBtnSecondary: "Jäid küsimused? Võta meiega ühendust",
+    contactBtnSecondary: "Küsimusi? Võtke meiega ühendust!",
     fillFormPrefix: "Täida vorm",
     yourInfoTitle: "Teie andmed",
     aboutPage: {
@@ -332,7 +332,7 @@ export const homeLabels = {
     ],
     advantagesLearnMore: "Подробнее о нас",
     orderFormTitle: "Форма заказа",
-    contactBtnSecondary: "Остались вопросы? Свяжитесь с нами",
+    contactBtnSecondary: "Есть вопросы? Свяжитесь с нами!",
     fillFormPrefix: "Заполнить форму",
     yourInfoTitle: "Ваша информация",
     aboutPage: {
