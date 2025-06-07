@@ -12,12 +12,12 @@ export const heroContainerStyle = {
   maxWidth: 700,
   margin: '0 auto',
   textAlign: 'center',
-  padding: '2.2rem',
+  padding: '1.5rem',
   borderRadius: 18,
 };
 
 export const heroTitleStyle = {
-  fontSize: '2.5rem',
+  fontSize: '1.9rem',
   fontWeight: 700,
   marginBottom: 16,
   color: '#555'
@@ -65,14 +65,13 @@ export const productCardsContainerStyle = {
   gap: 32,
   flexWrap: 'wrap',
   justifyContent: 'center',
-
 };
 
 export const productCardStyle = {
   background: '#fff',
   borderRadius: 16,
   boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
-  padding: '2rem 1.5rem',
+  padding: '2rem 1rem',
   maxWidth: 340,
   flex: '1 1 260px',
   textAlign: 'center',
@@ -143,7 +142,7 @@ export const stepsContainerStyle = {
   display: 'flex',
   flexDirection: 'column',
   gap: 0,
-  padding: '2rem 0.5rem',
+  padding: '1rem 0.5rem',
   boxSizing: 'border-box',
 };
 
@@ -319,7 +318,6 @@ export const carouselWordsContainerStyle = {
 
 export const carouselButtonStyle = (showWords, visibleCount, wordsLength) => ({
   marginTop: 80,
-  padding: '0.8em 2.2em',
   borderRadius: 8,
   background: '#888',
   color: '#fff',
@@ -344,7 +342,9 @@ export const carouselSectionResponsiveStyle = `
   .carousel-static-section {
     flex-direction: column !important;
     gap: 0.7rem !important;
+    padding: 1.2rem 0.7rem !important;
     align-items: center !important;
+    font-size: 0.8rem !important;
   }
   .carousel-static-section span {
     font-size: 1.1rem !important;
@@ -358,12 +358,13 @@ export const advantagesFlexWrapStyle = {
   borderRadius: 18,
   background: '#fff',
   boxShadow: '0 2px 12px 0 rgba(60,60,60,0.07)',
-  padding: '3.6rem 4.5rem',
+  padding: '3.6rem 3.5rem',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   gap: '1.5rem',
   flexWrap: 'wrap',
+  
 };
 
 export const advantagesTitleColStyle = {
@@ -372,6 +373,7 @@ export const advantagesTitleColStyle = {
   flex: '1 1 220px',
   display: 'flex',
   alignItems: 'center',
+  marginBottom: 0,
   justifyContent: 'flex-start',
   minHeight: 120,
   height: '100%',
@@ -455,7 +457,8 @@ export const advantagesFlexWrapMedia = `
   .advantages-flex-wrap {
     flex-direction: column !important;
     gap: 1.2rem !important;
-    padding: 1.2rem 0.7rem !important;
+    border-radius: 0px !important;
+    // padding: 1.2rem 0.7rem !important;
   }
   .advantages-flex-wrap h2 {
     text-align: center !important;
@@ -470,6 +473,9 @@ export const advantagesFlexWrapMedia = `
     align-self: center !important;
     width: 100% !important;
     margin-top: 1.5rem !important;
+  }
+  .advantages-title-col {
+    margin-bottom: 20px !important;
   }
 }
 `;

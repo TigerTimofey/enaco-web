@@ -47,7 +47,6 @@ import {
   advantagesListColStyle,
   advantagesLearnMoreLinkStyle,
   advantagesLearnMoreArrowStyle,
-  advantagesLearnMoreLinkMedia,
   advantagesFlexWrapMedia,
   advantagesSectionAppearStyle,
 } from './Home-styles';
@@ -221,7 +220,6 @@ function Home({ lang }) {
                       className={productBtnAnimatedClass}
                       style={productBtnStyle}
                       onClick={() => {
-                        // navigate to services with selected product
                         navigate(`/teenused?product=${prod.id}`);
                       }}
                     >
@@ -289,7 +287,6 @@ function Home({ lang }) {
                 </svg>
               </span>
             </span>
-            <style>{advantagesLearnMoreLinkMedia}</style>
           </div>
         </div>
       </section>
@@ -382,8 +379,8 @@ function Home({ lang }) {
                     <div style={stepTextGroupStyle}>
                       <p style={stepTextStyle}>
                         {item.icon === 3
-                          ? item.text.split(/(garantii|guarantee|гарантии|warranty)/i).map((part, i) =>
-                              /garantii|guarantee|гарантии|warranty/i.test(part) ? (
+                          ? item.text.split(/(garantii|guarantee|гарантия|warranty)/i).map((part, i) =>
+                              /garantii|guarantee|гарантия|warranty/i.test(part) ? (
                                 <a
                                   key={i}
                                   href={

@@ -7,7 +7,6 @@ function About({ lang }) {
   const t = homeLabels[lang]?.aboutPage || homeLabels.en.aboutPage;
   const navigate = useNavigate();
 
-  // Animation logic
   const cardRef = useRef(null);
   const [showCard, setShowCard] = useState(false);
 
@@ -29,6 +28,7 @@ function About({ lang }) {
   return (
     <div>
       <div
+      className='about-container'
         ref={cardRef}
         style={{
           ...aboutStyles.aboutContainer,

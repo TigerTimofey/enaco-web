@@ -33,7 +33,7 @@ import {
   formHiddenBlockStyle
 } from './Services-styles.js';
 import { useNavigate } from 'react-router-dom';
-import React, { useState, useRef, useEffect } from 'react';
+import  { useState, useRef, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 
 function getBtnText(name, lang) {
@@ -68,23 +68,22 @@ function Services({ lang, selectedProductId }) {
   const contactBtnText = homeLabels[lang]?.contactBtnSecondary || homeLabels.en.contactBtnSecondary;
 
 
-  const initialForm = {
-    smark: 'Audi',
-    smudel: 'A4',
-    aasta: '2018',
-    skub: '2000',
-    mvoimsus: '110',
-    mtahis: 'CAGA',
-    kytus: 'Diesel',
-    rek: '123ABC',
-    detail: 'Turbocharger',
-    nimi: 'John Doe',
-    email: 'john@example.com',
-    aadress: 'Tallinn, Estonia',
-    telefon: '+3725555555',
-    markused: 'Please contact me by email'
-  };
-  const [form, setForm] = useState(initialForm);
+  const [form, setForm] = useState({
+    smark: '',
+    smudel: '',
+    aasta: '',
+    skub: '',
+    mvoimsus: '',
+    mtahis: '',
+    kytus: '',
+    rek: '',
+    detail: '',
+    nimi: '',
+    email: '',
+    aadress: '',
+    telefon: '',
+    markused: ''
+  });
   const [errors, setErrors] = useState({});
   const [showThankYou] = useState(false);
   const [sliderMsg, setSliderMsg] = useState(null);
@@ -150,7 +149,22 @@ function Services({ lang, selectedProductId }) {
         templateParams,
         EMAILJS_USER_ID
       );
-      setForm(initialForm);
+      setForm({
+        smark: '',
+        smudel: '',
+        aasta: '',
+        skub: '',
+        mvoimsus: '',
+        mtahis: '',
+        kytus: '',
+        rek: '',
+        detail: '',
+        nimi: '',
+        email: '',
+        aadress: '',
+        telefon: '',
+        markused: ''
+      });
       setErrors({});
       setSliderMsg(homeLabels[lang]?.thankYouMessage || "Thank you! We have received your request and will contact you soon.");
       setTimeout(() => setSliderMsg(null), 3000);

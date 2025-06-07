@@ -250,13 +250,11 @@ export const responsiveStyle = `
 `;
 
 export const formSectionStyle = {
-  // margin: '48px auto', 
   width: '100%',
 };
 
 export const formOuterStyle = {
   background: '#fff',
-  borderRadius: 22,
   boxShadow: '0 2px 12px 0 rgba(60,60,60,0.09)',
   padding: '2.5rem 2.5rem',
   margin: '0 auto',
