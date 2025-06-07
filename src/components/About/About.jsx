@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { homeLabels } from '../translations/navbar-languages.js';
 import * as aboutStyles from './About-styles.js';
 import { useNavigate } from 'react-router-dom';
@@ -7,10 +7,38 @@ function About({ lang }) {
   const t = homeLabels[lang]?.aboutPage || homeLabels.en.aboutPage;
   const navigate = useNavigate();
 
+  // Animation logic
+  const cardRef = useRef(null);
+  const [showCard, setShowCard] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      if (!cardRef.current) return;
+      const rect = cardRef.current.getBoundingClientRect();
+      if (rect.bottom > 80 && rect.top < window.innerHeight - 80) {
+        setShowCard(true);
+      } else {
+        setShowCard(false);
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <div>
+      <div
+        ref={cardRef}
+        style={{
+          ...aboutStyles.aboutContainer,
+          opacity: showCard ? 1 : 0,
+          transform: showCard ? 'translateY(0)' : 'translateY(60px)',
+          pointerEvents: showCard ? 'auto' : 'none',
+          transition: 'opacity 0.5s cubic-bezier(.4,0,.2,1), transform 0.5s cubic-bezier(.4,0,.2,1)',
+        }}
+      >
 
-      <div style={aboutStyles.aboutContainer}>
         <div style={aboutStyles.logoTitleRow} className="about-logo-title-row">
           <img src="/logo.svg" alt="Enaco Group OÜ" style={aboutStyles.aboutLogo} className="about-logo" />
           <div>

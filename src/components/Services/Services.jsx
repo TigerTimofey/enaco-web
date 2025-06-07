@@ -33,7 +33,7 @@ import {
   formHiddenBlockStyle
 } from './Services-styles.js';
 import { useNavigate } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 
 function getBtnText(name, lang) {
@@ -128,7 +128,6 @@ function Services({ lang, selectedProductId }) {
       selectedProductEn = englishProducts.find(p => p.id === selectedProductId);
     }
 
-    // Prepare data for EmailJS (current language)
     const templateParams = {
       ...form,
       productName: selectedProduct ? selectedProduct.name : '',
@@ -136,14 +135,12 @@ function Services({ lang, selectedProductId }) {
       time: new Date().toLocaleString(),
     };
 
-    // Prepare data for logging (always English)
     const logData = {
       ...form,
       productName: selectedProductEn ? selectedProductEn.name : '',
       productTitle: selectedProductEn ? selectedProductEn.title : ''
     };
 
-    // Debug: log what will be sent (always in English)
     console.log('EmailJS payload (EN):', logData);
 
     try {
@@ -165,16 +162,79 @@ function Services({ lang, selectedProductId }) {
     }
   };
 
+  const productRefs = useRef([]);
+  const [visibleCards, setVisibleCards] = useState([]);
+  const [scrollDir, setScrollDir] = useState('down');
+  const lastScrollY = useRef(window.scrollY);
+
+  const contactBtnRef = useRef(null);
+  const [showContactBtn, setShowContactBtn] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      const currY = window.scrollY;
+      setScrollDir(currY > lastScrollY.current ? 'down' : 'up');
+      lastScrollY.current = currY;
+
+      setVisibleCards(filteredProducts.map((_, idx) => {
+        const el = productRefs.current[idx];
+        if (!el) return false;
+        const rect = el.getBoundingClientRect();
+        return rect.bottom > 0 && rect.top < window.innerHeight;
+      }));
+
+      if (contactBtnRef.current) {
+        const rect = contactBtnRef.current.getBoundingClientRect();
+        setShowContactBtn(rect.bottom > 40 && rect.top < window.innerHeight - 40);
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [filteredProducts.length]);
+
+  const getCardAnimStyle = idx => {
+    const translateY = visibleCards[idx]
+      ? '0'
+      : scrollDir === 'down'
+        ? '60px'
+        : '-60px';
+    return {
+      opacity: visibleCards[idx] ? 1 : 0,
+      transform: `translateY(${translateY})`,
+      pointerEvents: visibleCards[idx] ? 'auto' : 'none',
+      transition: 'opacity 0.5s cubic-bezier(.4,0,.2,1), transform 0.5s cubic-bezier(.4,0,.2,1)',
+    };
+  };
+
+  const getBtnAnimStyle = () => {
+    const translateY = showContactBtn
+      ? '0'
+      : scrollDir === 'down'
+        ? '60px'
+        : '-60px';
+    return {
+      opacity: showContactBtn ? 1 : 0,
+      transform: `translateY(${translateY})`,
+      pointerEvents: showContactBtn ? 'auto' : 'none',
+      transition: 'opacity 0.5s cubic-bezier(.4,0,.2,1), transform 0.5s cubic-bezier(.4,0,.2,1)',
+    };
+  };
+
   return (
     <div>
       <section style={productSectionStyle}>
         <div style={productSectionInnerStyle}>
           <div style={productCardsContainerStyle}>
-            {filteredProducts.map((prod) => (
+            {filteredProducts.map((prod, idx) => (
               <div
                 key={prod.id}
+                ref={el => (productRefs.current[idx] = el)}
                 className="services-product-row"
-                style={productRowStyle}
+                style={{
+                  ...productRowStyle,
+                  ...getCardAnimStyle(idx),
+                }}
               >
                 <img
                   src={prod.img}
@@ -535,8 +595,12 @@ function Services({ lang, selectedProductId }) {
         </form>
         {!showThankYou && (
           <div
+            ref={contactBtnRef}
             className="services-product-btn-group"
-            style={contactBtnGroupStyle}
+            style={{
+              ...contactBtnGroupStyle,
+              ...getBtnAnimStyle(),
+            }}
           >
             <button
               className={productBtnAnimatedClass}

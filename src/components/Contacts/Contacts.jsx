@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { businessData } from '../utils/bussines-data/bussines-data.js';
 import { contactFormLabels } from '../translations/navbar-languages.js';
 import * as contactStyles from './Contacts-styles.js';
@@ -62,7 +62,6 @@ function Contacts({ lang }) {
       return;
     }
 
-    // Prepare data for EmailJS
     const templateParams = {
       from_name: form.name,
       from_email: form.email,
@@ -71,10 +70,6 @@ function Contacts({ lang }) {
       time: new Date().toLocaleString(),
     };
 
-    // Debug: log what will be sent
-    console.log('EmailJS payload:', templateParams);
-
-    // Send email via EmailJS
     try {
       await emailjs.send(
         EMAILJS_SERVICE_ID,
@@ -93,10 +88,46 @@ function Contacts({ lang }) {
     } catch (e) {
       setSliderMsg('Failed to send. Please try again later.');
       setTimeout(() => setSliderMsg(null), 3000);
-      // Optionally log the error for debugging:
       console.error('EmailJS error:', e);
       throw new Error('Email sending failed: ' + (e?.text || e?.message || e));
     }
+  };
+
+  const cardRefs = useRef([]);
+  const [visibleCards, setVisibleCards] = useState([false, false]);
+  const [scrollDir, setScrollDir] = useState('down');
+  const lastScrollY = useRef(window.scrollY);
+
+  useEffect(() => {
+    function onScroll() {
+      const currY = window.scrollY;
+      setScrollDir(currY > lastScrollY.current ? 'down' : 'up');
+      lastScrollY.current = currY;
+
+      setVisibleCards([0, 1].map(idx => {
+        const el = cardRefs.current[idx];
+        if (!el) return false;
+        const rect = el.getBoundingClientRect();
+        return rect.bottom > 40 && rect.top < window.innerHeight - 40;
+      }));
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const getCardAnimStyle = idx => {
+    const translateY = visibleCards[idx]
+      ? '0'
+      : scrollDir === 'down'
+        ? '60px'
+        : '-60px';
+    return {
+      opacity: visibleCards[idx] ? 1 : 0,
+      transform: `translateY(${translateY})`,
+      pointerEvents: visibleCards[idx] ? 'auto' : 'none',
+      transition: 'opacity 0.5s cubic-bezier(.4,0,.2,1), transform 0.5s cubic-bezier(.4,0,.2,1)',
+    };
   };
 
   return (
@@ -106,8 +137,12 @@ function Contacts({ lang }) {
         style={contactStyles.contactsGrid}
       >
         <div
+          ref={el => (cardRefs.current[0] = el)}
           className="contacts-info"
-          style={contactStyles.contactsInfo}
+          style={{
+            ...contactStyles.contactsInfo,
+            ...getCardAnimStyle(0),
+          }}
         >
           <img
             src="/logo.svg"
@@ -138,8 +173,12 @@ function Contacts({ lang }) {
           </div>
         </div>
         <div
+          ref={el => (cardRefs.current[1] = el)}
           className="contacts-form"
-          style={contactStyles.contactsForm}
+          style={{
+            ...contactStyles.contactsForm,
+            ...getCardAnimStyle(1),
+          }}
         >
           <h2 style={contactStyles.formTitle}>
             {contactHeading}

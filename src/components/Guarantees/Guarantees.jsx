@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { guaranteesContent, guaranteesBoldPhrases } from '../translations/navbar-languages.js';
 import * as guaranteeStyles from './Guarantees-styles.js';
 
@@ -53,22 +53,72 @@ function Guarantees({ lang }) {
   const t = guaranteesContent[lang] || guaranteesContent.ee;
   const boldPhrases = guaranteesBoldPhrases[lang];
 
+  const cardRefs = useRef([]);
+  const [visibleCards, setVisibleCards] = useState([false, false, false]);
+  const [scrollDir, setScrollDir] = useState('down');
+  const lastScrollY = useRef(window.scrollY);
+
+  useEffect(() => {
+    function onScroll() {
+      const currY = window.scrollY;
+      setScrollDir(currY > lastScrollY.current ? 'down' : 'up');
+      lastScrollY.current = currY;
+
+      setVisibleCards([0, 1, 2].map(idx => {
+        const el = cardRefs.current[idx];
+        if (!el) return false;
+        const rect = el.getBoundingClientRect();
+        return rect.bottom > 40 && rect.top < window.innerHeight - 40;
+      }));
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const getCardAnimStyle = (idx) => {
+    const translateY = visibleCards[idx]
+      ? '0'
+      : scrollDir === 'down'
+        ? '60px'
+        : '-60px';
+    return {
+      opacity: visibleCards[idx] ? 1 : 0,
+      transform: `translateY(${translateY})`,
+      pointerEvents: visibleCards[idx] ? 'auto' : 'none',
+      transition: 'opacity 0.5s cubic-bezier(.4,0,.2,1), transform 0.5s cubic-bezier(.4,0,.2,1)',
+    };
+  };
+
   return (
     <div>
-
-      <div className="guarantees-grid" style={guaranteeStyles.gridStyle}>
-        <div style={guaranteeStyles.cardStyle}>
+      <div
+        className="guarantees-grid"
+        style={guaranteeStyles.gridStyle}
+      >
+        <div
+          ref={el => (cardRefs.current[0] = el)}
+          style={{
+            ...guaranteeStyles.cardStyle,
+            ...getCardAnimStyle(0),
+          }}
+        >
           <div style={guaranteeStyles.cardTitleStyle}>
             <GuaranteeIcon type={t.warranty.icon} />
             {t.warranty.title}
           </div>
-          
           <div style={guaranteeStyles.cardTextStyle}>
             {boldify(t.warranty.text, boldPhrases)}
           </div>
         </div>
         <hr className="guarantees-hr-mobile" style={guaranteeStyles.hrMobileStyle} />
-        <div style={guaranteeStyles.cardStyle}>
+        <div
+          ref={el => (cardRefs.current[1] = el)}
+          style={{
+            ...guaranteeStyles.cardStyle,
+            ...getCardAnimStyle(1),
+          }}
+        >
           <div style={guaranteeStyles.cardTitleStyle}>
             <GuaranteeIcon type={t.notApply.icon} />
             {t.notApply.title}
@@ -77,9 +127,14 @@ function Guarantees({ lang }) {
             {boldify(t.notApply.text, boldPhrases)}
           </div>
         </div>
-        <div className="guarantees-delivery-card" style={{
-          ...guaranteeStyles.deliveryCardStyle,
-        }}>
+        <div
+          ref={el => (cardRefs.current[2] = el)}
+          className="guarantees-delivery-card"
+          style={{
+            ...guaranteeStyles.deliveryCardStyle,
+            ...getCardAnimStyle(2),
+          }}
+        >
           <hr style={guaranteeStyles.hrStyle} />
           <div style={guaranteeStyles.cardTitleStyle}>
             <GuaranteeIcon type={t.delivery.icon} />
