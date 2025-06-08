@@ -186,6 +186,7 @@ export const mobileMenuStyle = {
 
 export const mobileSelectWrapperStyle = {
   marginTop: '1rem',
+  listStyleType: 'none',
   width: '100%',
   display: 'flex',
   justifyContent: 'center',
@@ -367,7 +368,9 @@ export const mobileDropdownArrowStyle = {
 };
 
 export const mobileDropdownMenuStyle = {
-  listStyleType: 'none', 
+  listStyleType: 'none',
+  listStyle: 'none',
+  paddingLeft: 0,    
   padding: '.4em 0.4em .4em 0.4em',
   background: '#f9fafb',
   borderRadius: 8,

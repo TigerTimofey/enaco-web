@@ -160,7 +160,7 @@ function Navbar({ lang, setLang }) {
         </button>
 
         {menuOpen && isMobile && (
-          <ul className="navbar-mobile" style={navbarStyles.mobileMenuStyle}>
+          <ul className="navbar-mobile" style={{...navbarStyles.mobileMenuStyle,listStyleType: 'none'}}>
             {menu.map((item, idx) => (
               <React.Fragment key={idx}>
                 <li style={navbarStyles.liStyle}>
@@ -226,7 +226,7 @@ function Navbar({ lang, setLang }) {
               </React.Fragment>
             ))}
 
-            <li style={navbarStyles.mobileSelectWrapperStyle}>
+            <li style={{...navbarStyles.mobileSelectWrapperStyle, listStyleType: 'none'}}>
               <select
                 className="navbar-select-mobile"
                 value={lang}
