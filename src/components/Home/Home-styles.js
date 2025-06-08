@@ -62,6 +62,7 @@ export const productSectionInnerStyle = {
 
 export const productCardsContainerStyle = {
   display: 'flex',
+  background: '#f8f6f1',
   gap: 32,
   flexWrap: 'wrap',
   justifyContent: 'center',
