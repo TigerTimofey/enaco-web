@@ -26,7 +26,7 @@ function About({ lang }) {
   }, []);
 
   return (
-    <div>
+    <div style={{background:'f8f6f1'}}>
       <div
       className='about-container'
         ref={cardRef}

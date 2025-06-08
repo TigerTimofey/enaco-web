@@ -197,7 +197,7 @@ export const mapOuter = {
   width: '100%',
   marginTop: 48,
   marginBottom: 0,
-  background: '#fff',
+  background: '#e11d48',
   boxShadow: '0 2px 12px 0 rgba(60,60,60,0.07)'
 };
 

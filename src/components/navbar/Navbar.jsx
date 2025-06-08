@@ -50,6 +50,8 @@ function Navbar({ lang, setLang }) {
   });
 
   return (
+
+    
     <nav style={navbarStyles.navStyle}>
       <div style={navbarStyles.navInnerStyle}>
         <Link to="/" style={navbarStyles.logoLinkStyle} className="navbar-brand-center">

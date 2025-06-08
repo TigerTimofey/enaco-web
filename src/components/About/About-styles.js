@@ -16,7 +16,8 @@ export const headerTitle = {
   letterSpacing: '0.04em',
   textAlign: 'center',
   textTransform: 'uppercase',
-  fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif"
+  fontFamily: "'Nunito', 'Poppins', 'Inter', system-ui, sans-serif",
+
   
 };
 
@@ -198,6 +199,7 @@ export const responsiveStyle = `
     .about-container {
       margin-left: 1rem !important;
       margin-right: 1rem !important;
+
     }
 
     .about-divider {

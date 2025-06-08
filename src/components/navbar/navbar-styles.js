@@ -51,7 +51,7 @@ export const ulStyle = {
   display: 'flex',
   justifyContent: 'center',
   gap: '0.9rem',
-  listStyleType: 'none', // Ensures no bullets in all browsers
+  listStyleType: 'none', 
   margin: 0,
   padding: 0,
   fontSize: '1rem',
