@@ -51,7 +51,7 @@ export const ulStyle = {
   display: 'flex',
   justifyContent: 'center',
   gap: '0.9rem',
-  listStyle: 'none',
+  listStyleType: 'none', // Ensures no bullets in all browsers
   margin: 0,
   padding: 0,
   fontSize: '1rem',
@@ -342,4 +342,44 @@ export const servicesDropdownMenuStyle = {
   position: 'absolute',
   top: '100%',
   zIndex: 10,
+};
+
+export const mobileDropdownButtonStyle = {
+  width: '100%',
+  textAlign: 'center',
+  background: 'none',
+  border: 'none',
+  outline: 'none',
+  cursor: 'pointer',
+  padding: '0.36em 0.9em',
+  fontWeight: 600,
+  fontSize: '1.08em',
+  color: '#30353d',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+export const mobileDropdownArrowStyle = {
+  float: 'right',
+  fontSize: 15,
+  marginLeft: 8,
+};
+
+export const mobileDropdownMenuStyle = {
+  listStyleType: 'none', 
+  padding: '.4em 0.4em .4em 0.4em',
+  background: '#f9fafb',
+  borderRadius: 8,
+  border: '1px solid #e5e7eb',
+};
+
+export const mobileDropdownItemStyle = {
+  width: '100%',
+  textAlign: 'center',
+  background: 'none',
+  border: 'none',
+  outline: 'none',
+  cursor: 'pointer',
+  padding: '0.9em 0.6em',
 };

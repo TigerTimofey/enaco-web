@@ -69,7 +69,7 @@ function Navbar({ lang, setLang }) {
                 onMouseLeave={item.href === '/teenused' ? () => setOpenDropdownIdx(null) : undefined}
               >
                 {item.href === '/teenused' ? (
-                  <div style={navbarStyles.servicesDropdownWrapperStyle || { position: 'relative', display: 'inline-block' }}>
+                  <div style={navbarStyles.servicesDropdownWrapperStyle}>
                     <span
                       style={{
                         ...navbarStyles.linkStyle,
@@ -170,47 +170,26 @@ function Navbar({ lang, setLang }) {
                         type="button"
                         style={{
                           ...navbarStyles.linkStyle,
-                          width: '100%',
-                          textAlign: 'center',
-                          background: 'none',
-                          border: 'none',
-                          outline: 'none',
-                          cursor: 'pointer',
-                          padding: '0.36em 0.9em',
-                          fontWeight: 600,
-                          fontSize: '1.08em',
-                          color: '#30353d',
+                          ...navbarStyles.mobileDropdownButtonStyle,
                         }}
                         onClick={() =>
                           setOpenDropdownIdx(openDropdownIdx === idx ? null : idx)
                         }
-                      >    <span style={{ float: 'right', fontSize: 15, marginLeft: 8 }}>
+                      >
+                        {item.label}
+                        <span style={navbarStyles.mobileDropdownArrowStyle}>
                           {openDropdownIdx === idx ? '↑' : '↓'}
                         </span>
-                        {item.label}
-                
                       </button>
                       {openDropdownIdx === idx && (
-                        <ul style={{
-                          listStyle: 'none',
-                          padding: '.4em 0.4em .4em 0.4em',
-                          background: '#f9fafb',
-                          borderRadius: 8,
-                          border: '1px solid #e5e7eb',
-                        }}>
+                        <ul style={navbarStyles.mobileDropdownMenuStyle}>
                           {productDropdown.map(prod => (
                             <li key={prod.id}>
                               <button
                                 type="button"
                                 style={{
                                   ...navbarStyles.dropdownItemStyle,
-                                  width: '100%',
-                                  textAlign: 'center',
-                                  background: 'none',
-                                  border: 'none',
-                                  outline: 'none',
-                                  cursor: 'pointer',
-                                  padding: '0.9em 0.6em',
+                                  ...navbarStyles.mobileDropdownItemStyle,
                                 }}
                                 onClick={() => {
                                   setActiveIdx(idx);
