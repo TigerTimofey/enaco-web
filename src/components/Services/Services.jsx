@@ -309,7 +309,7 @@ function Services({ lang, selectedProductId }) {
             <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
             <input type="hidden" name="_wpcf7_recaptcha_response" value="" />
           </div>
-          <div style={formRowStyle}>
+          <div className="form-row" style={formRowStyle}>
 
             <div style={formColumnInputWrapperStyle}>
               {errors.smark && (
@@ -349,7 +349,7 @@ function Services({ lang, selectedProductId }) {
               />
             </div>
           </div>
-          <div style={formRowStyle}>
+          <div className="form-row" style={formRowStyle}>
             <div style={formColumnInputWrapperStyle}>
               {errors.aasta && (
                 <span style={formErrorTextStyle}>{errors.aasta}</span>
@@ -389,7 +389,7 @@ function Services({ lang, selectedProductId }) {
               />
             </div>
           </div>
-          <div style={formRowStyle}>
+          <div className="form-row" style={formRowStyle}>
             <div style={formColumnInputWrapperStyle}>
               {errors.mvoimsus && (
                 <span style={formErrorTextStyle}>{errors.mvoimsus}</span>
@@ -429,7 +429,7 @@ function Services({ lang, selectedProductId }) {
               />
             </div>
           </div>
-          <div style={formRowStyle}>
+          <div className="form-row" style={formRowStyle}>
             <div style={formColumnInputWrapperStyle}>
               {errors.kytus && (
                 <span style={formErrorTextStyle}>{errors.kytus}</span>
@@ -494,7 +494,7 @@ function Services({ lang, selectedProductId }) {
           <h1 style={orderFormTitleStyle}>
             {homeLabels[lang].yourInfoTitle}
           </h1>
-          <div style={formRowStyle}>
+          <div className="form-row" style={formRowStyle}>
       
             <div style={formColumnInputWrapperStyle}>
               {errors.nimi && (
@@ -535,7 +535,7 @@ function Services({ lang, selectedProductId }) {
               />
             </div>
           </div>
-          <div style={formRowStyle}>
+          <div className="form-row" style={formRowStyle}>
 
             <div style={formColumnInputWrapperStyle}>
               {errors.aadress && (

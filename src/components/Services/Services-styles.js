@@ -50,7 +50,7 @@ export const productRowStyle = {
   margin: '0 auto',
   position: 'relative',
   gap: 0,
-  background: 'none',
+  background: '#f8f6f1',
   borderRadius: 0,
   boxShadow: 'none',
   padding: 0,
@@ -244,6 +244,9 @@ export const responsiveStyle = `
     font-size: 16px !important;
     padding: 14px 8vw !important;
     animation: slideInOutRightMobile 3s cubic-bezier(.4,0,.2,1) forwards;
+  }
+  .form-row {
+    gap: 0 !important;
   }
 }
 `;

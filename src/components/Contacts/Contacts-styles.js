@@ -21,10 +21,11 @@ export const contactHeaderTitle = {
 
 export const contactsGrid = {
   display: 'grid',
+
   gridTemplateColumns: '4fr 8fr',
   marginTop: 64,
   maxWidth: 1200,
-  background: 'transparent',
+  background: '#f8f6f1',
   gap: 90,
   alignItems: 'stretch',
 };
@@ -39,7 +40,7 @@ export const contactsInfo = {
   borderRight: '1px solid #e5e7eb',
   height: '100%',
   boxSizing: 'border-box',
-  background: 'transparent',
+  background: '#f8f6f1;',
 };
 
 export const logoImg = {

@@ -112,6 +112,7 @@ export const productBtnGroupStyle = {
 export const productBtnStyle = {
   padding: '0.4em 1.2em',
   borderRadius: 8,
+  background: '#1a1a1a',
   color: '#fff',
   fontWeight: 600,
   fontSize: '1.1em',
