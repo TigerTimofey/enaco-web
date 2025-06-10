@@ -462,22 +462,23 @@ export const advantagesFlexWrapMedia = `
     border-radius: 0px !important;
     // padding: 1.2rem 0.7rem !important;
   }
-  .advantages-flex-wrap h2 {
+  .advantages-title-col {
+    margin-bottom: 20px !important;
+  }
+  .advantages-title-h2 {
+    display: block !important;
     text-align: center !important;
     font-size: 3.5rem !important;
     margin-top: 4rem !important;
   }
   .advantages-flex-wrap > div:last-child {
-    text-align: center !important;
+    // text-align: center !important;
     font-size: 1rem !important;
   }
   .advantages-flex-wrap button {
     align-self: center !important;
     width: 100% !important;
     margin-top: 1.5rem !important;
-  }
-  .advantages-title-col {
-    margin-bottom: 20px !important;
   }
 }
 `;

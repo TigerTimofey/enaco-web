@@ -24,6 +24,7 @@ export const headerTitle = {
 export const aboutContainer = {
   maxWidth: 900,
   margin: '94px auto 64px auto',
+  marginTop: 120,
   background: '#fff',
   borderRadius: 18,
   boxShadow: '0 2px 12px 0 rgba(60,60,60,0.09)',
