@@ -24,7 +24,7 @@ export const productSectionStyle = {
   flexDirection: 'column',
   alignItems: 'center',
   width: '100%',
-  marginTop: 24,
+  marginTop: 54,
 };
 
 export const productSectionInnerStyle = {
