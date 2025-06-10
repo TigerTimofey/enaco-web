@@ -70,18 +70,11 @@ function Services({ lang, selectedProductId }) {
 
   const [form, setForm] = useState({
     smark: '',
-    smudel: '',
-    aasta: '',
-    skub: '',
-    mvoimsus: '',
-    mtahis: '',
-    kytus: '',
     rek: '',
-    detail: '',
+    mtahis: '',
     nimi: '',
-    email: '',
-    aadress: '',
     telefon: '',
+    email: '',
     markused: ''
   });
   const [errors, setErrors] = useState({});
@@ -107,7 +100,7 @@ function Services({ lang, selectedProductId }) {
     e.preventDefault();
     const newErrors = {};
 
-    ['smark','smudel','aasta','skub','mvoimsus','mtahis','kytus','rek','detail','nimi','email','telefon'].forEach(field => {
+    ['smark', 'rek', 'mtahis', 'nimi', 'telefon', 'email'].forEach(field => {
       if (!validateRequired(form[field])) {
         newErrors[field] = labelsForm[field] + ' *';
       }
@@ -151,18 +144,11 @@ function Services({ lang, selectedProductId }) {
       );
       setForm({
         smark: '',
-        smudel: '',
-        aasta: '',
-        skub: '',
-        mvoimsus: '',
-        mtahis: '',
-        kytus: '',
         rek: '',
-        detail: '',
+        mtahis: '',
         nimi: '',
-        email: '',
-        aadress: '',
         telefon: '',
+        email: '',
         markused: ''
       });
       setErrors({});
@@ -310,7 +296,6 @@ function Services({ lang, selectedProductId }) {
             <input type="hidden" name="_wpcf7_recaptcha_response" value="" />
           </div>
           <div className="form-row" style={formRowStyle}>
-
             <div style={formColumnInputWrapperStyle}>
               {errors.smark && (
                 <span style={formErrorTextStyle}>{errors.smark}</span>
@@ -331,81 +316,21 @@ function Services({ lang, selectedProductId }) {
               />
             </div>
             <div style={formColumnInputWrapperStyle}>
-              {errors.smudel && (
-                <span style={formErrorTextStyle}>{errors.smudel}</span>
+              {errors.rek && (
+                <span style={formErrorTextStyle}>{errors.rek}</span>
               )}
               <input
                 style={{
                   ...formInputStyle,
-                  borderColor: errors.smudel ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.smudel ? 18 : undefined
-                }}
-                name="smudel"
-                placeholder={labelsForm.smudel}
-                maxLength={400}
-                required
-                value={form.smudel}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className="form-row" style={formRowStyle}>
-            <div style={formColumnInputWrapperStyle}>
-              {errors.aasta && (
-                <span style={formErrorTextStyle}>{errors.aasta}</span>
-              )}
-              <input
-                style={{
-                  ...formInputStyle,
-                  borderColor: errors.aasta ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.aasta ? 18 : undefined
+                  borderColor: errors.rek ? '#e11d48' : formInputStyle.borderColor,
+                  marginTop: errors.rek ? 18 : undefined
                 }}
                 type="text"
-                name="aasta"
-                placeholder={labelsForm.aasta}
+                name="rek"
+                placeholder={labelsForm.rek}
                 maxLength={400}
                 required
-                value={form.aasta}
-                onChange={handleChange}
-              />
-            </div>
-            <div style={formColumnInputWrapperStyle}>
-              {errors.skub && (
-                <span style={formErrorTextStyle}>{errors.skub}</span>
-              )}
-              <input
-                style={{
-                  ...formInputStyle,
-                  borderColor: errors.skub ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.skub ? 18 : undefined
-                }}
-                type="text"
-                name="skub"
-                placeholder={labelsForm.skub}
-                maxLength={400}
-                required
-                value={form.skub}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className="form-row" style={formRowStyle}>
-            <div style={formColumnInputWrapperStyle}>
-              {errors.mvoimsus && (
-                <span style={formErrorTextStyle}>{errors.mvoimsus}</span>
-              )}
-              <input
-                style={{
-                  ...formInputStyle,
-                  borderColor: errors.mvoimsus ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.mvoimsus ? 18 : undefined
-                }}
-                type="text"
-                name="mvoimsus"
-                placeholder={labelsForm.mvoimsus}
-                maxLength={400}
-                required
-                value={form.mvoimsus}
+                value={form.rek}
                 onChange={handleChange}
               />
             </div>
@@ -429,73 +354,10 @@ function Services({ lang, selectedProductId }) {
               />
             </div>
           </div>
-          <div className="form-row" style={formRowStyle}>
-            <div style={formColumnInputWrapperStyle}>
-              {errors.kytus && (
-                <span style={formErrorTextStyle}>{errors.kytus}</span>
-              )}
-              <input
-                style={{
-                  ...formInputStyle,
-                  borderColor: errors.kytus ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.kytus ? 18 : undefined
-                }}
-                type="text"
-                name="kytus"
-                placeholder={labelsForm.kytus}
-                maxLength={400}
-                required
-                value={form.kytus}
-                onChange={handleChange}
-              />
-            </div>
-            <div style={formColumnInputWrapperStyle}>
-              {errors.rek && (
-                <span style={formErrorTextStyle}>{errors.rek}</span>
-              )}
-              <input
-                style={{
-                  ...formInputStyle,
-                  borderColor: errors.rek ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.rek ? 18 : undefined
-                }}
-                type="text"
-                name="rek"
-                placeholder={labelsForm.rek}
-                maxLength={400}
-                required
-                value={form.rek}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div>
-
-            <div style={formColumnTextareaWrapperStyle}>
-              {errors.detail && (
-                <span style={formErrorTextStyle}>{errors.detail}</span>
-              )}
-              <textarea
-                style={{
-                  ...formTextareaStyle,
-                  borderColor: errors.detail ? '#e11d48' : formTextareaStyle.borderColor,
-                  marginTop: errors.detail ? 18 : undefined
-                }}
-                name="detail"
-                placeholder={labelsForm.detail}
-                maxLength={2000}
-                rows={4}
-                required
-                value={form.detail}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
           <h1 style={orderFormTitleStyle}>
             {homeLabels[lang].yourInfoTitle}
           </h1>
           <div className="form-row" style={formRowStyle}>
-      
             <div style={formColumnInputWrapperStyle}>
               {errors.nimi && (
                 <span style={formErrorTextStyle}>{errors.nimi}</span>
@@ -512,6 +374,26 @@ function Services({ lang, selectedProductId }) {
                 maxLength={400}
                 required
                 value={form.nimi}
+                onChange={handleChange}
+              />
+            </div>
+            
+            <div style={formColumnInputWrapperStyle}>
+              {errors.telefon && (
+                <span style={formErrorTextStyle}>{errors.telefon}</span>
+              )}
+              <input
+                style={{
+                  ...formInputStyle,
+                  borderColor: errors.telefon ? '#e11d48' : formInputStyle.borderColor,
+                  marginTop: errors.telefon ? 18 : undefined
+                }}
+                type="text"
+                name="telefon"
+                placeholder={labelsForm.telefon}
+                maxLength={400}
+                required
+                value={form.telefon}
                 onChange={handleChange}
               />
             </div>
@@ -535,48 +417,7 @@ function Services({ lang, selectedProductId }) {
               />
             </div>
           </div>
-          <div className="form-row" style={formRowStyle}>
-
-            <div style={formColumnInputWrapperStyle}>
-              {errors.aadress && (
-                <span style={formErrorTextStyle}>{errors.aadress}</span>
-              )}
-              <input
-                style={{
-                  ...formInputStyle,
-                  borderColor: errors.aadress ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.aadress ? 18 : undefined
-                }}
-                type="text"
-                name="aadress"
-                placeholder={labelsForm.aadress}
-                maxLength={400}
-                value={form.aadress}
-                onChange={handleChange}
-              />
-            </div>
-            <div style={formColumnInputWrapperStyle}>
-              {errors.telefon && (
-                <span style={formErrorTextStyle}>{errors.telefon}</span>
-              )}
-              <input
-                style={{
-                  ...formInputStyle,
-                  borderColor: errors.telefon ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.telefon ? 18 : undefined
-                }}
-                type="text"
-                name="telefon"
-                placeholder={labelsForm.telefon}
-                maxLength={400}
-                required
-                value={form.telefon}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
           <div>
-
             <div style={formColumnTextareaWrapperStyle}>
               {errors.markused && (
                 <span style={formErrorTextStyle}>{errors.markused}</span>
@@ -596,8 +437,7 @@ function Services({ lang, selectedProductId }) {
               />
             </div>
           </div>
-          <div style={formMarginBlockStyle}>
-          </div>
+          <div style={formMarginBlockStyle}></div>
           <div>
             <input
               className={`wpcf7-form-control wpcf7-submit has-spinner ${formSubmitBtnAnimatedClass}`}

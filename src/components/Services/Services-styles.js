@@ -266,10 +266,12 @@ export const formOuterStyle = {
 export const formRowStyle = {
   display: 'flex',
   flexWrap: 'wrap',
-  gap: 24,
+
 };
 
 export const formInputStyle = {
+  marginLeft: 8,
+
   padding: '0.5em 1.2em',
   borderRadius: 10,
   border: '1.5px solid #e5e7eb',
@@ -286,8 +288,8 @@ export const formInputStyle = {
 
 export const formTextareaStyle = {
   ...formInputStyle,
-  width: '100%',
-  minHeight: 80,
+  width: 'auto', 
+  minHeight: 48, 
   resize: 'vertical',
   boxSizing: 'border-box',
   flex: 1,
