@@ -76,6 +76,7 @@ export const responsiveStyle = `
 `;
 
 export const cardTitleStyle = {
+  marginTop: 24,
   fontSize: 26,
   fontWeight: 800,
   color: '#e11d48',

@@ -2,21 +2,21 @@ const navbarMenus = {
   en: [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/meist' },
-    { label: 'Services', href: '/teenused' },
+    { label: 'Products', href: '/tooted' },
     { label: 'Warranty', href: '/garantiid' },
     { label: 'Contacts', href: '/kontakt' },
   ],
   ee: [
     { label: 'Avaleht', href: '/' },
     { label: 'Meist', href: '/meist' },
-    { label: 'Teenused', href: '/teenused' },
+    { label: 'Tooted', href: '/tooted' },
     { label: 'Garantii', href: '/garantiid' },
     { label: 'Kontaktid', href: '/kontakt' },
   ],
   ru: [
     { label: 'Главная', href: '/' },
     { label: 'О нас', href: '/meist' },
-    { label: 'Услуги', href: '/teenused' },
+    { label: 'Товары', href: '/tooted' },
     { label: 'Гарантии', href: '/garantiid' },
     { label: 'Контакты', href: '/kontakt' },
   ],
@@ -244,7 +244,6 @@ export const homeLabels = {
       ],
       advantagesTitle: "Meie eelised",
       advantages: [
-        "Kõik agregaadid läbivad tehnilise kontrolli",
         "Garantii ja abi valikul VIN-koodi alusel",
         "Kohaletoimetamine Eestis ja kogu EL territooriumil",
         "Töötame nii era- kui äriklientidega"

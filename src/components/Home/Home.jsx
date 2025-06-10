@@ -220,7 +220,7 @@ function Home({ lang }) {
                       className={productBtnAnimatedClass}
                       style={productBtnStyle}
                       onClick={() => {
-                        navigate(`/teenused?product=${prod.id}`);
+                        navigate(`/tooted?product=${prod.id}`);
                       }}
                     >
                       {(prod.btn || '').replace('{PRODUCT_NAME}', prod.name)}

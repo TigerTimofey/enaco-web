@@ -20,7 +20,7 @@ function ScrollToTop() {
 function AppContent({ lang, setLang }) {
   const location = useLocation();
   let selectedProductId = null;
-  if (location.pathname === '/teenused') {
+  if (location.pathname === '/tooted') {
     const params = new URLSearchParams(location.search);
     selectedProductId = params.get('product');
   }
@@ -30,7 +30,7 @@ function AppContent({ lang, setLang }) {
       <Routes>
         <Route path="/" element={<Home lang={lang} />} />
         <Route path="/meist" element={<About lang={lang} />} />
-        <Route path="/teenused" element={<Services lang={lang} selectedProductId={selectedProductId} />} />
+        <Route path="/tooted" element={<Services lang={lang} selectedProductId={selectedProductId} />} />
         <Route path="/garantiid" element={<Guarantees lang={lang} />} />
         <Route path="/kontakt" element={<Contacts lang={lang} />} />
       </Routes>

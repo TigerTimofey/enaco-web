@@ -66,10 +66,10 @@ function Navbar({ lang, setLang }) {
             <React.Fragment key={idx}>
               <li
                 style={navbarStyles.liStyle}
-                onMouseEnter={item.href === '/teenused' ? () => setOpenDropdownIdx(idx) : undefined}
-                onMouseLeave={item.href === '/teenused' ? () => setOpenDropdownIdx(null) : undefined}
+                onMouseEnter={item.href === '/tooted' ? () => setOpenDropdownIdx(idx) : undefined}
+                onMouseLeave={item.href === '/tooted' ? () => setOpenDropdownIdx(null) : undefined}
               >
-                {item.href === '/teenused' ? (
+                {item.href === '/tooted' ? (
                   <div style={navbarStyles.servicesDropdownWrapperStyle}>
                     <span
                       style={{
@@ -100,7 +100,7 @@ function Navbar({ lang, setLang }) {
                           style={navbarStyles.dropdownItemStyle}
                           onClick={() => {
                             setActiveIdx(idx);
-                            navigate(`/teenused?product=${prod.id}`);
+                            navigate(`/tooted?product=${prod.id}`);
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                             setOpenDropdownIdx(null);
                           }}
@@ -165,23 +165,39 @@ function Navbar({ lang, setLang }) {
             {menu.map((item, idx) => (
               <React.Fragment key={idx}>
                 <li style={navbarStyles.liStyle}>
-                  {item.href === '/teenused' ? (
+                  {item.href === '/tooted' ? (
                     <>
-                      <button
-                        type="button"
-                        style={{
-                          ...navbarStyles.linkStyle,
-                          ...navbarStyles.mobileDropdownButtonStyle,
-                        }}
-                        onClick={() =>
-                          setOpenDropdownIdx(openDropdownIdx === idx ? null : idx)
-                        }
-                      >
-                        {item.label}
-                        <span style={navbarStyles.mobileDropdownArrowStyle}>
-                          {openDropdownIdx === idx ? '↑' : '↓'}
-                        </span>
-                      </button>
+                      <div style={{ position: 'relative', width: '100%' }}>
+                        <button
+                          type="button"
+                          style={{
+                            ...navbarStyles.linkStyle,
+                            ...navbarStyles.mobileDropdownButtonStyle,
+                            position: 'relative',
+                            paddingRight: 32,
+                          }}
+                          onClick={() =>
+                            setOpenDropdownIdx(openDropdownIdx === idx ? null : idx)
+                          }
+                        >
+                          <span style={{ display: 'block', width: '100%', textAlign: 'center' }}>
+                            {item.label}
+                          </span>
+                          <span
+                            style={{
+                              ...navbarStyles.mobileDropdownArrowStyle,
+                              position: 'absolute',
+                              right: 12,
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              marginLeft: 0,
+                              float: 'none',
+                            }}
+                          >
+                            {openDropdownIdx === idx ? '↑' : '↓'}
+                          </span>
+                        </button>
+                      </div>
                       {openDropdownIdx === idx && (
                         <ul style={navbarStyles.mobileDropdownMenuStyle}>
                           {productDropdown.map(prod => (
@@ -196,7 +212,7 @@ function Navbar({ lang, setLang }) {
                                   setActiveIdx(idx);
                                   setMenuOpen(false);
                                   setOpenDropdownIdx(null);
-                                  navigate(`/teenused?product=${prod.id}`);
+                                  navigate(`/tooted?product=${prod.id}`);
                                   window.scrollTo({ top: 0, behavior: 'smooth' });
                                 }}
                               >

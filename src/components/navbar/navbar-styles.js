@@ -35,7 +35,8 @@ export const logoLinkStyle = {
 export const logoImgStyle = {
   height: 54,
   width: '100%',
-  margin: 8
+  margin: 8,
+
 };
 
 export const logoTextStyle = {
@@ -171,7 +172,7 @@ export const burgerBarStyle = {
 
 export const mobileMenuStyle = {
   position: 'absolute',
-  top: 56,
+  top: 62,
   left: 0,
   right: 0,
   background: '#fff',
@@ -362,9 +363,7 @@ export const mobileDropdownButtonStyle = {
 };
 
 export const mobileDropdownArrowStyle = {
-  float: 'right',
   fontSize: 15,
-  marginLeft: 8,
 };
 
 export const mobileDropdownMenuStyle = {
