@@ -33,9 +33,9 @@ export const logoLinkStyle = {
 };
 
 export const logoImgStyle = {
-  height: 35,
-  width: 35,
-  marginBottom: 6,
+  height: 54,
+  width: '100%',
+  margin: 8
 };
 
 export const logoTextStyle = {

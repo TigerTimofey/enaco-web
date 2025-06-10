@@ -44,7 +44,6 @@ export const contactsInfo = {
 };
 
 export const logoImg = {
-  marginTop: 18,
   width: 180,
   height: 80,
   borderRadius: 12,
@@ -88,7 +87,7 @@ export const contactsForm = {
 };
 
 export const formTitle = {
-  marginTop: 34,
+  marginTop: 54,
   fontSize: 32,
   fontWeight: 700,
   color: '#e11d48',
@@ -190,7 +189,8 @@ export const submitBtn = {
   borderRadius: 8,
   padding: '0.7em 2em',
   cursor: 'pointer',
-  marginTop: 8
+  marginTop: 8,
+  marginBottom: 16,
 };
 
 export const mapOuter = {
@@ -274,7 +274,7 @@ export const responsiveAndKeyframes = `
   @media (max-width: 1052px) {
     .contacts-grid {
       display: flex !important;
-      flex-direction: column !important;
+      flex-direction: column-reverse !important;
       max-width: 100vw !important;
       padding: 0 !important;
       gap: 0 !important;
@@ -307,13 +307,10 @@ export const responsiveAndKeyframes = `
       min-height: 180px !important;
     }
   }
-  .contacts-grid {
-    align-items: stretch;
-  }
-  .contacts-info, .contacts-form {
-    height: 100%;
-  }
   @media (max-width: 600px) {
+    .contacts-grid {
+      flex-direction: column-reverse !important;
+    }
     .thank-you-slider {
       left: 50% !important;
       right: unset !important;

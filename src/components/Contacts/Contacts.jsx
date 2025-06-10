@@ -267,7 +267,9 @@ function Contacts({ lang }) {
                 {labels.send}
               </button>
             </form>
+                <hr style={contactStyles.hr} />
           </div>
+          
         </div>
       </div>
       <div style={contactStyles.mapOuter}>

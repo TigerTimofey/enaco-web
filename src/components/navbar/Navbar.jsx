@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getNavbarMenu, navbarLanguages, homeLabels } from '../translations/navbar-languages.js';
 import { businessProducts } from '../utils/bussines-services/bussines-services.js';
-import { businessName } from '../utils/bussines-data/bussines-data.js';
 import * as navbarStyles from './navbar-styles.js';
 
 function Navbar({ lang, setLang }) {
@@ -55,8 +54,8 @@ function Navbar({ lang, setLang }) {
     <nav style={navbarStyles.navStyle}>
       <div style={navbarStyles.navInnerStyle}>
         <Link to="/" style={navbarStyles.logoLinkStyle} className="navbar-brand-center">
-          <img src="/logoOn.svg" alt="Logo" style={navbarStyles.logoImgStyle} />
-          <span style={navbarStyles.logoTextStyle}>{businessName}</span>
+          <img src="/logoNav.svg" alt="Logo" style={navbarStyles.logoImgStyle} />
+
         </Link>
 
         <ul

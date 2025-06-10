@@ -117,7 +117,6 @@ export const homeLabels = {
     carouselButton: "Didn't find what you need? Contact us",
     advantagesTitle: "Why choose us?",
     advantagesList: [
-      "All units undergo technical inspection",
       "Warranty and assistance with VIN selection",
       "Delivery across Estonia and the entire EU",
       "We work with private and corporate clients"
@@ -221,7 +220,6 @@ export const homeLabels = {
     carouselButton: "Ei leidnud sobivat? Võta meiega ühendust",
     advantagesTitle: "Miks valida meid?",
     advantagesList: [
-      "Kõik agregaadid läbivad tehnilise kontrolli",
       "Garantii ja abi valikul VIN-koodi alusel",
       "Kohaletoimetamine Eestis ja kogu EL territooriumil",
       "Töötame nii era- kui äriklientidega"
@@ -325,7 +323,6 @@ export const homeLabels = {
     carouselButton: "Не нашли, что искали? Свяжитесь с нами",
     advantagesTitle: "Почему мы?",
     advantagesList: [
-      "Все агрегаты проходят техническую проверку",
       "Гарантия и помощь в подборе по VIN",
       "Доставка по Эстонии и всей территории ЕС",
       "Работаем с частными и корпоративными клиентами"
