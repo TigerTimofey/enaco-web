@@ -276,7 +276,7 @@ function Contacts({ lang }) {
         <div style={contactStyles.mapInner}>
           <iframe
             title="Allika tee 7, Peetri, Estonia"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.4215394815778!2d24.829776076751147!3d59.395353774623695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4692e18f2f0b3f4f%3A0x5c659f8b40a19101!2sAllika%20tee%202%2C%20Peetri%2C%20Estonia!5e0!3m2!1sen!2see!4v1717679259095!5m2!1sen!2see"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.4215394815778!2d24.829776076751147!3d59.395353774623695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4692e18f2f0b3f4f%3A0x7b6a9e9b7e8e7e7b!2sAllika%20tee%207%2C%20Peetri%2C%20Estonia!5e0!3m2!1sen!2see!4v1717679259095!5m2!1sen!2see"
             width="100%"
             height="320"
             style={contactStyles.mapIframe}
