@@ -1,6 +1,5 @@
 import {  homeLabels, formLabels } from '../translations/navbar-languages.js';
 import { businessProducts } from '../utils/bussines-services/bussines-services.js';
-import { businessProducts as englishProducts } from '../utils/bussines-services/bussines-services.js';
 import * as servicesStyles from './Services-styles.js';
 import {
   orderFormTitleStyle,
@@ -114,10 +113,8 @@ function Services({ lang, selectedProductId }) {
     }
 
     let selectedProduct = null;
-    let selectedProductEn = null;
     if (selectedProductId) {
       selectedProduct = products.find(p => p.id === selectedProductId);
-      selectedProductEn = englishProducts.find(p => p.id === selectedProductId);
     }
 
     const templateParams = {
@@ -126,14 +123,6 @@ function Services({ lang, selectedProductId }) {
       productTitle: selectedProduct ? selectedProduct.title : '',
       time: new Date().toLocaleString(),
     };
-
-    const logData = {
-      ...form,
-      productName: selectedProductEn ? selectedProductEn.name : '',
-      productTitle: selectedProductEn ? selectedProductEn.title : ''
-    };
-
-    console.log('EmailJS payload (EN):', logData);
 
     try {
       await emailjs.send(
