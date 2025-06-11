@@ -4,6 +4,8 @@ Enaco is a multilingual web application for Enaco Group OÜ, a company specializ
 
 ## Video
 
+https://github.com/user-attachments/assets/7e61755e-ea09-44bc-8cda-d9b52c0bda98
+
 
 ## Features
 
