@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { businessData } from '../utils/bussines-data/bussines-data.js';
 import { contactFormLabels } from '../translations/navbar-languages.js';
 import * as contactStyles from './Contacts-styles.js';
-import emailjs from 'emailjs-com';
+//Commented out emailjs import for future use
+// import emailjs from 'emailjs-com';
 
 
 function Contacts({ lang }) {
@@ -61,21 +62,23 @@ function Contacts({ lang }) {
       return;
     }
 
-    const templateParams = {
-      from_name: form.name,
-      from_email: form.email,
-      from_phone: form.phone,
-      message: form.message,
-      time: new Date().toLocaleString(),
-    };
+    // Uncomment the following lines to enable email sending with EmailJS
+
+    // const templateParams = {
+    //   from_name: form.name,
+    //   from_email: form.email,
+    //   from_phone: form.phone,
+    //   message: form.message,
+    //   time: new Date().toLocaleString(),
+    // };
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_USER_ID
-      );
+      // await emailjs.send(
+      //   EMAILJS_SERVICE_ID,
+      //   EMAILJS_TEMPLATE_ID,
+      //   templateParams,
+      //   EMAILJS_USER_ID
+      // );
       setSliderMsg(labels.thankYou);
       setForm({ name: '', email: '', phone: '', message: '' });
       setErrors({});

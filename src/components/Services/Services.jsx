@@ -33,7 +33,8 @@ import {
 } from './Services-styles.js';
 import { useNavigate } from 'react-router-dom';
 import  { useState, useRef, useEffect } from 'react';
-import emailjs from 'emailjs-com';
+// Uncomment the following line to use emailjs for sending emails
+// import emailjs from 'emailjs-com';
 
 function getBtnText(name, lang) {
 
@@ -112,25 +113,27 @@ function Services({ lang, selectedProductId }) {
       return;
     }
 
-    let selectedProduct = null;
-    if (selectedProductId) {
-      selectedProduct = products.find(p => p.id === selectedProductId);
-    }
+    // Uncomment the following lines to use emailjs for sending emails
 
-    const templateParams = {
-      ...form,
-      productName: selectedProduct ? selectedProduct.name : '',
-      productTitle: selectedProduct ? selectedProduct.title : '',
-      time: new Date().toLocaleString(),
-    };
+    // let selectedProduct = null;
+    // if (selectedProductId) {
+    //   selectedProduct = products.find(p => p.id === selectedProductId);
+    // }
+
+    // const templateParams = {
+    //   ...form,
+    //   productName: selectedProduct ? selectedProduct.name : '',
+    //   productTitle: selectedProduct ? selectedProduct.title : '',
+    //   time: new Date().toLocaleString(),
+    // };
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_USER_ID
-      );
+      // await emailjs.send(
+      //   EMAILJS_SERVICE_ID,
+      //   EMAILJS_TEMPLATE_ID,
+      //   templateParams,
+      //   EMAILJS_USER_ID
+      // );
       setForm({
         smark: '',
         rek: '',
