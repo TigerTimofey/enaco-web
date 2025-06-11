@@ -149,6 +149,10 @@ export const homeLabels = {
       cta: "Looking for reliable auto parts in Estonia or the European Union?",
       cta2: "Enaco Group OÜ will help you find the right part and ensure fast and safe delivery.",
     },
+    cookieConsentTitle: "We use cookies",
+    cookieConsentText: "This website uses cookies to ensure you get the best experience.",
+    cookieConsentAccept: "Accept",
+    cookieConsentReject: "Reject",
   },
   ee: {
     heroTitle: "Oleme ettevõte, mis on alates 2020. aastast spetsialiseerunud kasutatud, taastatud ja uute autovaruosade müügile",
@@ -251,6 +255,10 @@ export const homeLabels = {
       cta: "Otsite usaldusväärseid autovaruosi Eestis või Euroopa Liidus?",
       cta2: "Enaco Group OÜ aitab leida vajaliku detaili ja tagab kiire ning turvalise kohaletoimetamise.",
     },
+    cookieConsentTitle: "Kasutame küpsiseid",
+    cookieConsentText: "See veebileht kasutab küpsiseid, et pakkuda parimat kasutuskogemust.",
+    cookieConsentAccept: "Nõustu",
+    cookieConsentReject: "Keeldu",
   },
   ru: {
     heroTitle: "Мы — компания, специализирующаяся на продаже б/у, восстановленных и новых автозапчастей с 2020 года",
@@ -354,6 +362,10 @@ export const homeLabels = {
       cta: "Ищете надёжные автозапчасти в Эстонии или Европейском союзе?",
       cta2: "Enaco Group OÜ поможет подобрать нужную деталь и обеспечит её быструю и безопасную доставку.",
     },
+    cookieConsentTitle: "Мы используем cookies",
+    cookieConsentText: "Этот сайт использует cookies для обеспечения наилучшего опыта.",
+    cookieConsentAccept: "Принять",
+    cookieConsentReject: "Отклонить",
   }
 };
 

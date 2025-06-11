@@ -158,6 +158,50 @@ function Home({ lang }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, [products.length]);
 
+  useEffect(() => {
+    document.title = labels.heroTitle || "Enaco";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', labels.heroSubtitle || "Enaco - Best Car Parts and Services")
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = labels.heroSubtitle || "Enaco - Best Car Parts and Services";
+      document.head.appendChild(meta);
+    }
+
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', (labels.advantagesList || []).join(', '));
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "keywords";
+      meta.content = (labels.advantagesList || []).join(', ');
+      document.head.appendChild(meta);
+    }
+
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', labels.heroTitle || "Enaco");
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:title');
+      meta.content = labels.heroTitle || "Enaco";
+      document.head.appendChild(meta);
+    }
+
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) {
+      ogDesc.setAttribute('content', labels.heroSubtitle || "Enaco - Best Car Parts and Services")
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:description');
+      meta.content = labels.heroSubtitle || "Enaco - Best Car Parts and Services";
+      document.head.appendChild(meta);
+    }
+
+  }, [labels.heroTitle, labels.heroSubtitle, labels.advantagesList]);
+
   return (
     <div>
       <section style={heroSectionStyle}>
