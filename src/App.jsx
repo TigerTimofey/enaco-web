@@ -62,106 +62,131 @@ function CookieConsent({ lang }) {
   }
 
   return (
-    <div style={{
-      position: 'fixed',
-      bottom: 24,
-      right: 0,
-      zIndex: 9999,
-      background: '#fff',
-      color: '#222',
-      boxShadow: '0 2px 16px 0 rgba(60,60,60,0.18)',
-      borderRadius: 12,
-      padding: '1.3em 1em 1.3em 1em',
-      maxWidth: 420,
-      minWidth: 260,
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-      gap: 18,
-      transition: 'transform 0.4s cubic-bezier(.4,0,.2,1)',
-      animation: 'slideInRight 0.5s',
-    }}>
-      <img
-        src={'/cookies.png'}
-        alt="Cookies"
-        style={{
-          width: 120,
-          height: 120,
-          marginRight: 0,
-          marginLeft: 0,
-          display: 'block',
-          flexShrink: 0,
-        }}
-      />
-      <div style={{
+    <div
+      className="cookie-consent-popup"
+      style={{
+        position: 'fixed',
+        bottom: 24,
+        right: 10,
+        zIndex: 9999,
+        background: '#fff',
+        color: '#222',
+        boxShadow: '0 2px 16px 0 rgba(60,60,60,0.18)',
+        borderRadius: 12,
+        padding: '1.3em 1em 1.3em 1em',
+        maxWidth: 420,
+        minWidth: 260,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        flex: 1,
-        justifyContent: 'center',
+        transition: 'transform 0.4s cubic-bezier(.4,0,.2,1)',
+        animation: 'slideInRightCustom 0.5s',
+      }}
+    >
+      
+      <div style={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
         width: '100%',
+        justifyContent: 'center',
+        gap: 18,
+        marginBottom: 12,
       }}>
-        <div style={{
-          fontWeight: 600,
-          marginBottom: 4,
-          textAlign: 'center',
-          fontSize: '1.2rem'
-        }}>
-          {cookieTitle}
-        </div>
-        <div style={{
-          fontSize: '0.98em',
-          color: '#444',
-          textAlign: 'center',
-          marginBottom: 12,
-          maxWidth: 440,
-        }}>
-          {cookieText}
-        </div>
+    
         <div style={{
           display: 'flex',
-          gap: 10,
+          flexDirection: 'column',
+          alignItems: 'center',
           justifyContent: 'center',
+          flex: 1,
           width: '100%',
-        }}>
-          <button
-            onClick={rejectCookies}
-            style={{
-              background: '#eee',
-              color: '#222',
-              border: 'none',
-              borderRadius: 6,
-              padding: '0.5em 1.2em',
-              fontWeight: 600,
-              cursor: 'pointer',
-              fontSize: '1em',
-              boxShadow: '0 1px 4px 0 rgba(60,60,60,0.04)',
-            }}
-          >
-            {rejectText}
-          </button>
-          <button
-            onClick={acceptCookies}
-            style={{
-              background: '#e11d48',
-              color: '#fff',
-              border: 'none',
-              borderRadius: 6,
-              padding: '0.5em 1.4em',
-              fontWeight: 600,
-              cursor: 'pointer',
-              fontSize: '1em',
-              boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
-            }}
-          >
-            {acceptText}
-          </button>
+        }}>    <img
+          src={'/cookies.png'}
+          alt="Cookies"
+          style={{
+            width: 100,
+            height: 100,
+            display: 'block',
+            flexShrink: 0,
+            marginBottom: 8,
+          }}
+        />
+          <div style={{
+            fontWeight: 600,
+            marginBottom: 4,
+            textAlign: 'center',
+            fontSize: '1.2rem'
+          }}>
+            {cookieTitle}
+          </div>
+          <div style={{
+            fontSize: '0.98em',
+            color: '#444',
+            textAlign: 'center',
+            maxWidth: 240,
+          }}>
+            {cookieText}
+          </div>
         </div>
       </div>
+      <div style={{
+        display: 'flex',
+        gap: 10,
+        justifyContent: 'center',
+        width: '100%',
+        marginTop: 10,
+
+      }}>
+        <button
+          onClick={rejectCookies}
+          style={{
+            background: '#eee',
+            color: '#222',
+            border: 'none',
+            borderRadius: 6,
+            padding: '0.5em 1.2em',
+            fontWeight: 600,
+            cursor: 'pointer',
+            fontSize: '1em',
+            boxShadow: '0 1px 4px 0 rgba(60,60,60,0.04)',
+          }}
+        >
+          {rejectText}
+        </button>
+        <button
+          onClick={acceptCookies}
+          style={{
+            background: '#e11d48',
+            color: '#fff',
+            border: 'none',
+            borderRadius: 6,
+            padding: '0.5em 1.4em',
+            fontWeight: 600,
+            cursor: 'pointer',
+            fontSize: '1em',
+            boxShadow: '0 1px 4px 0 rgba(60,60,60,0.09)',
+          }}
+        >
+          {acceptText}
+        </button>
+      </div>
       <style>{`
-        @keyframes slideInRight {
+        @keyframes slideInRightCustom {
           from { transform: translateX(400px); opacity: 0; }
           to { transform: translateX(0); opacity: 1; }
+        }
+        @media (max-width: 700px) {
+          .cookie-consent-popup {
+            left: 50% !important;
+            right: unset !important;
+            bottom: 24px !important;
+            transform: translateX(-50%) !important;
+            max-width: 98vw !important;
+            min-width: 0 !important;
+            padding: 1em 1.5em 1.5em 1.5em !important;
+            animation: slideInRightCustom 0.5s !important;
+          }
         }
       `}</style>
     </div>
