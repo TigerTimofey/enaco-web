@@ -58,49 +58,49 @@ export const homeLabels = {
     PROD_ONE_ID: "101",
     productCardTitle: "Sale and repair of factory-reconditioned turbos",
     productCardDesc: "Sale of new and renovated turbochargers. We recover the old part as a replacement reserve. Our experts will help you choose the right turbo for your vehicle and provide technical support.",
-    productCardBtn: "Get price for {PRODUCT_NAME}",
+    productCardBtn: "Get price",
 
     PROD_TWO: "Steering rack",
     PROD_TWO_BTN: "Steering racks",
     PROD_TWO_ID: "102",
     productCardTitle2: "Sale of renovated, i.e. factory-reconditioned steering racks",
     productCardDesc2: "Sale of factory-reconditioned steering racks and renovated steering racks. We repair and recondition steering transmissions of passenger cars and vans. Our team will help you select the correct steering rack and answer all your questions.",
-    productCardBtn2: "Get price for {PRODUCT_NAME}",
+    productCardBtn2: "Get price",
 
     PROD_THREE: "Gearbox",
     PROD_THREE_BTN: "Gearboxes",
     PROD_THREE_ID: "103",
     productCardTitle3: "Sale and repair of manual gearboxes",
     productCardDesc3: "Sale of factory-reconditioned manual gearboxes. We offer consultation and support for installation and maintenance.",
-    productCardBtn3: "Get price for {PRODUCT_NAME}",
+    productCardBtn3: "Get price",
 
     PROD_FOUR: "Engine",
     PROD_FOUR_BTN: "Engines",
     PROD_FOUR_ID: "104",
     productCardTitle4: "Sale of car engines",
     productCardDesc4: "Engines – used engines with checked history from Europe. We help you find the right engine and provide technical advice.",
-    productCardBtn4: "Get price for {PRODUCT_NAME}",
+    productCardBtn4: "Get price",
 
     PROD_FIVE: "Electronic",
     PROD_FIVE_BTN: "Electronic",
     PROD_FIVE_ID: "105",
     productCardTitle5: "Sale of electronic components",
     productCardDesc5: "We offer a wide range of tested electronic components for various car brands. Our specialists will assist with selection and compatibility.",
-    productCardBtn5: "Get price for {PRODUCT_NAME}",
+    productCardBtn5: "Get price",
 
     PROD_SIX: "Differential",
     PROD_SIX_BTN: "Differential",
     PROD_SIX_ID: "106",
     productCardTitle6: "Sale of differentials",
     productCardDesc6: "We offer differentials for a wide range of vehicles. Our team will help you choose the right differential and provide installation guidance.",
-    productCardBtn6: "Get price for {PRODUCT_NAME}",
+    productCardBtn6: "Get price",
 
     PROD_SEVEN: "Air Suspension",
     PROD_SEVEN_BTN: "Air Suspension",
     PROD_SEVEN_ID: "107",
     productCardTitle7: "Sale of air suspension components",
     productCardDesc7: "We offer air suspension parts for various vehicles. Get advice on selection, installation, and maintenance from our experts.",
-    productCardBtn7: "Get price for {PRODUCT_NAME}",
+    productCardBtn7: "Get price",
 
     carouselWords: [
       "ENGINES",
@@ -129,7 +129,7 @@ export const homeLabels = {
     aboutPage: {
       title: "Reliable Auto Parts Supplier Since 2020",
       intro: "Enaco Group OÜ is a company specializing in the sale of new, reconditioned, and used auto parts. We have been operating since 2020, supplying throughout Estonia and the European Union.",
-      specialization: "Our focus is on the most in-demand automotive units. We offer only verified parts with warranty, fast delivery, and technical support.",
+      specialization: "Our focus is on the most in-demand automotive units. We offer parts with warranty, fast delivery, and technical support.",
       directionsTitle: "Main directions",
       directions: [
         "Engines (motors)",
@@ -141,7 +141,6 @@ export const homeLabels = {
       ],
       advantagesTitle: "Our advantages",
       advantages: [
-        "All units undergo technical inspection",
         "Warranty and assistance with VIN selection",
         "Delivery across Estonia and the entire EU",
         "We work with private and corporate clients"
@@ -165,49 +164,49 @@ export const homeLabels = {
     PROD_ONE_ID: "101",
     productCardTitle: "Tehaseremonditud turbode müük ja remont",
     productCardDesc: "Müüme uusi ja renoveeritud turbosid. Taastame vana osa asendusvaruks. Meie eksperdid aitavad valida sobiva turbo ja pakuvad tehnilist tuge.",
-    productCardBtn: "Päring {PRODUCT_NAME}",
+    productCardBtn: "Küsi hinda",
 
     PROD_TWO: "Roolilatt",
     PROD_TWO_BTN: "Roolilatile",
     PROD_TWO_ID: "102",
     productCardTitle2: "Tehaseremonditud roolilattide müük",
     productCardDesc2: "Tehaseremonditud ja renoveeritud roolilattide müük. Remondime ja renoveerime sõiduautode ja väikebusside roolilatte. Aitame valida õige roolilati ja vastame kõigile küsimustele.",
-    productCardBtn2: "Päring {PRODUCT_NAME}",
+    productCardBtn2: "Küsi hinda",
 
     PROD_THREE: "Käigukast",
     PROD_THREE_BTN: "Käigukastile",
     PROD_THREE_ID: "103",
     productCardTitle3: "Manuaalkäigukastide müük ja remont",
     productCardDesc3: "Tehaseremonditud manuaalkäigukastide müük. Pakume konsultatsiooni ja tuge paigaldusel ning hooldusel.",
-    productCardBtn3: "Päring {PRODUCT_NAME}",
+    productCardBtn3: "Küsi hinda",
 
     PROD_FOUR: "Mootor",
     PROD_FOUR_BTN: "Mootorile",
     PROD_FOUR_ID: "104",
     productCardTitle4: "Mootorite müük",
     productCardDesc4: "Mootorid – kontrollitud ajalooga kasutatud mootorid Euroopast. Leiame sobiva mootori ja anname tehnilist nõu.",
-    productCardBtn4: "Päring {PRODUCT_NAME}",
+    productCardBtn4: "Küsi hinda",
 
     PROD_FIVE: "Elektroonika",
     PROD_FIVE_BTN: "Elektroonikale",
     PROD_FIVE_ID: "105",
     productCardTitle5: "Elektroonikakomponentide müük",
     productCardDesc5: "Pakume laias valikus testitud elektroonikakomponente erinevatele automarkidele. Aitame valida ja kontrollida sobivust.",
-    productCardBtn5: "Päring {PRODUCT_NAME}",
+    productCardBtn5: "Küsi hinda",
 
     PROD_SIX: "Diferentsiaal",
     PROD_SIX_BTN: "Diferentsiaalale",
     PROD_SIX_ID: "106",
     productCardTitle6: "Diferentsiaalide müük",
     productCardDesc6: "Pakume diferentsiaale paljudele automarkidele. Aitame valida õige diferentsiaali ja pakume paigaldusjuhiseid.",
-    productCardBtn6: "Päring {PRODUCT_NAME}",
+    productCardBtn6: "Küsi hinda",
 
     PROD_SEVEN: "Õhkvedrustus",
     PROD_SEVEN_BTN: "Õhkvedrustusele",
     PROD_SEVEN_ID: "107",
     productCardTitle7: "Õhkvedrustuse osade müük",
     productCardDesc7: "Pakume õhkvedrustuse osi erinevatele automarkidele. Meie eksperdid nõustavad valiku, paigalduse ja hoolduse osas.",
-    productCardBtn7: "Päring {PRODUCT_NAME}",
+    productCardBtn7: "Küsi hinda",
 
     carouselWords: [
       "MOOTORID",
@@ -236,7 +235,7 @@ export const homeLabels = {
     aboutPage: {
       title: "Usaldusväärne autovaruosade tarnija alates 2020. aastast",
       intro: "Enaco Group OÜ on ettevõte, mis on spetsialiseerunud uute, taastatud ja kasutatud autovaruosade müügile. Oleme tegutsenud alates 2020. aastast, pakkudes tarnet üle Eesti ja Euroopa Liidu.",
-      specialization: "Meie fookus on kõige nõutumate autode agregaatidel. Pakume ainult kontrollitud detaile koos garantiiga, kiire tarnega ja tehnilise toega.",
+      specialization: "Meie fookus on kõige nõutumate autode agregaatidel. Pakume detaile koos garantiiga, kiire tarnega ja tehnilise toega.",
       directionsTitle: "Peamised suunad",
       directions: [
         "Mootorid",
@@ -271,49 +270,49 @@ export const homeLabels = {
     PROD_ONE_ID: "101",
     productCardTitle: "Продажа и ремонт восстановленных турбин",
     productCardDesc: "Продажа новых и восстановленных турбокомпрессоров. Получаем старую деталь в качестве замены. Наши специалисты помогут подобрать турбину и окажут техническую поддержку.",
-    productCardBtn: "Получить цену {PRODUCT_NAME}",
+    productCardBtn: "Получить цену",
 
     PROD_TWO: "Рулевая рейка",
     PROD_TWO_BTN: "на Рейку",
     PROD_TWO_ID: "102",
     productCardTitle2: "Продажа восстановленных рулевых реек",
     productCardDesc2: "Продажа восстановленных на заводе и отремонтированных рулевых реек. Ремонтируем и восстанавливаем рулевые механизмы. Поможем выбрать нужную рейку и ответим на все вопросы.",
-    productCardBtn2: "Получить цену {PRODUCT_NAME}",
+    productCardBtn2: "Получить цену",
 
     PROD_THREE: "КПП",
     PROD_THREE_BTN: "на КПП",
     PROD_THREE_ID: "103",
     productCardTitle3: "Продажа и ремонт механических коробок передач",
     productCardDesc3: "Продажа восстановленных на заводе механических коробок передач. Консультируем по установке и обслуживанию.",
-    productCardBtn3: "Получить цену {PRODUCT_NAME}",
+    productCardBtn3: "Получить цену",
 
     PROD_FOUR: "Двигатель",
     PROD_FOUR_BTN: "на Двигатель",
     PROD_FOUR_ID: "104",
     productCardTitle4: "Продажа автомобильных двигателей",
     productCardDesc4: "Двигатели – проверенные подержанные двигатели из Европы. Поможем подобрать подходящий двигатель и дадим технические рекомендации.",
-    productCardBtn4: "Получить цену {PRODUCT_NAME}",
+    productCardBtn4: "Получить цену",
 
     PROD_FIVE: "Электроника",
     PROD_FIVE_BTN: "на Электроника",
     PROD_FIVE_ID: "105",
     productCardTitle5: "Продажа электронных компонентов",
     productCardDesc5: "Предлагаем широкий ассортимент проверенных электронных компонентов для различных марок автомобилей. Поможем с выбором и совместимостью.",
-    productCardBtn5: "Получить цену {PRODUCT_NAME}",
+    productCardBtn5: "Получить цену",
 
     PROD_SIX: "Дифференциал",
     PROD_SIX_BTN: "на Дифференциал",
     PROD_SIX_ID: "106",
     productCardTitle6: "Продажа дифференциалов",
     productCardDesc6: "Предлагаем дифференциалы для различных марок автомобилей. Поможем выбрать нужный дифференциал и проконсультируем по установке.",
-    productCardBtn6: "Получить цену {PRODUCT_NAME}",
+    productCardBtn6: "Получить цену",
 
     PROD_SEVEN: "Пневмоподвеска",
     PROD_SEVEN_BTN: "на Пневмоподвеска",
     PROD_SEVEN_ID: "107",
     productCardTitle7: "Продажа компонентов пневмоподвески",
     productCardDesc7: "Предлагаем детали пневмоподвески для различных марок автомобилей. Консультируем по выбору, установке и обслуживанию.",
-    productCardBtn7: "Получить цену {PRODUCT_NAME}",
+    productCardBtn7: "Получить цену",
 
     carouselWords: [
       "ДВИГАТЕЛИ",
@@ -342,7 +341,7 @@ export const homeLabels = {
     aboutPage: {
       title: "Надёжный поставщик автозапчастей с 2020 года",
       intro: "Enaco Group OÜ — это компания, специализирующаяся на продаже новых, восстановленных и бывших в употреблении автозапчастей. Мы работаем с 2020 года, обеспечивая поставки по всей Эстонии и странам Европейского Союза.",
-      specialization: "Наша специализация — наиболее востребованные автомобильные агрегаты. Мы предлагаем только проверенные детали с гарантией, оперативной доставкой и технической поддержкой.",
+      specialization: "Наша специализация — наиболее востребованные автомобильные агрегаты. Предлагаем детали с гарантией, быстрой доставкой и технической поддержкой.",
       directionsTitle: "Основные направления",
       directions: [
         "Двигатели (моторы)",
@@ -354,7 +353,6 @@ export const homeLabels = {
       ],
       advantagesTitle: "Наши преимущества",
       advantages: [
-        "Все агрегаты проходят техническую проверку",
         "Предоставляется гарантия и помощь в подборе по VIN-коду",
         "Доставка по всей Эстонии и территории ЕС",
         "Работа с частными и корпоративными клиентами"

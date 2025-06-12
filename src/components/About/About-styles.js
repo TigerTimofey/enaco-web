@@ -254,7 +254,6 @@ export const responsiveStyle = `
 
     .about-list {
       list-style: none !important;
-      padding-left: 0 !important;
     }
   }
 `;

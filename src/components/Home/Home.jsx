@@ -267,7 +267,9 @@ function Home({ lang }) {
                         navigate(`/tooted?product=${prod.id}`);
                       }}
                     >
-                      {(prod.btn || '').replace('{PRODUCT_NAME}', prod.name)}
+                      {homeLabels[lang]?.productCardBtn
+                        ? homeLabels[lang].productCardBtn.replace('{PRODUCT_NAME}', prod.name)
+                        : "Get price"}
                     </button>
                   </div>
                 </div>
