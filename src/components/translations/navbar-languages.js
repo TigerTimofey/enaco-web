@@ -53,7 +53,7 @@ export const homeLabels = {
     contactBtn: "Contact Us",
     subscribeBtn: "Subscribe",
     messageBtn: "Message",
-   padding: '2rem 1.5rem',    PROD_ONE: "Turbocharger",
+    PROD_ONE: "Turbocharger",
     PROD_ONE_BTN: "Turbocharger",
     PROD_ONE_ID: "101",
     productCardTitle: "Sale and repair of factory-reconditioned turbos",
