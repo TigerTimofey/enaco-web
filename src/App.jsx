@@ -200,6 +200,8 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('enaco_lang', lang);
+    // Dynamically set <html lang="..."> for SEO and accessibility
+    document.documentElement.lang = lang === 'ru' ? 'ru' : lang === 'en' ? 'en' : 'et';
   }, [lang]);
 
   return (
