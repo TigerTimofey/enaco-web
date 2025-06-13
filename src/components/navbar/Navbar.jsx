@@ -244,18 +244,64 @@ function Navbar({ lang, setLang }) {
             ))}
 
             <li style={{...navbarStyles.mobileSelectWrapperStyle, listStyleType: 'none'}}>
-              <select
-                className="navbar-select-mobile"
-                value={lang}
-                onChange={e => setLang(e.target.value)}
-                style={navbarStyles.navbarSelectMobileStyle}
-              >
-                {navbarLanguages.map(l => (
-                  <option key={l.code} value={l.code}>
-                    {showFlagOnly ? l.flag : `${l.flag} ${l.name}`}
-                  </option>
-                ))}
-              </select>
+              <div style={{ position: 'relative' }}>
+                {/* Language button: only flag */}
+                <button
+                  type="button"
+                  style={{
+                    ...navbarStyles.linkStyle,
+                    ...navbarStyles.mobileDropdownButtonStyle,
+                    position: 'relative',
+                    paddingRight: 32,
+                    width: '100%',
+                    textAlign: 'center',
+                  }}
+                  onClick={() =>
+                    setOpenDropdownIdx(openDropdownIdx === 'lang' ? null : 'lang')
+                  }
+                >
+                  <span style={{ display: 'block', width: '100%', textAlign: 'center' }}>
+                    {navbarLanguages.find(l => l.code === lang)?.flag}
+                  </span>
+                  <span
+                    style={{
+                      ...navbarStyles.mobileDropdownArrowStyle,
+                      position: 'absolute',
+                      right: 12,
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      marginLeft: 0,
+                      float: 'none',
+                    }}
+                  >
+                    {openDropdownIdx === 'lang' ? '↑' : '↓'}
+                  </span>
+                </button>
+                {openDropdownIdx === 'lang' && (
+                  <ul style={navbarStyles.mobileDropdownMenuStyle}>
+                    {navbarLanguages.map(l => (
+                      <li key={l.code}>
+                        <button
+                          type="button"
+                          style={{
+                            ...navbarStyles.dropdownItemStyle,
+                            ...navbarStyles.mobileDropdownItemStyle,
+                            width: '100%',
+                            textAlign: 'left',
+                          }}
+                          onClick={() => {
+                            setLang(l.code);
+                            setOpenDropdownIdx(null);
+                            setMenuOpen(false);
+                          }}
+                        >
+                          {l.flag} {l.name}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </li>
           </ul>
         )}
