@@ -1,9 +1,10 @@
 # Remove any custom Redirects for testing
 
-RewriteEngine On
-RewriteBase /
 
-# Redirect all requests to index.html except for existing files and directories
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/(robots\.txt|sitemap\.xml)$ [NC]
+RewriteRule ^ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [L]
+RewriteRule . /index.html [L]
