@@ -70,8 +70,8 @@ export const homeLabels = {
     PROD_THREE: "Gearbox",
     PROD_THREE_BTN: "Gearboxes",
     PROD_THREE_ID: "103",
-    productCardTitle3: "Sale and repair of manual gearboxes",
-    productCardDesc3: "Sale of factory-reconditioned manual gearboxes. We offer consultation and support for installation and maintenance.",
+    productCardTitle3: "Sale and repair gearboxes",
+    productCardDesc3: "Sale of gearboxes. We offer consultation and support for installation and maintenance.",
     productCardBtn3: "Get price",
 
     PROD_FOUR: "Engine",
@@ -176,8 +176,8 @@ export const homeLabels = {
     PROD_THREE: "Käigukast",
     PROD_THREE_BTN: "Käigukastile",
     PROD_THREE_ID: "103",
-    productCardTitle3: "Manuaalkäigukastide müük ja remont",
-    productCardDesc3: "Tehaseremonditud manuaalkäigukastide müük. Pakume konsultatsiooni ja tuge paigaldusel ning hooldusel.",
+    productCardTitle3: "Käigukastide müük ja remont",
+    productCardDesc3: "Tehaseremonditud käigukastide müük. Pakume konsultatsiooni ja tuge paigaldusel ning hooldusel.",
     productCardBtn3: "Küsi hinda",
 
     PROD_FOUR: "Mootor",
@@ -282,8 +282,8 @@ export const homeLabels = {
     PROD_THREE: "КПП",
     PROD_THREE_BTN: "на КПП",
     PROD_THREE_ID: "103",
-    productCardTitle3: "Продажа и ремонт механических коробок передач",
-    productCardDesc3: "Продажа восстановленных на заводе механических коробок передач. Консультируем по установке и обслуживанию.",
+    productCardTitle3: "Продажа и ремонт коробок передач",
+    productCardDesc3: "Продажа восстановленных коробок передач. Консультируем по установке и обслуживанию.",
     productCardBtn3: "Получить цену",
 
     PROD_FOUR: "Двигатель",
