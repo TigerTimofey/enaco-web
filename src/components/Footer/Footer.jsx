@@ -32,7 +32,7 @@ function Footer() {
             alignItems: 'center',
             gap: 16,
             position: 'absolute',
-            right: 0,
+            right: 20,
             top: '50%',
           }}
         >
