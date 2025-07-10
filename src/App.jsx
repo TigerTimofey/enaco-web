@@ -6,6 +6,7 @@ import About from './components/About/About.jsx'
 import Services from './components/Services/Services.jsx'
 import Guarantees from './components/Guarantees/Guarantees.jsx'
 import Contacts from './components/Contacts/Contacts.jsx'
+import Credit from './components/Credit/Credit.jsx'
 import React, { useState, useEffect } from 'react'
 import Footer from './components/Footer/Footer.jsx'
 import { homeLabels } from './components/translations/navbar-languages.js'
@@ -33,6 +34,7 @@ function AppContent({ lang, setLang }) {
         <Route path="/meist" element={<About lang={lang} />} />
         <Route path="/tooted" element={<Services lang={lang} selectedProductId={selectedProductId} />} />
         <Route path="/garantiid" element={<Guarantees lang={lang} />} />
+        <Route path="/krediit" element={<Credit lang={lang} />} />
         <Route path="/kontakt" element={<Contacts lang={lang} />} />
       </Routes>
       <Footer />

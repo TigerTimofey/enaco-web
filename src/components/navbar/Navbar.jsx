@@ -66,8 +66,8 @@ function Navbar({ lang, setLang }) {
             <React.Fragment key={idx}>
               <li
                 style={navbarStyles.liStyle}
-                onMouseEnter={item.href === '/tooted' ? () => setOpenDropdownIdx(idx) : undefined}
-                onMouseLeave={item.href === '/tooted' ? () => setOpenDropdownIdx(null) : undefined}
+                onMouseEnter={(item.href === '/tooted' || item.dropdown) ? () => setOpenDropdownIdx(idx) : undefined}
+                onMouseLeave={(item.href === '/tooted' || item.dropdown) ? () => setOpenDropdownIdx(null) : undefined}
               >
                 {item.href === '/tooted' ? (
                   <div style={navbarStyles.servicesDropdownWrapperStyle}>
@@ -106,6 +106,47 @@ function Navbar({ lang, setLang }) {
                           }}
                         >
                           {prod.name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : item.dropdown ? (
+                  <div style={navbarStyles.servicesDropdownWrapperStyle}>
+                    <span
+                      style={{
+                        ...navbarStyles.linkStyle,
+                        ...(activeIdx === idx ? navbarStyles.activeLinkStyle : {}),
+                        ...(smallMenuLabel ? navbarStyles.linkStyleSmall : navbarStyles.linkStyleNormalTransition),
+                        ...navbarStyles.servicesDropdownTriggerStyle,
+                      }}
+                      tabIndex={-1}
+                      className={`navbar-warranty-trigger${activeIdx === idx ? ' active' : ''}`}
+                    >
+                      <span style={smallMenuLabel ? navbarStyles.menuLabelSpanSmall : navbarStyles.menuLabelSpanNormal}>
+                        {item.label}
+                      </span>
+                    </span>
+                    <div
+                      style={{
+                        ...navbarStyles.dropdownMenuStyle,
+                        ...navbarStyles.servicesDropdownMenuStyle,
+                        display: openDropdownIdx === idx ? 'block' : 'none',
+                      }}
+                      className="warranty-dropdown"
+                    >
+                      {item.dropdown.map(dropdownItem => (
+                        <div
+                          key={dropdownItem.href}
+                          className="warranty-dropdown-item"
+                          style={navbarStyles.dropdownItemStyle}
+                          onClick={() => {
+                            setActiveIdx(idx);
+                            navigate(dropdownItem.href);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            setOpenDropdownIdx(null);
+                          }}
+                        >
+                          {dropdownItem.label}
                         </div>
                       ))}
                     </div>
@@ -217,6 +258,64 @@ function Navbar({ lang, setLang }) {
                                 }}
                               >
                                 {prod.name}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ) : item.dropdown ? (
+                    <>
+                      <div style={{ position: 'relative', width: '100%' }}>
+                        <button
+                          type="button"
+                          style={{
+                            ...navbarStyles.linkStyle,
+                            ...navbarStyles.mobileDropdownButtonStyle,
+                            position: 'relative',
+                            paddingRight: 32,
+                          }}
+                          onClick={() =>
+                            setOpenDropdownIdx(openDropdownIdx === idx ? null : idx)
+                          }
+                        >
+                          <span style={{ display: 'block', width: '100%', textAlign: 'center' }}>
+                            {item.label}
+                          </span>
+                          <span
+                            style={{
+                              ...navbarStyles.mobileDropdownArrowStyle,
+                              position: 'absolute',
+                              right: 12,
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              marginLeft: 0,
+                              float: 'none',
+                            }}
+                          >
+                            {openDropdownIdx === idx ? '↑' : '↓'}
+                          </span>
+                        </button>
+                      </div>
+                      {openDropdownIdx === idx && (
+                        <ul style={navbarStyles.mobileDropdownMenuStyle}>
+                          {item.dropdown.map(dropdownItem => (
+                            <li key={dropdownItem.href}>
+                              <button
+                                type="button"
+                                style={{
+                                  ...navbarStyles.dropdownItemStyle,
+                                  ...navbarStyles.mobileDropdownItemStyle,
+                                }}
+                                onClick={() => {
+                                  setActiveIdx(idx);
+                                  setMenuOpen(false);
+                                  setOpenDropdownIdx(null);
+                                  navigate(dropdownItem.href);
+                                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
+                              >
+                                {dropdownItem.label}
                               </button>
                             </li>
                           ))}

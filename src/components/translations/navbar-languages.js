@@ -3,21 +3,42 @@ const navbarMenus = {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/meist' },
     { label: 'Products', href: '/tooted' },
-    { label: 'Warranty', href: '/garantiid' },
+    { 
+      label: 'Warranty', 
+      href: '/garantiid',
+      dropdown: [
+        { label: 'Warranty', href: '/garantiid' },
+        { label: 'Credit', href: '/krediit' }
+      ]
+    },
     { label: 'Contacts', href: '/kontakt' },
   ],
   ee: [
     { label: 'Avaleht', href: '/' },
     { label: 'Meist', href: '/meist' },
     { label: 'Tooted', href: '/tooted' },
-    { label: 'Garantii', href: '/garantiid' },
+    { 
+      label: 'Garantii', 
+      href: '/garantiid',
+      dropdown: [
+        { label: 'Garantii', href: '/garantiid' },
+        { label: 'Järelmaks', href: '/jarelmaks' }
+      ]
+    },
     { label: 'Kontaktid', href: '/kontakt' },
   ],
   ru: [
     { label: 'Главная', href: '/' },
     { label: 'О нас', href: '/meist' },
     { label: 'Товары', href: '/tooted' },
-    { label: 'Гарантии', href: '/garantiid' },
+    { 
+      label: 'Гарантии', 
+      href: '/garantiid',
+      dropdown: [
+        { label: 'Гарантии', href: '/garantiid' },
+        { label: 'Рассрочка', href: '/krediit' }
+      ]
+    },
     { label: 'Контакты', href: '/kontakt' },
   ],
 };
@@ -152,6 +173,20 @@ export const homeLabels = {
     cookieConsentText: "This website uses cookies to ensure you get the best experience.",
     cookieConsentAccept: "Accept",
     cookieConsentReject: "Reject",
+    
+    creditPage: {
+      title: "CREDIT",
+      subtitle: "Don't want to pay the full amount at once? Pay in installments!",
+      description: "ESTO installment payment is an innovative payment solution that helps create a payment schedule based on your chosen period. The payment solution makes decisions in real time and helps complete the purchase in less than 60 seconds.",
+      process: "Choose a suitable product or service, let the customer service know that you want to pay with ESTO installments and then confirm your order. When confirming the purchase, choose a suitable period, monthly installment amount and digitally sign with ID card, Smart-ID or Mobile-ID.",
+      eligibility: "All Estonian citizens aged 18-70 can apply for ESTO installments.",
+      business: "ESTO installments can be arranged quickly and conveniently for legal entities as well.",
+      provider: "ESTO installments are provided and managed by ESTO AS.",
+      warning: "ATTENTION! Every installment is a financial obligation. Before concluding an installment contract, familiarize yourself with the terms of the respective service and consult a specialist if necessary. ESTO AS installment credit cost rate is 23.63% per year under the following sample conditions: credit amount 1490 EUR, goods/service cost 1490 EUR, down payment 0%, fixed interest rate 11.90%, contract fee 0 EUR, total credit amount and repayment amount 1844.64 EUR assuming the credit is repaid over 24 months in equal monthly installments of 76.86 EUR. Study the terms before concluding the contract and consult a specialist if necessary. Installments are provided and managed by ESTO AS.",
+      aboutEsto: "WHAT IS ESTO? ESTO is a financial services company whose beginnings date back to 2016. The brand originated from the need for new generation payment solutions that would be suitable for both end consumers and sellers. Today, ESTO offers the largest selection of different payment solutions in the Baltics, and ESTO's partner network includes over 2,600 cooperation partners and stores and over 300,000 clients.",
+      contact: "Familiarize yourself with the terms here: www.esto.eu/ee",
+      contactInfo: "If necessary, contact an ESTO AS employee - info@esto.ee or www.esto.eu/ee LIVE chat window."
+    }
   },
   ee: {
     heroTitle: "Oleme ettevõte, mis on alates 2020. aastast spetsialiseerunud kasutatud, taastatud ja uute autovaruosade müügile",
@@ -258,6 +293,21 @@ export const homeLabels = {
     cookieConsentText: "See veebileht kasutab küpsiseid, et pakkuda parimat kasutuskogemust.",
     cookieConsentAccept: "Nõustu",
     cookieConsentReject: "Keeldu",
+    
+    // Credit page labels
+    creditPage: {
+      title: "JÄRELMAKS",
+      subtitle: "Ei soovi maksta kogu summat korraga? Maksa osamaksete kaupa!",
+      description: "ESTO järelmaksu puhul on tegemist innovatiivse makselahendusega, mis aitab koostada sulle sinu poolt valitud perioodi alusel maksegraafiku. Makselahendus teeb otsuse reaalajas ning aitab ostu sooritada vähem kui 60 sekundiga.",
+      process: "Vali sobiv toode või teenus, anna klienditeenindajale märku, et soovid tasuda ESTO järelmaksuga ning seejärel kinnita oma tellimus. Ostu kinnitamisel vali endale sobiv periood, igakuise osamakse suurus ning digiallkirjasta ID-kaardi, Smart-ID või Mobiili-ID abil.",
+      eligibility: "ESTO järelmaksu saavad taotleda kõik 18-70-aastased Eesti Vabariigi kodanikud.",
+      business: "ESTO järelmaks on võimalik vormistada kiirelt ja mugavalt ka juriidilisele isikule.",
+      provider: "ESTO järelmaksu pakub ja haldab ESTO AS.",
+      warning: "TÄHELEPANU! Iga järelmaks on finantskohustus. Enne järelmaksulepingu sõlmimist tutvuge vastava teenuse tingimustega ning vajadusel konsulteerige asjatundjaga. ESTO AS järelmaksu krediidi kulukuse määr on 23.63% aastas järgmistel näidistingimustel: krediidi summa 1490 EUR, kauba/teenuse maksumus 1490 EUR, sissemakse 0%, fikseeritud intressimäär 11.90%, lepingutasu 0 EUR, krediidi kogusumma ja tagasimaksete summa 1844.64 EUR eeldusel, et krediit tagastatakse 24 kuu jooksul igakuiste võrdsete osamaksetena suuruses 76.86 EUR. Tutvu enne lepingu sõlmimist tingimustega ja vajadusel konsulteeri spetsialistiga. Järelmaksu pakub ja haldab ESTO AS.",
+      aboutEsto: "MIS ON ESTO? ESTO on finantsteenuseid pakkuv ettevõte, mille algusaeg ulatub aastasse 2016. Bränd sai alguse vajadusest uue generatsiooni makselahenduste järele, mis oleksid sobilikud nii lõpptarbijale kui ka müüjale. Täna pakub ESTO kõige suuremat valikut erinevaid makselahendusi Baltikumis ning ESTO partnervõrgustikku kuulub üle 2600 koostööpartneri ja kaupluse ning üle 300 000 kliendi.",
+      contact: "Tutvu tingimustega siin: www.esto.eu/ee",
+      contactInfo: "Vajadusel kontakteeruge ESTO AS töötajaga - info@esto.ee või www.esto.eu/ee LIVE chat-aknas."
+    }
   },
   ru: {
     heroTitle: "Мы — компания, специализирующаяся на продаже б/у, восстановленных и новых автозапчастей с 2020 года",
@@ -364,6 +414,21 @@ export const homeLabels = {
     cookieConsentText: "Этот сайт использует cookies для обеспечения наилучшего опыта.",
     cookieConsentAccept: "Принять",
     cookieConsentReject: "Отклонить",
+    
+    // Credit page labels
+    creditPage: {
+      title: "РАССРОЧКА",
+      subtitle: "Не хотите платить всю сумму сразу? Платите частями!",
+      description: "Рассрочка ESTO - это инновационное платежное решение, которое помогает составить график платежей на основе выбранного вами периода. Платежное решение принимает решения в реальном времени и помогает совершить покупку менее чем за 60 секунд.",
+      process: "Выберите подходящий товар или услугу, сообщите менеджеру, что хотите платить в рассрочку ESTO, а затем подтвердите свой заказ. При подтверждении покупки выберите подходящий период, размер ежемесячного взноса и подпишите цифровой подписью с помощью ID-карты, Smart-ID или Mobile-ID.",
+      eligibility: "Рассрочку ESTO могут оформить все граждане Эстонской Республики в возрасте 18-70 лет.",
+      business: "Рассрочку ESTO можно быстро и удобно оформить и для юридического лица.",
+      provider: "Рассрочку ESTO предоставляет и управляет ESTO AS.",
+      warning: "ВНИМАНИЕ! Каждая рассрочка - это финансовое обязательство. Перед заключением договора рассрочки ознакомьтесь с условиями соответствующей услуги и при необходимости проконсультируйтесь со специалистом. Годовая процентная ставка рассрочки ESTO AS составляет 23,63% в год при следующих примерных условиях: сумма кредита 1490 евро, стоимость товара/услуги 1490 евро, первоначальный взнос 0%, фиксированная процентная ставка 11,90%, договорная плата 0 евро, общая сумма кредита и возврата 1844,64 евро при условии, что кредит возвращается в течение 24 месяцев равными ежемесячными взносами в размере 76,86 евро. Изучите условия перед заключением договора и при необходимости проконсультируйтесь со специалистом. Рассрочку предоставляет и управляет ESTO AS.",
+      aboutEsto: "ЧТО ТАКОЕ ESTO? ESTO - это компания, предоставляющая финансовые услуги, начало которой восходит к 2016 году. Бренд возник из потребности в платежных решениях нового поколения, которые были бы подходящими как для конечных потребителей, так и для продавцов. Сегодня ESTO предлагает самый большой выбор различных платежных решений в Балтии, а партнерская сеть ESTO включает более 2600 партнеров и магазинов и более 300 000 клиентов.",
+      contact: "Ознакомьтесь с условиями здесь: www.esto.eu/ee",
+      contactInfo: "При необходимости свяжитесь с сотрудником ESTO AS - info@esto.ee или в окне LIVE чата www.esto.eu/ee"
+    }
   }
 };
 

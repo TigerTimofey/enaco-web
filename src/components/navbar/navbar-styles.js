@@ -238,6 +238,9 @@ export const navbarDropdownCss = `
   .navbar-desktop li:hover .services-dropdown {
     display: block !important;
   }
+  .navbar-desktop li:hover .warranty-dropdown {
+    display: block !important;
+  }
   .services-dropdown-item {
     transition: background 0.16s, color 0.16s;
   }
@@ -245,22 +248,39 @@ export const navbarDropdownCss = `
     background: #e11d48 !important;
     color: #fff !important;
   }
+  .warranty-dropdown-item {
+    transition: background 0.16s, color 0.16s;
+  }
+  .warranty-dropdown-item:hover {
+    background: #e11d48 !important;
+    color: #fff !important;
+  }
   .navbar-services-trigger:hover {
+    cursor: pointer !important;
+  }
+  .navbar-warranty-trigger:hover {
     cursor: pointer !important;
   }
   .services-dropdown {
     left: 50% !important;
     transform: translateX(-50%) !important;
   }
+  .warranty-dropdown {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
   .navbar-desktop .navbar-services-trigger,
+  .navbar-desktop .navbar-warranty-trigger,
   .navbar-desktop a {
     position: relative;
   }
   .navbar-desktop .navbar-services-trigger.active,
+  .navbar-desktop .navbar-warranty-trigger.active,
   .navbar-desktop a.active {
     color: #e11d48 !important;
   }
   .navbar-desktop .navbar-services-trigger.active::after,
+  .navbar-desktop .navbar-warranty-trigger.active::after,
   .navbar-desktop a.active::after {
     content: "";
     display: block;
