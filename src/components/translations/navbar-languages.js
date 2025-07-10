@@ -5,7 +5,6 @@ const navbarMenus = {
     { label: 'Products', href: '/tooted' },
     { 
       label: 'Warranty', 
-      href: '/garantiid',
       dropdown: [
         { label: 'Warranty', href: '/garantiid' },
         { label: 'Credit', href: '/krediit' }
@@ -19,10 +18,9 @@ const navbarMenus = {
     { label: 'Tooted', href: '/tooted' },
     { 
       label: 'Garantii', 
-      href: '/garantiid',
       dropdown: [
         { label: 'Garantii', href: '/garantiid' },
-        { label: 'Järelmaks', href: '/jarelmaks' }
+        { label: 'Järelmaks', href: '/krediit' }
       ]
     },
     { label: 'Kontaktid', href: '/kontakt' },
@@ -33,7 +31,6 @@ const navbarMenus = {
     { label: 'Товары', href: '/tooted' },
     { 
       label: 'Гарантии', 
-      href: '/garantiid',
       dropdown: [
         { label: 'Гарантии', href: '/garantiid' },
         { label: 'Рассрочка', href: '/krediit' }

@@ -16,7 +16,12 @@ function Navbar({ lang, setLang }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const idx = menu.findIndex(item => item.href === location.pathname);
+    const idx = menu.findIndex(item => {
+      if (item.dropdown) {
+        return item.dropdown.some(dropdownItem => dropdownItem.href === location.pathname);
+      }
+      return item.href === location.pathname;
+    });
     setActiveIdx(idx === -1 ? 0 : idx);
   }, [location.pathname, menu]);
 
@@ -118,6 +123,7 @@ function Navbar({ lang, setLang }) {
                         ...(activeIdx === idx ? navbarStyles.activeLinkStyle : {}),
                         ...(smallMenuLabel ? navbarStyles.linkStyleSmall : navbarStyles.linkStyleNormalTransition),
                         ...navbarStyles.servicesDropdownTriggerStyle,
+                        cursor: 'pointer',
                       }}
                       tabIndex={-1}
                       className={`navbar-warranty-trigger${activeIdx === idx ? ' active' : ''}`}
@@ -140,7 +146,6 @@ function Navbar({ lang, setLang }) {
                           className="warranty-dropdown-item"
                           style={navbarStyles.dropdownItemStyle}
                           onClick={() => {
-                            setActiveIdx(idx);
                             navigate(dropdownItem.href);
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                             setOpenDropdownIdx(null);
@@ -308,7 +313,6 @@ function Navbar({ lang, setLang }) {
                                   ...navbarStyles.mobileDropdownItemStyle,
                                 }}
                                 onClick={() => {
-                                  setActiveIdx(idx);
                                   setMenuOpen(false);
                                   setOpenDropdownIdx(null);
                                   navigate(dropdownItem.href);
