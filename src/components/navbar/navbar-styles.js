@@ -27,14 +27,14 @@ export const navInnerStyle = {
 export const logoLinkStyle = {
   display: 'flex',
   alignItems: 'center',
-  gap: '0.5rem',
   textDecoration: 'none',
   height: '100%',
+  justifyContent: 'flex-start',
 };
 
 export const logoImgStyle = {
   height: 54,
-  width: '100%',
+  width: 'auto',
   margin: 8,
 
 };
@@ -51,7 +51,7 @@ export const logoTextStyle = {
 export const ulStyle = {
   display: 'flex',
   justifyContent: 'center',
-  gap: '0.9rem',
+  gap: '0.4rem',
   listStyleType: 'none', 
   margin: 0,
   padding: 0,

@@ -3,39 +3,24 @@ const navbarMenus = {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/meist' },
     { label: 'Products', href: '/tooted' },
-    { 
-      label: 'Warranty', 
-      dropdown: [
-        { label: 'Warranty', href: '/garantiid' },
-        { label: 'Credit', href: '/krediit' }
-      ]
-    },
+    { label: 'Warranty', href: '/garantiid' },
+    { label: 'Credit', href: '/krediit' },
     { label: 'Contacts', href: '/kontakt' },
   ],
   ee: [
     { label: 'Avaleht', href: '/' },
     { label: 'Meist', href: '/meist' },
     { label: 'Tooted', href: '/tooted' },
-    { 
-      label: 'Garantii', 
-      dropdown: [
-        { label: 'Garantii', href: '/garantiid' },
-        { label: 'Järelmaks', href: '/krediit' }
-      ]
-    },
+    { label: 'Garantii', href: '/garantiid' },
+    { label: 'Järelmaks', href: '/krediit' },
     { label: 'Kontaktid', href: '/kontakt' },
   ],
   ru: [
     { label: 'Главная', href: '/' },
     { label: 'О нас', href: '/meist' },
     { label: 'Товары', href: '/tooted' },
-    { 
-      label: 'Гарантии', 
-      dropdown: [
-        { label: 'Гарантии', href: '/garantiid' },
-        { label: 'Рассрочка', href: '/krediit' }
-      ]
-    },
+    { label: 'Гарантии', href: '/garantiid' },
+    { label: 'Рассрочка', href: '/krediit' },
     { label: 'Контакты', href: '/kontakt' },
   ],
 };

@@ -28,8 +28,8 @@ function Navbar({ lang, setLang }) {
   useEffect(() => {
     const check = () => {
       setIsMobile(window.innerWidth <= 780);
-      setShowFlagOnly(window.innerWidth <= 1040);
-      setSmallMenuLabel(window.innerWidth <= 1040);
+      setShowFlagOnly(window.innerWidth <= 1200);
+      setSmallMenuLabel(window.innerWidth <= 1200);
     };
     check();
     window.addEventListener('resize', check);
