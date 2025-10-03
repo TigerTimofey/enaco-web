@@ -33,8 +33,7 @@ import {
 } from './Services-styles.js';
 import { useNavigate } from 'react-router-dom';
 import  { useState, useRef, useEffect } from 'react';
-// Uncomment the following line to use emailjs for sending emails
-// import emailjs from 'emailjs-com';
+import emailjs from 'emailjs-com';
 
 function getBtnText(name, lang) {
 
@@ -113,27 +112,32 @@ function Services({ lang, selectedProductId }) {
       return;
     }
 
-    // Uncomment the following lines to use emailjs for sending emails
+    // Prepare optional selected product data for the email
+    let selectedProduct = null;
+    if (selectedProductId) {
+      selectedProduct = products.find(p => p.id === selectedProductId);
+    }
 
-    // let selectedProduct = null;
-    // if (selectedProductId) {
-    //   selectedProduct = products.find(p => p.id === selectedProductId);
-    // }
-
-    // const templateParams = {
-    //   ...form,
-    //   productName: selectedProduct ? selectedProduct.name : '',
-    //   productTitle: selectedProduct ? selectedProduct.title : '',
-    //   time: new Date().toLocaleString(),
-    // };
+    const templateParams = {
+      smark: form.smark,
+      rek: form.rek,
+      mtahis: form.mtahis,
+      nimi: form.nimi,
+      telefon: form.telefon,
+      email: form.email,
+      markused: form.markused,
+      productName: selectedProduct ? selectedProduct.name : '',
+      productTitle: selectedProduct ? selectedProduct.title : '',
+      time: new Date().toLocaleString(),
+    };
 
     try {
-      // await emailjs.send(
-      //   EMAILJS_SERVICE_ID,
-      //   EMAILJS_TEMPLATE_ID,
-      //   templateParams,
-      //   EMAILJS_USER_ID
-      // );
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_USER_ID
+      );
       setForm({
         smark: '',
         rek: '',
