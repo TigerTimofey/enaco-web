@@ -99,7 +99,7 @@ function Services({ lang, selectedProductId }) {
     e.preventDefault();
     const newErrors = {};
 
-    ['smark', 'rek', 'mtahis', 'nimi', 'telefon', 'email'].forEach(field => {
+    ['smark', 'rek', 'nimi', 'telefon', 'email'].forEach(field => {
       if (!validateRequired(form[field])) {
         newErrors[field] = labelsForm[field] + ' *';
       }
@@ -300,7 +300,7 @@ function Services({ lang, selectedProductId }) {
                 style={{
                   ...formInputStyle,
                   borderColor: errors.smark ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.smark ? 18 : undefined
+                  marginTop: 18
                 }}
                 type="text"
                 name="smark"
@@ -319,7 +319,7 @@ function Services({ lang, selectedProductId }) {
                 style={{
                   ...formInputStyle,
                   borderColor: errors.rek ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.rek ? 18 : undefined
+                  marginTop: 18
                 }}
                 type="text"
                 name="rek"
@@ -338,13 +338,12 @@ function Services({ lang, selectedProductId }) {
                 style={{
                   ...formInputStyle,
                   borderColor: errors.mtahis ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.mtahis ? 18 : undefined
+                  marginTop: 18
                 }}
                 type="text"
                 name="mtahis"
                 placeholder={labelsForm.mtahis}
                 maxLength={400}
-                required
                 value={form.mtahis}
                 onChange={handleChange}
               />
@@ -362,7 +361,7 @@ function Services({ lang, selectedProductId }) {
                 style={{
                   ...formInputStyle,
                   borderColor: errors.nimi ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.nimi ? 18 : undefined
+                  marginTop: 18
                 }}
                 type="text"
                 name="nimi"
@@ -382,7 +381,7 @@ function Services({ lang, selectedProductId }) {
                 style={{
                   ...formInputStyle,
                   borderColor: errors.telefon ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.telefon ? 18 : undefined
+                  marginTop: 18
                 }}
                 type="text"
                 name="telefon"
@@ -401,7 +400,7 @@ function Services({ lang, selectedProductId }) {
                 style={{
                   ...formInputStyle,
                   borderColor: errors.email ? '#e11d48' : formInputStyle.borderColor,
-                  marginTop: errors.email ? 18 : undefined
+                  marginTop: 18
                 }}
                 type="email"
                 name="email"
@@ -422,7 +421,7 @@ function Services({ lang, selectedProductId }) {
                 style={{
                   ...formTextareaStyle,
                   borderColor: errors.markused ? '#e11d48' : formTextareaStyle.borderColor,
-                  marginTop: errors.markused ? 18 : undefined
+                  marginTop: 18
                 }}
                 name="markused"
                 placeholder={labelsForm.markused}

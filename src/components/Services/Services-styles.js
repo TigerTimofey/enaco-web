@@ -374,9 +374,9 @@ export const formErrorTextStyle = {
   fontSize: 13,
   position: 'absolute',
   left: 8,
-  top: -2,
-  zIndex: 2
-  
+  top: 0,
+  zIndex: 2,
+  height: 18
 };
 
 export const formMarginBlockStyle = {
@@ -387,7 +387,8 @@ export const formColumnInputWrapperStyle = {
   flex: 1,
   display: 'flex',
   flexDirection: 'column',
-  position: 'relative'
+  position: 'relative',
+  minHeight: 60
 };
 
 export const formColumnTextareaWrapperStyle = {
